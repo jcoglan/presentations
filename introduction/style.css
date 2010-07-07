@@ -1,0 +1,7 @@
+body, .slide { background: #222; color: #fff; border: none; font-family: FreeSans, Helvetica, Arial, sans-serif; }
+pre.sh_sourceCode { padding: 25px; font-size: 180%; }
+#footer { background: #111; color: #666; }
+h1 { color: #f00846; font-weight: bold; }
+h2 { font-family: Times New Roman, serif; }
+.bullets ul li { padding-top: 0; }
+
