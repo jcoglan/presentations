@@ -1,6 +1,6 @@
 !SLIDE
 # OOP = objects + functions
-## Because Chuck Norris doesn't need a class system.
+## Where we're going, we don't need a class system.
 
 
 !SLIDE bullets

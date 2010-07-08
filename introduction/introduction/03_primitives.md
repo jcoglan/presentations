@@ -42,3 +42,11 @@
 * Concatenation with `+` gives a new string
 * Regex methods: `match()`, `replace()`
 
+
+!SLIDE bullets
+# Logical values
+
+* `false`, `0`, `""`, `null`, `undefined` are falsey
+* All other primitives are truthy
+* All objects are truthy
+
