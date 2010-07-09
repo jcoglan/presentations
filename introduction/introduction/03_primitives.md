@@ -5,6 +5,7 @@
 * Numbers: `45`, `3.14159`, `0755`, `0xFF`
 * Strings: `"Hello world"`
 * `null`, `NaN`, `undefined`
+* No symbols or integers
 
 
 !SLIDE bullets
@@ -39,7 +40,9 @@
 
 * Immutable, no native interpolation
 * Single- or double-quoted
+* Unicode
 * Concatenation with `+` gives a new string
+* `"Hello".length` gives `5`
 * Regex methods: `match()`, `replace()`
 
 
