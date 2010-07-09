@@ -7,7 +7,7 @@
 !SLIDE bullets
 # What?
 
-* Dynamically typed
+* Highly dynamic
 * Object oriented
 * Functional
 
