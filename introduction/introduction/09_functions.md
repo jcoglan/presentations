@@ -34,6 +34,51 @@
 
 
 !SLIDE
+# `arguments`
+
+    @@@ javascript
+    // All functions have a special `arguments`
+    // object. It's array-like, but is not an Array.
+    
+    var alertArgs = function() {
+      alert(arguments.length + " :: " + arguments[0]);
+    };
+    
+    alertArgs(3)    // alerts "1 :: 3"
+    alertArgs(5,8)  // alerts "2 :: 5"
+    
+    // arguments.callee refers to the current function
+    var factorial = function(x) {
+      if (x === 0) return 1;
+      return x * arguments.callee(x - 1);
+    };
+
+
+!SLIDE
+# Optional arguments
+
+    @@@ javascript
+    // There's no syntax support for objects as final
+    // arguments. e.g. you cannot do, as in Ruby:
+    hasMany("artists", through: "trackings")
+    
+    // have to include the braces:
+    hasMany("artists", {through: "trackings"})
+    
+    // There is no default-arg syntax. Common pattern:
+    var hasMany = function(associationName, options) {
+      options = options || {};
+      // ...
+    };
+
+
+!SLIDE
+# Opening braces go at
+# the end of the line
+## SRSLY.
+
+
+!SLIDE
 # Closures
 
     @@@ javascript
