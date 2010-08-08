@@ -23,7 +23,7 @@
 * "Every time _X_ happens, do _Y_"
 * Don't hard-code side effects
 * One object, many listeners
-* Repating events, always want notifying
+* Repeating events, always want notifying
 
 
 !SLIDE
