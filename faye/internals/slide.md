@@ -22,6 +22,15 @@
 ## What if there were no `return`?
 
 
+!SLIDE bullets
+# Use events
+
+* Keep components decoupled
+* Express _why_, not just _what_
+* Help with non-blocking
+* JavaScripters already think in events
+
+
 !SLIDE center
 # Architecture
 
@@ -172,8 +181,9 @@
     Faye.Connection.prototype.
         subscribe = function(channel) {
           if (this._channels.includes(channel)) return;
-          channel.addSubscriber('receive', function(message) {
-            this.setDeferredStatus('success', message);
+          channel.addListener('receive', function(message) {
+            this.succeed(message);
+            this.defer();
           }, this);
           this._channels.add(channel);
         };
