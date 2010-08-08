@@ -1,0 +1,37 @@
+body, .slide {
+  background: #d4e5f7;
+  color: #333;
+  border: none;
+  font-family: FreeSans, Helvetica, Arial, sans-serif;
+}
+
+.frontpage h1 {
+  font-family: Times New Roman, serif;
+  font-size: 18em;
+  font-weight: bold;
+  letter-spacing: -0.06em;
+  margin: 0 0 0.2em;
+}
+
+h1 {
+  font-weight: bold;
+  letter-spacing: -0.06em;
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
+pre {
+  font-size: 2em;
+  padding: 2em;
+}
+
+.callout h1 {
+  font-size: 10em;
+  margin: 0;
+}
+
+.callout h2 {
+  font-family: Times New Roman, serif;
+}
