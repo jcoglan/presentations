@@ -35,3 +35,8 @@ pre {
 .callout h2 {
   font-family: Times New Roman, serif;
 }
+
+.center p {
+  font-size: 3em;
+  font-family: Times New Roman, serif;
+}

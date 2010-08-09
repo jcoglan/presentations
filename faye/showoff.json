@@ -3,6 +3,8 @@
   "sections": [
     {"section":"intro"},
     {"section":"internals"},
-    {"section":"patterns"}
+    {"section":"patterns"},
+    {"section":"examples"},
+    {"section":"testing"}
   ]
 }
