@@ -95,6 +95,7 @@
           }, this);
           
           this._clients[name] = client;
+          this._inboxes[name] = [];
           setTimeout(resume, 100);
         };
 
