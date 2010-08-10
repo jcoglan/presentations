@@ -42,6 +42,7 @@ store their details and log the event with Analytics.
     
     $('a.facebook-connect').bind('click', function() {
       Facebook.connect();
+      return false;
     });
 
 
@@ -80,6 +81,7 @@ store their details and log the event with Analytics.
     
     $('a.facebook-connect').bind('click', function() {
       Facebook.connect();
+      return false;
     });
 
 
