@@ -99,6 +99,6 @@ store their details and log the event with Analytics.
       });
     };
     
-    Facebook.on('signin', function() {
+    Facebook.addListener('signin', function() {
       pageTracker._trackPageview('/logins/facebook');
     });
