@@ -22,6 +22,24 @@
 ## What if there were no `return`?
 
 
+!SLIDE
+# Never block
+
+    @@@ javascript
+    var http = require('http');
+    
+    var server = http.createServer(
+                 function(request, response) {
+                   setTimeout(function() {
+                     response.writeHead(200, { /*...*/ });
+                     response.write('Hello world');
+                     response.end();
+                     
+                   }, a_really_long_time);
+                 });
+    
+    server.listen(8000);
+
 !SLIDE bullets
 # Use events
 
@@ -50,11 +68,11 @@
         listen = function(port) {
           var self = this;
           
-          var handle = function(req, res) {
-            self.handle(req, res);
-          };
+          var httpServer = http.createServer(
+                           function(request, response) {
+                             self.handle(request, response);
+                           });
           
-          var httpServer = http.createServer(handle);
           httpServer.listen(port);
         };
 
