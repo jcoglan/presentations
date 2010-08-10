@@ -111,16 +111,16 @@
     
     CommandQueue.prototype = {
       server: function(port) {
-        this._enqueue(['server', port]);
+        this.enqueue(['server', port]);
       },
       client: function(name, channels) {
-        this._enqueue(['client', name, channels]);
+        this.enqueue(['client', name, channels]);
       },
       publish: function(name, channel, message) {
-        this._enqueue(['publish', name, channel, message]);
+        this.enqueue(['publish', name, channel, message]);
       },
       checkInbox: function(name, messages) {
-        this._enqueue(['checkInbox', name, messages]);
+        this.enqueue(['checkInbox', name, messages]);
       }
     };
 
@@ -130,7 +130,7 @@
 
     @@@ javascript
     CommandQueue.prototype.
-        _enqueue = function(command) {
+        enqueue = function(command) {
           this._commands.push(command);
           if (this._started) return;
           
