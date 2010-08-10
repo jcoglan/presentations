@@ -15,11 +15,11 @@
       })
       
       it('sends a message from A to B', function(resume) {
-        clientA.subscribe('/channel', function(message) {
+        clientA.subscribe('/foo', function(message) {
           this.message = message;
         }, this);
         setTimeout(function() {
-          clientB.publish('/channel', {hello: 'world'});
+          clientB.publish('/foo', {hello: 'world'});
           setTimeout(function() {
             resume(function() {
               assert.deepEqual({hello: 'world'}, message);
@@ -48,9 +48,9 @@
     Scenario.run('Two clients, single message sent',
     function() { with(this) {
       server( 8000 )
-      client( 'A', ['/channel'] )
+      client( 'A', ['/foo'] )
       client( 'B', [] )
-      publish( 'B', '/channel', {hello: 'world'} )
+      publish( 'B', '/foo', {hello: 'world'} )
       checkInbox( 'A', [{hello: 'world'}] )
       checkInbox( 'B', [] )
     }})
@@ -65,12 +65,12 @@
 ## Implement the test actions with callbacks
 
     @@@ javascript
-    AsyncScenario = function() {
+    Scenario = function() {
       this._clients = {};
       this._inboxes = {};
     };
     
-    AsyncScenario.prototype.
+    Scenario.prototype.
         server = function(port, resume) {
           this._port = port;
           var server = new Faye.NodeAdapter({mount: '/'});
@@ -83,7 +83,7 @@
 ## Implement the test actions with callbacks
 
     @@@ javascript
-    AsyncScenario.prototype.
+    Scenario.prototype.
         client = function(name, channels, resume) {
           var endpoint = 'http://0.0.0.0:' + this._port,
               client   = new Faye.Client(endpoint);
@@ -104,41 +104,67 @@
 ## The test runner queues up commands
 
     @@@ javascript
-    TestRunner = function() {
-      this._scenario = new AsyncScenario();
-      this._queue = [];
+    CommandQueue = function() {
+      this._scenario = new Scenario();
+      this._commands = [];
     };
     
-    TestRunner.prototype = {
+    CommandQueue.prototype = {
       server: function(port) {
-        this._queue.push(['server', port]);
+        this._enqueue(['server', port]);
       },
       client: function(name, channels) {
-        this._queue.push(['client', name, channels]);
+        this._enqueue(['client', name, channels]);
       },
       publish: function(name, channel, message) {
-        this._queue.push(['publish', name, channel, message]);
+        this._enqueue(['publish', name, channel, message]);
       },
       checkInbox: function(name, messages) {
-        this._queue.push(['checkInbox', name, messages]);
+        this._enqueue(['checkInbox', name, messages]);
       }
     };
+
+
+!SLIDE
+## The first command triggers the test run
+
+    @@@ javascript
+    CommandQueue.prototype.
+        _enqueue = function(command) {
+          this._commands.push(command);
+          if (this._started) return;
+          
+          this._started = true;
+          
+          var self = this;
+          setTimeout(function() { self.runNext() }, 100);
+        };
 
 
 !SLIDE
 ## Run each command passing a callback to run the next
 
     @@@ javascript
-    TestRunner.prototype.
+    CommandQueue.prototype.
         runNext = function() {
-          var args   = this._queue.shift().slice(),
-              method = args.shift();
-          
-          var self = this, callback = function() {
-            self.runNext();
-          };
-          
-          args.push(callback);
-          this._scenario[method].apply(this._scenario, args);
+          var command = this._commands.shift().slice(),
+              method  = command.shift(),
+              self    = this;
+
+          var resume = function() { self.runNext() };
+          command.push(resume);
+
+          this._scenario[method].apply(this._scenario,
+                                       command);
         };
+
+
+!SLIDE
+## Glue the whole thing together
+
+    @@@ javascript
+    Scenario.run = function(testName, block) {
+      var queue = new CommandQueue();
+      block.call(queue);
+    };
 
