@@ -31,7 +31,7 @@
 
     @@@ ruby
     # Incoming request:
-    # GET /?message={...}&jsonp=blah
+    # GET /bayeux?message={...}&jsonp=blah
     
     class Faye::RackAdapter
       def call(env)
@@ -66,18 +66,22 @@
 # Server
 
     @@@ ruby
-    # message = { 'channel'  => '/some/channel',
-    #             'clientId' => 'p780cnvop2',
+    # message = { 'id'       => '60esy10j',
+    #             'channel'  => '/some/channel',
+    #             'clientId' => '85b1xuzz',
     #             'data'     => {'hello' => 'world'}
     #           }
     
     class Faye::Server
       def process(message, &callback)
         case message['channel']
-          when '/meta/subscribe'
-            add_subscription(message, &callback)
+          
           when '/meta/connect'
             accept_connection(message, &callback)
+          
+          when '/meta/subscribe'
+            add_subscription(message, &callback)
+          
           else
             distribute_message(message, &callback)
         end
@@ -108,6 +112,24 @@
 
     @@@ ruby
     class Faye::Server
+      def add_subscription(message, &callback)
+        connection   = get_connection(message['clientId'])
+        channel_name = message['subscription']
+        channel      = @channels.get(channel_name)
+        
+        connection.subscribe(channel)
+        
+        callback.call 'id'         => message['id'],
+                      'successful' => true
+      end
+    end
+
+
+!SLIDE
+# Server
+
+    @@@ ruby
+    class Faye::Server
       def distribute_message(message, &callback)
         channel_name = message['channel']
         channels = @channels.glob(channel_name)
@@ -115,6 +137,9 @@
         channels.each do |channel|
           channel << message
         end
+        
+        callback.call 'id'         => message['id'],
+                      'successful' => true
       end
     end
 

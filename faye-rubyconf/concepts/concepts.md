@@ -9,7 +9,12 @@
     class BlogPostsController < ApplicationController
       def create
         @post = BlogPost.create(params[:blog_post])
-        redirect_to dashboard_path if @post.save
+        if @post.save
+          flash[:notice] = 'Your post was created!'
+          redirect_to(dashboard_path)
+        else
+          render(:template => 'blog_posts/form')
+        end
       end
     end
 
@@ -59,5 +64,5 @@ hiding of state-process."
 
 * Keeps components decoupled
 * Expresses _why_ and _when_, not just _what_
-* Help with non-blocking I/O
+* Helps with non-blocking I/O
 
