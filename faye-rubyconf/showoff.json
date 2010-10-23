@@ -1,0 +1,10 @@
+{
+  "name": "Faye: an Evented Server-Side App",
+  "sections": [
+    {"section":"intro"},
+    {"section":"concepts"},
+    {"section":"internals"},
+    {"section":"outro"}
+  ]
+}
+
