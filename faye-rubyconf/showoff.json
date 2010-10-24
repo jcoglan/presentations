@@ -5,6 +5,7 @@
     {"section":"concepts"},
     {"section":"internals"},
     {"section":"patterns"},
+    {"section":"testing"},
     {"section":"outro"}
   ]
 }

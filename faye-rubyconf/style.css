@@ -22,7 +22,11 @@ h2 {
   font-size: 2.5em;
 }
 
-pre {
+.commandline pre {
+  font-size: 2.6em;
+}
+
+pre.sh_sourceCode {
   border: 2px solid #e4900a;
   font-size: 1.8em;
   padding: 2em;
