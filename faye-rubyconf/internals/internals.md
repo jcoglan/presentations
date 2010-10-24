@@ -36,12 +36,14 @@
     class Faye::RackAdapter
       def call(env)
         request  = Rack::Reqest.new(env)
+        
         message  = JSON.parse(request.params['message'])
-        callback = request.params['jsonp']
+        jsonp_fn = request.params['jsonp']
+        
         response = AsyncResponse.new
         
         @server.process(message) do |reply|
-          body = "#{ callback }(#{ JSON.unparse(reply) });"
+          body = "#{ jsonp_fn }(#{ JSON.unparse(reply) });"
           response.succeed(body)
         end
         
@@ -175,6 +177,7 @@
       
       def subscribe(channel)
         return unless @channels.add?(channel)
+        
         channel.add_listener(:receive) do |message|
           succeed(message)
           defer()

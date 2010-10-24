@@ -1,3 +1,11 @@
+!SLIDE bullets
+# Event-driven programming
+
+* Keeps components decoupled
+* Expresses _why_ and _when_, not just _what_
+* Helps with non-blocking I/O
+
+
 !SLIDE
 # Further reading
 
