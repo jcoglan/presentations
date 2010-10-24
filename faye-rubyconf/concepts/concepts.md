@@ -23,11 +23,16 @@
 # Tell, don’t ask
 
 
-!SLIDE center
-# Alan Kay on OOP
+!SLIDE callout
+# Don’t call us, we’ll call you
 
-"OOP to me means only messaging, local retention and protection and 
-hiding of state-process."
+
+!SLIDE center
+# Alan Kay on objects
+
+“I thought of objects being like biological cells, only able to
+communicate with messages. OOP to me means only messaging, local
+retention and protection and hiding of state-process.”
 
 
 !SLIDE callout
