@@ -27,7 +27,8 @@
     @@@ javascript
     // client.js
     
-    var client = new Faye.Client('http://localhost:9292/bayeux');
+    var host   = 'http://localhost:9292/bayeux',
+        client = new Faye.Client(host);
     
     client.subscribe('/some/channel', function(message) {
       // handle message
@@ -46,7 +47,8 @@
     require 'eventmachine'
     
     EM.run {
-      client = Faye::Client.new('http://localhost:9292/bayeux')
+      host   = 'http://localhost:9292/bayeux'
+      client = Faye::Client.new(host)
       
       client.subscribe '/some/channel' do |message|
         # handle message

@@ -16,21 +16,21 @@
       end
       
       it "sends messages I guess" do
-        @clients[:a].subscribe '/foo' do |message|
-          @inboxes[:a] << message
+        @clients[:b].subscribe '/foo' do |message|
+          @inboxes[:b] << message
         end
         EM.add_timer(0.1) do
-          @clients[:b].publish('/foo', 'hello' => 'world')
+          @clients[:a].publish('/foo', 'hello' => 'world')
           EM.add_timer(0.3) do
-            @inboxes[:a].should == [ {'hello' => 'world'} ]
-            @inboxes[:b].should be_empty
+            @inboxes[:b].should == [ {'hello' => 'world'} ]
+            @inboxes[:a].should be_empty
           end
         end
       end
     end
 
 
-!SLIDE commandline incremental
+!SLIDE commandline
 # You’re holding it wrong
     $ rspec spec/client_spec.rb
     F
@@ -48,13 +48,13 @@
     scenario "message from Alice to Bob" do
       server 8000
       
-      client :alice, [ '/foo' ]
-      client :bob,   []
+      client :alice, []
+      client :bob,   [ '/foo' ]
       
-      publish :bob, '/foo', {'hello' => 'world'}
+      publish :alice, '/foo', {'hello' => 'world'}
       
-      check_inbox :alice, [ {'hello' => 'world'} ]
-      check_inbox :bob,   []
+      check_inbox :bob,   [ {'hello' => 'world'} ]
+      check_inbox :alice, []
     end
 
 
