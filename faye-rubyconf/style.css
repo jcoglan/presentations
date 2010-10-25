@@ -1,41 +1,46 @@
+@font-face {
+  font-family: 'Cardo';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Cardo'), url('http://themes.googleusercontent.com/font?kit=jbkF2_R0FKUEZTq5dwSknQ') format('truetype');
+}
+
+@font-face {
+  font-family: 'Yanone Kaffeesatz';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Yanone Kaffeesatz Regular'), local('YanoneKaffeesatz-Regular'), url('http://themes.googleusercontent.com/font?kit=YDAoLskQQ5MOAgvHUQCcLdXn3cHbFGWU4T2HrSN6JF4') format('truetype');
+}
+
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Inconsolata'), url('http://themes.googleusercontent.com/font?kit=7bMKuoy6Nh0ft0SHnIGMuaCWcynf_cDxXwCLxiixG1c') format('truetype');
+}
+
 body, .slide {
   background: #ffe617;
   color: #111;
   border: none;
-  font-family: FreeSans, Helvetica, Arial, sans-serif;
+  font-family: 'Yanone Kaffeesatz', FreeSans, Helvetica, Arial, sans-serif;
 }
 
 .frontpage h1 {
-  font-family: Times New Roman, serif;
+  font-family: 'Cardo', Times New Roman, serif;
   font-size: 18em;
   font-weight: bold;
-  letter-spacing: -0.06em;
   margin: 0 0 0.2em;
 }
 
 h1 {
+  font-size: 6em;
   font-weight: bold;
-  letter-spacing: -0.06em;
+  margin: 0.5em 0 0.2em;
 }
 
 h2 {
   font-size: 2.5em;
-}
-
-.commandline pre {
-  background: #fff;
-  padding: 1em;
-  font-size: 3.0em;
-}
-
-.commandline code.result {
-  font-weight: bold;
-  color: #cc0000;
-}
-
-pre.sh_sourceCode {
-  font-size: 2.0em;
-  padding: 1.6em;
 }
 
 img {
@@ -43,19 +48,40 @@ img {
 }
 
 .callout h1 {
-  font-size: 10em;
-  margin: 0;
+  font-size: 12em;
+  margin: 1em 0 0;
 }
 
 .callout h2 {
-  font-family: Times New Roman, serif;
+  font-family: 'Cardo', Times New Roman, serif;
 }
 
 .center p {
   font-size: 3em;
-  font-family: Times New Roman, serif;
+  font-family: 'Cardo', Times New Roman, serif;
+}
+
+.commandline pre {
+  background: #fff;
+  padding: 1em;
+  font-size: 2.6em;
+}
+
+.commandline code.result {
+  font-weight: bold;
+  color: #cc0000;
+}
+
+pre, code, pre.sh_sourceCode .sh_string {
+  font-family: 'Inconsolata';
+}
+
+pre.sh_sourceCode {
+  font-size: 1.6em;
+  padding: 1.6em;
 }
 
 #footer {
   display: none;
 }
+
