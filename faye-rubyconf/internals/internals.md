@@ -30,23 +30,21 @@
 # RackAdapter
 
     @@@ ruby
-    # Incoming request:
-    # GET /bayeux?message={...}&jsonp=blah
+    # POST /bayeux '{"channel": "..."}'
     
     class Faye::RackAdapter
       def call(env)
         request  = Rack::Reqest.new(env)
-        
-        message  = JSON.parse(request.params['message'])
-        jsonp_fn = request.params['jsonp']
-        
         response = AsyncResponse.new
+        message  = JSON.parse(request.body.read)
         
         @server.process(message) do |reply|
-          body = "#{ jsonp_fn }(#{ JSON.unparse(reply) });"
-          response.succeed(body)
+          response.succeed(JSON.unparse reply)
         end
         
+        # Thin async protocol
+        callback = env['async.callback']
+        callback.call [200, {'Content-Type' => '...'}, response]
         [-1, {}, []]
       end
     end
