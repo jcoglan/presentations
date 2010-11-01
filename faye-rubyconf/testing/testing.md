@@ -41,8 +41,26 @@
             got: WTF
 
 
+!SLIDE center
+# Reg Braithwaite
+
+“This is patently wrong: there’s nothing inherently nested about what we’re trying to do.”
+
+
 !SLIDE
 # Tests MUST be readable
+
+    @@@ ruby
+                 Scenario: Alice sends a message to Bob
+                   Given there is a server running on port 8000
+     nice          And "Alice" has no subscriptions
+     straight ---> And "Bob" is subscribed to "/foo"
+     line          When "Alice" publishes a message to "/foo"
+                   Then "Bob" should receive the message
+
+
+!SLIDE
+# Tell us a story
 
     @@@ ruby
     scenario "message from Alice to Bob" do
@@ -62,3 +80,91 @@
 # Yeah, but--
 ## I know. It’s going to be okay.
 
+
+!SLIDE
+# Make test actions with callbacks
+
+    @@@ ruby
+    class AsyncScenario
+      def initialize
+        @clients = {}
+        @inboxes = {}
+      end
+      
+      def server(port, &resume)
+        @port   = port
+        server  = Faye::RackAdapter.new(:mount => '/')
+        handler = Rack::Handler.new('thin')
+        
+        handler.run(server, :Port => @port) do
+          resume.call
+        end
+      end
+    end
+
+
+!SLIDE
+# Make test actions with callbacks
+
+    @@@ ruby
+    class AsyncScenario
+      def client(name, channels, &resume)
+        endpoint = "http://0.0.0.0:#{@port}/"
+        client   = Faye::Client.new(endpoint)
+        
+        channels.each do |channel|
+          client.subscribe(channel) do |message|
+            @inboxes[name] << message
+          end
+        end
+        
+        @clients[name] = client
+        @inboxes[name] = []
+        
+        EM.add_timer(0.2) { resume.call }
+      end
+    end
+
+
+!SLIDE
+# Queue up commands
+
+    @@@ ruby
+    class ClientTest < Test::Unit::TestCase
+      def setup
+        @scenario = AsyncScenario.new
+        @commands = []
+        @started  = false
+        Faye.ensure_reactor_running!
+      end
+      
+      def method_missing(command, *args)
+        @commands << [command, args]
+        EM.next_tick { run_next_command unless @started }
+      end
+      
+      def teardown
+        sleep 0.1 while EM.reactor_running?
+      end
+    end
+
+
+!SLIDE
+# Run command and schedule next
+
+    @@@ ruby
+    class ClientTest
+      def run_next_command
+        @started = true
+        command  = @commands.shift
+        
+        return EM.stop if @command.nil?
+        
+        @scenario.__send__(command.first, *command.last) do
+          run_next_command
+        end
+        
+      rescue Object => e
+        add_failure(e.message, e.backtrace)
+      end
+    end
