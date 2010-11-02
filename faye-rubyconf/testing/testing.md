@@ -163,6 +163,9 @@
         @scenario.send(*command) { run_next_command }
         
       rescue Object => e
-        add_failure(e.message, e.backtrace)
+        add_error(e.message, e.backtrace)
+        
+        # If using RSpec 2.0
+        # @example.set_exception(e)
       end
     end
