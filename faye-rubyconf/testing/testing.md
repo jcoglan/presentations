@@ -138,8 +138,8 @@
         Faye.ensure_reactor_running!
       end
       
-      def method_missing(command, *args)
-        @commands << [command, args]
+      def method_missing(*command_args)
+        @commands << command_args
         EM.next_tick { run_next_command unless @started }
       end
       
@@ -160,9 +160,7 @@
         
         return EM.stop if @command.nil?
         
-        @scenario.__send__(command.first, *command.last) do
-          run_next_command
-        end
+        @scenario.send(*command) { run_next_command }
         
       rescue Object => e
         add_failure(e.message, e.backtrace)
