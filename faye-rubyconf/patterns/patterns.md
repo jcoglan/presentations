@@ -75,6 +75,18 @@
     end
 
 
+!SLIDE center
+# Cyclic call graph
+
+![Faye architecture](faye-calls.png)
+
+
+!SLIDE center
+# Non-cyclic dependencies
+
+![Faye architecture](faye-deps.png)
+
+
 !SLIDE bullets
 # Event-driven programming
 
