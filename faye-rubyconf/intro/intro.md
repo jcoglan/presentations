@@ -1,6 +1,6 @@
 !SLIDE frontpage
 # Faye
-## An Evented Server-Side App
+## An Event-Driven App
 
 !SLIDE bullets
 # What is it?
