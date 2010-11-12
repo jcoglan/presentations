@@ -53,6 +53,18 @@
     @@@ ruby
                  Scenario: Alice sends a message to Bob
                    Given there is a server running on port 8000
+                   And "Alice" has no subscriptions
+                   And "Bob" is subscribed to "/foo"
+                   When "Alice" publishes a message to "/foo"
+                   Then "Bob" should receive the message
+
+
+!SLIDE
+# Tests MUST be readable
+
+    @@@ ruby
+                 Scenario: Alice sends a message to Bob
+                   Given there is a server running on port 8000
      nice          And "Alice" has no subscriptions
      straight ---> And "Bob" is subscribed to "/foo"
      line          When "Alice" publishes a message to "/foo"
