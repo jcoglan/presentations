@@ -76,7 +76,7 @@
 
 
 !SLIDE center
-# Cyclic call graph
+# Cyclic data flow
 
 ![Faye architecture](faye-calls.png)
 
