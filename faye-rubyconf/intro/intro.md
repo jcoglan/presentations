@@ -2,12 +2,22 @@
 # Faye
 ## An Event-Driven App
 
+
 !SLIDE bullets
-# What is it?
+# `whoami`
+
+* James Coglan - @jcoglan
+* Web developer at Songkick.com
+* Open source: Heist, JS.Class, Siren, Bluff
+
+
+!SLIDE bullets
+# What is Faye?
 
 * Simple pub/sub for the web
 * Bayeux message broker and client
 * For Node, Ruby, browsers
+
 
 !SLIDE
 # Ruby server
