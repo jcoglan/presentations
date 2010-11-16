@@ -1,5 +1,5 @@
 {
-  "name": "Faye: an Evented Server-Side App",
+  "name": "Faye: an Event-Driven App",
   "sections": [
     {"section":"intro"},
     {"section":"concepts"},
