@@ -1,0 +1,68 @@
+body, .slide {
+  background: #ffe617;
+  color: #111;
+  border: none;
+  font-family: FreeSans, Helvetica, Arial, sans-serif;
+}
+
+.frontpage h1 {
+  font-family: Times New Roman, serif;
+  font-size: 20em;
+  font-weight: bold;
+  margin: 0 0 0.2em;
+}
+
+h1 {
+  font-size: 6em;
+  font-weight: bold;
+  letter-spacing: -0.06em;
+  margin: 0.5em 0 0.2em;
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
+.bullets ul li {
+  padding: 0.3em;
+}
+
+img {
+  border: 2px solid #e4900a;
+}
+
+.callout h1 {
+  font-size: 8em;
+  margin: 1em 0 0;
+}
+
+.callout h2 {
+  font-family: Times New Roman, serif;
+}
+
+.center p {
+  font-size: 3em;
+  font-family: Times New Roman, serif;
+}
+
+.commandline pre {
+  background: #fff;
+  padding: 1em;
+  font-size: 2.6em;
+}
+
+.commandline code.result {
+  font-weight: bold;
+  color: #cc0000;
+}
+
+pre.sh_sourceCode {
+  font-size: 1.8em;
+  line-height: 1.2em;
+  padding: 1.6em;
+}
+
+#footer {
+  display: none;
+}
+
