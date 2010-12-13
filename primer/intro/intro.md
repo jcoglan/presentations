@@ -40,40 +40,25 @@
 # The Rails way
 
     @@@ ruby
-    class TrackingObserver < ActiveRecord::Observer
-      def after_create(tracking)
-        case tracking.subject
-        when Artist
-          artist = tracking.subject
-          city = tracking.user.metro_area
-          artist.concerts.upcoming.near(city).each do |concert|
-            tracking.user.update_calendar(concert, :tracked_artist)
-          end
-        when City
-          # ...
-        end
-      end
-    end
-
-
-!SLIDE
-# Our way
-
-    @@@ ruby
-    class ActivityRecorder < ActiveRecord::Observer
-      observe Tracking, Artist # ...
-      
-      def after_create(object)
-        Messaging.broadcast_change(:create, object)
-      end
-    end
+    <% cache(:action_suffix => "all_topics") do %>
+      <%= Topic.find(:all).map { ... } %>
+    <% end %>
     
-    # offline
-    listen :create, Tracking, Artist do
-      artist = tracking.subject
-      city = tracking.user.metro_area
-      # ...
+    class TopicObserver < ActiveRecord::Observer
+      def after_create(topic)
+        expire_fragment(:controller    => "topics",
+                        :action        => "list",
+                        :action_suffix => "all_topics")
+      end
+      
+      def after_destroy(topic)
+        # etc.
+      end
     end
+
+
+!SLIDE bullets
+# Caching causes bugs
 
 
 !SLIDE center
@@ -81,8 +66,26 @@
 ![Call graph](call-graph.png)
 
 
+!SLIDE callout
+# TIMTOWTDI
+## Denormalization increases complexity
+
+
 !SLIDE frontpage
 # :-(
+
+
+!SLIDE
+# Isn’t this enough?
+
+    @@@ ruby
+    <% cache "/concerts/#{@concert.id}/title" do %>
+      <%= @concert.title.upcase %>
+    <% end %>
+    
+    # key "/concerts/#{@concert.id}/title"
+    # depends on @concert.title. It says so
+    # right there!
 
 
 !SLIDE bullets
@@ -101,7 +104,7 @@
 
 * Invalidates caches
 * Has a name
-* Double win!
+* 1,488 LOC (inc. tests)
 
 
 !SLIDE bullets
