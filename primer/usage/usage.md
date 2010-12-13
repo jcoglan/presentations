@@ -103,7 +103,7 @@
     @@@ ruby
     class ConcertObserver < ActiveRecord::Observer
       def after_create(concert)
-        Primer.cache.compute("/concerts/1/title")
+        Primer.cache.compute("/concerts/#{concert.id}/title")
       end
     end
 
@@ -137,4 +137,4 @@
     <script src="/primer.js"></script>
     
     <%= primer "/some/expensive/view" %>
-    
+
