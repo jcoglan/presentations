@@ -1,5 +1,3 @@
-!SLIDE
-
 !SLIDE frontpage
 # Primer
 ## The Cache That Knows Too Much
@@ -76,6 +74,11 @@
       city = tracking.user.metro_area
       # ...
     end
+
+
+!SLIDE center
+# 
+![Call graph](call-graph.png)
 
 
 !SLIDE frontpage
