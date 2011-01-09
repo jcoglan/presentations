@@ -1,3 +1,12 @@
+!SLIDE bullets
+# Always be testing
+
+* Consider the community
+* Isolate platform-specific code
+* Make it easy to replace components
+* Document extension points
+
+
 !SLIDE
 # Thanks
 
