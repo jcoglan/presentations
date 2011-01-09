@@ -1,6 +1,8 @@
 {
   "name": "Cross-platform JavaScript testing",
   "sections": [
+    {"section":"intro"},
+    {"section":"jsclass"},
     {"section":"example"}
   ]
 }

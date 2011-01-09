@@ -1,10 +1,5 @@
-!SLIDE frontpage
-# JS.Test
-## Cross-platform JavaScript testing
-
-
 !SLIDE callout
-# Example
+# Example:
 ## Cross-platform Twitter client
 
 
