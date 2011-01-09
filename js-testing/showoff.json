@@ -3,6 +3,7 @@
   "sections": [
     {"section":"intro"},
     {"section":"jsclass"},
-    {"section":"example"}
+    {"section":"example"},
+    {"section":"outro"}
   ]
 }
