@@ -46,10 +46,10 @@
                 twitter_spec.js   : test definitions
         vendor/
             jsclass/
-                core.js
-                loader.js
-                test.js
-                (etc)
+                core.js           |
+                loader.js         | -> Framework code
+                test.js           |
+                (etc)             |
 
 
 !SLIDE
