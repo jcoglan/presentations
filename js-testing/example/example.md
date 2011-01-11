@@ -90,7 +90,7 @@
         this.client = new Twitter()
       })
 
-      it("returns matching tweets", function(resume) {
+      it("yields matching tweets", function(resume) {
         client.search("@jcoglan", function(tweets) {
           resume(function() {
             assertEqual( "jcoglan", tweets[0].to_user )
@@ -245,3 +245,35 @@
 # Browser results
 ![Test results](passes.png)
 
+
+!SLIDE
+# source/twitter.js
+
+    @@@ javascript
+    Twitter = new JS.Class('Twitter', {
+      search: function(query, callback) {
+        var resource = 'http://search.twitter.com' +
+                       '/search.json?q=' + query
+        
+        Twitter.Net.getJSON(resource, callback)
+      }
+    })
+
+
+!SLIDE
+# test/specs/twitter_spec.js
+
+    @@@ javascript
+    TwitterSpec = JS.Test.describe("Twitter", function() {
+      before(function() {
+        this.client = new Twitter()
+        
+        stub(Twitter.Net, "getJSON")
+            .given("http://search.twitter.com/...")
+            .yields([{to_user: "jcoglan"}])
+      })
+      
+      it("yields matching tweets", function() {
+        // ...
+      })
+    })
