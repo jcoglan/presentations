@@ -39,7 +39,7 @@
 !SLIDE bullets
 # Cache your output
 
-    @@@ ruby
+    @@@ html
     <% primer "/concerts/#{@concert.id}/title" do %>
       <%= @concert.title.upcase %>
     <% end %>
@@ -119,6 +119,22 @@
     require 'config/environment'
     Primer.worker!
 
+
+!SLIDE
+# Throttling
+
+    @@@ ruby
+    Primer.cache.throttle = 5
+    
+    Primer.routes do
+      get "/some/key" do
+        concert = Concert.first
+        concert.artists.map { |a| a.name } * ', '
+      end
+    end
+    
+    # Change #<Artist:1>.name and #<Artist:2>.name
+    # within 5 seconds => only one regeneration
 
 !SLIDE
 # Real-time updates

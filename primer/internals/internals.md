@@ -177,7 +177,7 @@
 !SLIDE
 # Real-time updates
 
-    @@@ javascript
+    @@@ html
     <%= primer "/some/cache/key" %>
     
     // outputs...
@@ -191,8 +191,8 @@
 # Real-time updates
 
     @@@ javascript
-    var endpont    = '/primer/bayeux',
-        fayeClient = new Faye.Client(endpont);
+    var endpoint   = '/primer/bayeux',
+        fayeClient = new Faye.Client(endpoint);
     
     PRIMER_KEYS = {
       push: function(key) {
