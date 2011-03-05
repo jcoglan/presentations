@@ -60,3 +60,13 @@
     
     run Application.new
 
+
+!SLIDE
+
+    @@@ ruby
+    @moar_info = {
+      :primer   => 'http://github.com/jcoglan/primer',
+      :me       => 'http://jcoglan.com',
+      :songkick => 'http://www.songkick.com'
+    }
+
