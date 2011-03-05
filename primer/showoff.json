@@ -3,7 +3,8 @@
   "sections": [
     {"section":"intro"},
     {"section":"usage"},
-    {"section":"internals"}
+    {"section":"internals"},
+    {"section":"ideas"}
   ]
 }
 
