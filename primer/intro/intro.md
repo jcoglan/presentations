@@ -36,6 +36,14 @@
 * Bugs, missed deadlines, pain
 
 
+!SLIDE center
+# Humble & Farley
+
+“Asking experts to do boring and repetitive,
+and yet technically demanding tasks is the most certain way of ensuring
+human error that we can think of.”
+
+
 !SLIDE
 # The Rails way
 
@@ -57,10 +65,6 @@
     end
 
 
-!SLIDE bullets
-# Caching causes bugs
-
-
 !SLIDE center
 # 
 ![Call graph](call-graph.png)
@@ -69,6 +73,17 @@
 !SLIDE callout
 # TIMTOWTDI
 ## Denormalization increases complexity
+
+
+!SLIDE bullets
+# Songkick LOC
+
+* Messaging: 338
+* Silo: 570
+* Renderers: 330
+* Silovator: 2,500
+* Apivator: 1,308
+* ++ tests, cukes, config
 
 
 !SLIDE frontpage
@@ -86,17 +101,6 @@
     # key "/concerts/#{@concert.id}/title"
     # depends on @concert.title. It says so
     # right there!
-
-
-!SLIDE bullets
-# Songkick LOC
-
-* Messaging: 338
-* Silo: 570
-* Renderers: 330
-* Silovator: 2,500
-* Apivator: 1,308
-* ++ tests, cukes, config
 
 
 !SLIDE bullets incremental
