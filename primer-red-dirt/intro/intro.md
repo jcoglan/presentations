@@ -40,10 +40,6 @@
     end
 
 
-!SLIDE center
-## 1000.times { puts “Don’t repeat yourself!”  }
-
-
 !SLIDE bullets
 # Hi, there!
 
@@ -59,6 +55,10 @@
 
 !SLIDE center
 ![Call graph](call-graph.png)
+
+
+!SLIDE center
+## 1000.times { puts “Don’t repeat yourself!”  }
 
 
 !SLIDE
