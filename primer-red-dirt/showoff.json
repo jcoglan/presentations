@@ -1,0 +1,10 @@
+{
+  "name": "Primer: the cache that knows too much",
+  "sections": [
+    {"section":"intro"},
+    {"section":"usage"},
+    {"section":"internals"},
+    {"section":"outro"}
+  ]
+}
+
