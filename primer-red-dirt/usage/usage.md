@@ -39,7 +39,15 @@
 !SLIDE bullets
 # Cache your output
 
-    @@@ ruby
-    <% primer "/concerts/#{@concert.id}/title" do %>
-      <%= @concert.title.upcase %>
+    @@@ html
+    <% primer "/concerts/#{@concert.id}/summary" do %>
+      
+      <h1><%= @concert.title.upcase %></h1>
+      <h2><%= @concert.date.strftime('%A %e %B %Y') %></h2>
+      <ul>
+        <% @concert.performances.each do |performance| %>
+          <li><%= performance.artist.name %></li>
+        <% end %>
+      </ul>
+      
     <% end %>
