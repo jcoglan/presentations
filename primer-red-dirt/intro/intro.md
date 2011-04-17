@@ -20,7 +20,7 @@
 
 
 !SLIDE
-# Rails cache expiry
+# Who enjoys this?
 
     @@@ ruby
     <% cache(:action_suffix => "all_topics") do %>
@@ -38,6 +38,10 @@
         # etc.
       end
     end
+
+
+!SLIDE center
+## 1000.times { puts “Don’t repeat yourself!”  }
 
 
 !SLIDE bullets
