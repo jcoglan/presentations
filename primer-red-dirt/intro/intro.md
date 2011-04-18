@@ -15,10 +15,6 @@
 # Naming things
 
 
-!SLIDE center
-# Off-by-one errors
-
-
 !SLIDE
 # Who enjoys this?
 
