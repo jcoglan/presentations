@@ -1,4 +1,4 @@
-!SLIDE callout
+!SLIDE center
 # Internals
 ## Generic tools + bindings for data stores
 
@@ -83,28 +83,29 @@
     @@@ ruby
     Primer.cache.compute("/concerts/1/summary") do
       concert = Concert.find(1)
-      concert.title.upcase +
-      concert.date.strftime('%A %e %B %Y') +
+      concert.date.strftime('%A %e %B %Y') + ': ' +
       concert.performances.map { |p| p.artist.name }
     end
     
-    # Returns "TITLE OF CONCERT"
+    # Returns "Monday 18 April 2011: Justin Bieber..."
     
     # Records that "/concerts/1/summary" depends on the data:
     # 
-    #     ["ActiveRecord", "Concert", 1, "title"]
     #     ["ActiveRecord", "Concert", 1, "date"]
-    #     ["ActiveRecord", "Performance", 1, "artist_id"]
+    #     ["ActiveRecord", "Concert", 1, "performances"]
+    #     ["ActiveRecord", "Performance", 1, "artist"]
+    #     ["ActiveRecord", "Artist", 2, "name"]
 
 
 !SLIDE smaller
 # Internal representation
 
     @@@ruby
-    ["ActiveRecord", "Concert", 1, "title"]          => ["/concerts/1/summary"]
     ["ActiveRecord", "Concert", 1, "date"]           => ["/concerts/1/summary"]
-    ["ActiveRecord", "Performance", 1, "artist_id"]  => ["/concerts/1/summary"]
-    ["ActiveRecord", "Performance", 2, "artist_id"]  => ["/concerts/1/summary"]
+    ["ActiveRecord", "Concert", 1, "performances"]   => ["/concerts/1/summary"]
+    
+    ["ActiveRecord", "Performance", 1, "artist"]     => ["/concerts/1/summary"]
+    ["ActiveRecord", "Performance", 2, "artist"]     => ["/concerts/1/summary"]
     
     ["ActiveRecord", "Artist", 2, "name"]            => ["/concerts/1/summary",
                                                          "/artists/2/summary"]
@@ -135,38 +136,38 @@
     # ActiveRecordAgent takes the message and figures out
     # which attributes have changed...
     
-    class Primer::Worker::ActiveRecordAgent
-      
-      Primer.bus.subscribe(:active_record) do |event, object|
-        object.changes.each do |attribute, (old_v, new_v)|
-          change = ["ActiveRecord", object.class.name,
-                    object.id, attribute.to_s]
-          
-          Primer.bus.publish(:changes, change)
-        end
+    Primer.bus.subscribe(:active_record) do |event, object|
+      object.changes.each do |attribute, (old_v, new_v)|
+        
+        change = ["ActiveRecord", object.class.name,
+                  object.id, attribute.to_s]
+        
+        # change = ["ActiveRecord", "Artist", 2, "name"]
+        Primer.bus.publish(:changes, change)
       end
-      
     end
 
 
 !SLIDE
-# Publish related updates
+# Publish related changes
 
     @@@ ruby
-    def self.notify_attributes(model, fields)
-      foreign_keys = model.class.primer_foreign_key_mappings
-      
-      fields.each do |attribute, value|
-        Primer.bus.publish(:changes,
-            model.primer_identifier + [attribute.to_s])
-        
-        next unless assoc = foreign_keys[attribute.to_s]
-        Primer.bus.publish(:changes,
-            model.primer_identifier + [assoc.to_s])
-        
-        notify_belongs_to_association(model, assoc, value)
-      end
-    end
+    # e.g. object = #<Performance:1>, attribute = "artist_id"
+    
+    assoc = object.class.reflect_on_all_associations.
+            select { |a| a.macro == :belongs_to }.
+            find { |a| a.primary_key_name == attribute }
+    
+    # assoc = #<AssociationReflection
+    #             @macro=:belongs_to @name=artist>
+    
+    Primer.bus.publish(:changes,
+        object.primer_identifier + [assoc.name])
+    
+    # Get Artist.has_many(:performances) association...
+    has_many = assoc.class_name.constantize.
+               reflect_on_all_associations.
+               select { |a| a.macro == :has_many }
 
 
 !SLIDE
