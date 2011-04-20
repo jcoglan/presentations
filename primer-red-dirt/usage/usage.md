@@ -42,8 +42,8 @@
     @@@ html
     <% primer "/concerts/#{@concert.id}/summary" do %>
       
-      <h1><%= @concert.title.upcase %></h1>
-      <h2><%= @concert.date.strftime('%A %e %B %Y') %></h2>
+      <h1><%= @concert.date.strftime('%A %e %B %Y') %></h1>
+      <h2><%= @concert.venue.name %></h2>
       <ul>
         <% @concert.performances.each do |performance| %>
           <li><%= performance.artist.name %></li>
