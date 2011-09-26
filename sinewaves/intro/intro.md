@@ -14,7 +14,7 @@
 ![](Flaming-Lips-Zaireeka-Front-Cover-33755.jpg)
 
 
-!SLIDE center
+!SLIDE center zoom
 ![Boredoms](boredoms.jpg)
 
 
