@@ -12,7 +12,7 @@ body, .slide, #preso {
 h1 {
   color: #E2007A;
   font-family: Impact, FreeSans, Helvetica, Arial, sans-serif;
-  font-size: 3em;
+  font-size: 4em;
   font-weight: normal;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.15);
   text-transform: uppercase;
@@ -27,4 +27,9 @@ h1 {
 
 .center p {
   margin: 0;
+}
+
+.content pre {
+  font-size: 2.4em;
+  padding: 1em;
 }

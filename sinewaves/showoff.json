@@ -1,6 +1,7 @@
 {
   "name": "All your browsers are belong to me",
   "sections": [
-    {"section":"intro"}
+    {"section":"intro"},
+    {"section":"sound"}
   ]
 }
