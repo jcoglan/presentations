@@ -101,3 +101,62 @@
       audio.mozWriteAudio(samples);
       
     }, 10);
+
+
+!SLIDE
+# User input
+
+    @@@ javascript
+    var notes = {};
+    
+    $(document).keydown(function(e) {
+      var freq = getFrequency(e.keyCode),
+          note = currentChannel.createNote(freq);
+      
+      note.keyDown(currentTime());
+      notes[e.keyCode] = note;
+    });
+    $(document).keyup(function(e) {
+      var note = notes[e.keyCode];
+      if (note) {
+        note.keyUp(currentTime());
+        delete notes[e.keyCode];
+      }
+    });
+
+
+!SLIDE
+# Recording
+
+    @@@ javascript
+    var recording = new Recording()
+    
+    $(document).keydown(function(e) {
+      var freq = getFrequency(e.keyCode),
+          time = currentTime();
+      
+      recording.record(time, 'keyDown', freq);
+    });
+    
+    $(document).keyup(function(e) {
+      var freq = getFrequency(e.keyCode),
+          time = currentTime();
+      
+      recording.record(time, 'keyUp', freq);
+    });
+
+
+!SLIDE
+# Playback
+
+    @@@ javascript
+    recording = {
+      "duration": 8200,
+      "events": [
+        [0,   "keyDown", 415.3046971027745],
+        [280, "keyDown", 554.3652613167977],
+        [310, "keyUp",   0],
+        [490, "keyUp",   0],
+        // ...
+      ]
+    }

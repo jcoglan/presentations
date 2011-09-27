@@ -26,8 +26,16 @@
 ![Laptop](laptop.png)
 
 
+!SLIDE center
+![Laptop](laptop-note.png)
+
+
 !SLIDE center zoom
 ![Laptop grid](laptop-grid.png)
+
+
+!SLIDE center zoom
+![Laptop grid](laptop-grid-note.png)
 
 
 !SLIDE center zoom
