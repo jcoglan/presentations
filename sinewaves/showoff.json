@@ -2,6 +2,9 @@
   "name": "All your browsers are belong to me",
   "sections": [
     {"section":"intro"},
-    {"section":"sound"}
+    {"section":"sound"},
+    {"section":"sharing"},
+    {"section":"time"},
+    {"section":"outro"}
   ]
 }
