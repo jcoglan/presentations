@@ -7,6 +7,20 @@
 
 
 !SLIDE center zoom
+![](neutrino-time.png)
+
+
+!SLIDE front
+# NTP
+Resolution: 2 ^ -32 seconds
+
+
+!SLIDE front
+# JavaScript
+Resolution: 2 ^ -3 seconds
+
+
+!SLIDE center zoom
 ![NTP](ntp.png)
 
 
