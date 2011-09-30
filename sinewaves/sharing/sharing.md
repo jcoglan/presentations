@@ -28,7 +28,7 @@
 
 
 !SLIDE
-# Synching data
+# Syncing data
 
     @@@ javascript
     Performance.prototype.toJSON = function() {
