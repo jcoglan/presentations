@@ -6,6 +6,10 @@
 ![Firefox](extra-firefox.png)
 
 
+!SLIDE front
+http://bit.ly/sinewaves
+
+
 !SLIDE center
 ![The Flaming Lips](flaming-lips-live.jpg)
 

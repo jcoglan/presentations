@@ -20,6 +20,9 @@ h1 {
 .front h1 {
   font-size: 10em;
 }
+.front p {
+  font-size: 4em;
+}
 
 .zoom img {
   width: 100%;
