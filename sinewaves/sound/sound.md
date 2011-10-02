@@ -62,8 +62,8 @@
           x    = this._frequency * time,
           y    = x - Math.floor(x),
           A    = chan._amplitude,
-          AMx  = 2 * Math.PI * chan._am.frequency * time,
-          AM   = chan._am.amplitude * Math.cos(Amx),
+          z    = 2 * Math.PI * chan._am.frequency * time,
+          AM   = chan._am.amplitude * Math.cos(z),
           E    = this._envelope.valueAt(time);
     
       return A * (1 + AM) * E * form(y);
