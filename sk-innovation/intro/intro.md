@@ -1,0 +1,2 @@
+!SLIDE center
+![](innovations.jpg)

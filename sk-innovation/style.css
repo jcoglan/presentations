@@ -1,0 +1,64 @@
+body, .slide, #preso {
+  background-color: transparent;
+  color: #fff;
+  -webkit-box-shadow: none;
+}
+
+body {
+  background-image: -webkit-gradient(radial, 50% 40%, 5, 40% 40%, 800, from(#F54C3D), to(#CC1F1F));
+}
+
+#footer {
+  display: none;
+}
+
+h1 {
+  color: #991D18;
+  font-family: Impact, FreeSans, Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.15);
+  text-transform: uppercase;
+}
+
+h2 {
+  color: #fff;
+  font-family: Impact, FreeSans, Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  margin:; 0 auto 1em;
+}
+
+.center h1 {
+  font-size: 750%;
+  margin: 0;
+}
+.center h2 {
+  margin: 0;
+}
+
+h2, p, li {
+  text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+img {
+  display: block;
+  margin: 2em auto;
+}
+.center img {
+  border: 1px solid #fff;
+  margin: 1em auto;
+  width: 90%;
+  -webkit-box-shadow: 0 10px 50px #991D18;
+}
+
+pre {
+  font-size: 160%;
+  margin:  0 20px;
+  padding: 1em;
+  -webkit-box-shadow: 0 10px 50px #991D18;
+}
+
+pre.sh_sourceCode, .sh_string, code {
+  font-family: Monaco, monospace !important;
+  line-height: 1.4em;
+}
