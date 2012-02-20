@@ -181,9 +181,9 @@ Data between 0x00 and 0xFF interpreted as UTF-8
 
 * Length-headers rather than 0x00/0xFF
 * Binary data messages
+* Ping, pong, close
 * Masking
 * Message fragmentation
-* Ping, pong, close
 
 
 !SLIDE
