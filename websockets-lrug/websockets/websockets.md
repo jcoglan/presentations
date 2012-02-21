@@ -244,8 +244,7 @@ Data between 0x00 and 0xFF interpreted as UTF-8
 !SLIDE bullets
 # Tons of other options
 
-* skinny, socky, websocket-rack, rocket...
 * SockJS, Socket.IO
 * Faye, Cramp, Goliath
-* Pusher, PubNub
+* Pusher, BeaconPush, PubNub
 
