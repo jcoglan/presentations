@@ -2,6 +2,14 @@
 # All your browsers are belong to me
 
 
+!SLIDE bullets
+# `whoami`
+
+* James Coglan
+* @jcoglan
+* Wrote Faye, JS.Class, Sylvester, Fargo...
+
+
 !SLIDE center
 ![Firefox](extra-firefox.png)
 
