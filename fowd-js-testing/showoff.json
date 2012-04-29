@@ -1,0 +1,9 @@
+{
+  "name": "Automating testing across the multi-platform web",
+  "sections": [
+    {"section":"intro"},
+    {"section":"example"},
+    {"section":"tools"},
+    {"section":"outro"}
+  ]
+}
