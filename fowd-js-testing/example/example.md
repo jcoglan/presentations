@@ -111,15 +111,6 @@
 ## How am I ever going to ship on time?
 
 
-!SLIDE portrait
-![Pointy-haired boss](phb.png)
-
-
-!SLIDE title
-# Slow tests kill productivity
-## Teams skip things that __seem__ too costly
-
-
 !SLIDE bullets
 # If it takes too long you’re doing it wrong
 * You’re only __really__ testing your JavaScript
@@ -182,7 +173,7 @@
     }})
 
     JS.require('JS.Test', function() {
-      JS.require('AppSpec', JS.Test.method('autorun'))
+      JS.require('AppSpec', function() { JS.Test.autorun() })
     })
 
 
