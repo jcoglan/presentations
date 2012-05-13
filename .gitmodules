@@ -1,0 +1,3 @@
+[submodule "vendor/showoff"]
+	path = vendor/showoff
+	url = git://github.com/schacon/showoff.git

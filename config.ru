@@ -1,5 +1,4 @@
-require 'showoff'
-
+require File.expand_path('../vendor/showoff/lib/showoff', __FILE__)
 dir = File.expand_path('..', __FILE__)
 
 Dir.entries(dir).each do |presentation|
