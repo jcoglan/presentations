@@ -1,3 +1,7 @@
+body, #preso, .slide {
+  box-shadow: none;
+}
+
 body, .slide {
   background: #d4e5f7;
   color: #333;
