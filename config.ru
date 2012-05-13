@@ -10,7 +10,14 @@ Dir.entries(dir).each do |presentation|
 end
 
 app = lambda do |env|
-  [200, {'Content-Type' => 'text/html'}, File.new(dir + '/index.html')]
+  path = env['PATH_INFO']
+  path = '/index.html' if path == '/'
+  full_path = dir + path
+  if path !~ /\.\./ and File.file?(full_path)
+    [200, {'Content-Type' => 'text/html'}, File.new(full_path)]
+  else
+    [404, {'Content-Type' => 'text/plain'}, ['Not found']]
+  end
 end
 
 map '/' do
