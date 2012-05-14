@@ -15,4 +15,5 @@
 !SLIDE title
 # Thank you.
 ## http://github.com/jcoglan/fowd-js-testing
+## http://slides.jcoglan.com
 
