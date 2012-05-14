@@ -47,7 +47,7 @@ human error that we can think of.”
 !SLIDE
 # The Rails way
 
-    @@@ ruby
+    @@@ruby
     <% cache(:action_suffix => "all_topics") do %>
       <%= Topic.find(:all).map { ... } %>
     <% end %>
@@ -93,7 +93,7 @@ human error that we can think of.”
 !SLIDE
 # Isn’t this enough?
 
-    @@@ ruby
+    @@@ruby
     <% cache "/concerts/#{@concert.id}/title" do %>
       <%= @concert.title.upcase %>
     <% end %>

@@ -11,7 +11,7 @@
 !SLIDE bullets
 # Variables
 
-    @@@ javascript
+    @@@javascript
     var company  = "Songkick";
     var founders = ["Ian", "Michelle", "Pete"];
     
@@ -26,7 +26,7 @@
 !SLIDE bullets
 # Don't create globals
 
-    @@@ javascript
+    @@@javascript
     // Create an anonymous function to contain
     // the variables, then immediately call it
     (function() {

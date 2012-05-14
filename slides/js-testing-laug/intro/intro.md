@@ -19,7 +19,7 @@
 !SLIDE
 # Problem: DOM implementations
 
-    @@@ javascript
+    @@@javascript
     if (element.addEventListener)
       element.addEventListener('click', callback, false)
     else if (element.attachEvent)

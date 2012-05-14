@@ -12,7 +12,7 @@
 !SLIDE
 # Extend your model
 
-    @@@ ruby
+    @@@ruby
     class User < ActiveRecord::Base
       # before adding your validations
       extend Acceptance::ReflectsOnValidations
@@ -22,7 +22,7 @@
 !SLIDE
 # Add the helper
 
-    @@@ ruby
+    @@@ruby
     module ApplicationHelper
       include Acceptance::FormHelper
     end
@@ -31,7 +31,7 @@
 !SLIDE
 # Validate your forms
 
-    @@@ html
+    @@@html
     <% validated_form_for(@user) do |f| %>
       <%= f.text_field :email %>
       <%= f.password_field :password %>
@@ -41,7 +41,7 @@
 !SLIDE
 # Update your GUI
 
-    @@@ javascript
+    @@@javascript
     Acceptance.onValidation(function(field) {
       var container = jQuery(field.getInput()).parent(),
           errorElem = container.find('.error-message');

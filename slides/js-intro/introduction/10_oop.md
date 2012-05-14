@@ -14,7 +14,7 @@
 !SLIDE
 # Object orientation
 
-    @@@ javascript
+    @@@javascript
     var user = {name: "jcoglan"};
     
     var sayHello = function(greeting) {
@@ -35,7 +35,7 @@
 !SLIDE
 # Object orientation
 
-    @@@ javascript
+    @@@javascript
     // we can store functions in objects
     var user = {
       name: "jcoglan",

@@ -6,7 +6,7 @@
 !SLIDE
 # JavaScript mixins
 
-    @@@ javascript
+    @@@javascript
     // You've seen this in Prototype, jQuery
     
     Faye.extend = function(destination, source) {
@@ -29,7 +29,7 @@
 !SLIDE
 # Observable
 
-    @@@ javascript
+    @@@javascript
     Faye.Observable.
         addListener = function(eventType, callback, scope) {
           var listeners = this._listeners =
@@ -51,7 +51,7 @@
 !SLIDE
 # Observable
 
-    @@@ javascript
+    @@@javascript
     Faye.Observable.
         publishEvent = function(eventType, data) {
           if (!this._listeners) return;
@@ -79,7 +79,7 @@
 !SLIDE
 # Deferrable
 
-    @@@ javascript
+    @@@javascript
     Faye.Deferrable.
         addCallback = function(callback, scope) {
           if (this._status === 'success')
@@ -98,7 +98,7 @@
 !SLIDE
 # Deferrable
 
-    @@@ javascript
+    @@@javascript
     Faye.Deferrable.
         succeed = function(value) {
           this._status = 'success';
@@ -116,7 +116,7 @@
 !SLIDE
 # Deferrable
 
-    @@@ javascript
+    @@@javascript
     Faye.Deferrable.
         defer = function() {
           this._status = 'deferred';

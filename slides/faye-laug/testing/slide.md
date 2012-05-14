@@ -6,7 +6,7 @@
 !SLIDE
 # Um.
 
-    @@@ javascript
+    @@@javascript
     AsyncSpec = JS.Test.describe(Faye.Client, function() {
       before(function(resume) {
         var server = new Faye.NodeAdapter({mount: '/'});
@@ -44,7 +44,7 @@
 !SLIDE
 # Tests MUST be readable
 
-    @@@ javascript
+    @@@javascript
     Scenario.run('Two clients, single message sent',
     function() { with(this) {
       server( 8000 )
@@ -64,7 +64,7 @@
 !SLIDE
 ## Implement the test actions with callbacks
 
-    @@@ javascript
+    @@@javascript
     Scenario = function() {
       this._clients = {};
       this._inboxes = {};
@@ -82,7 +82,7 @@
 !SLIDE
 ## Implement the test actions with callbacks
 
-    @@@ javascript
+    @@@javascript
     Scenario.prototype.
         client = function(name, channels, resume) {
           var endpoint = 'http://0.0.0.0:' + this._port,
@@ -103,7 +103,7 @@
 !SLIDE
 ## The test runner queues up commands
 
-    @@@ javascript
+    @@@javascript
     CommandQueue = function() {
       this._scenario = new Scenario();
       this._commands = [];
@@ -128,7 +128,7 @@
 !SLIDE
 ## The first command triggers the test run
 
-    @@@ javascript
+    @@@javascript
     CommandQueue.prototype.
         enqueue = function(command) {
           this._commands.push(command);
@@ -144,7 +144,7 @@
 !SLIDE
 ## Run each command passing a callback to run the next
 
-    @@@ javascript
+    @@@javascript
     CommandQueue.prototype.
         runNext = function() {
           var command = this._commands.shift().slice(),
@@ -162,7 +162,7 @@
 !SLIDE
 ## Glue the whole thing together
 
-    @@@ javascript
+    @@@javascript
     Scenario.run = function(testName, block) {
       var queue = new CommandQueue();
       block.call(queue);

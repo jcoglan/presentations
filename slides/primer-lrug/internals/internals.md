@@ -6,7 +6,7 @@
 !SLIDE
 # `Watcher` module
 
-    @@@ ruby
+    @@@ruby
     class Widget
       include Primer::Watcher
       watch_calls_to :name
@@ -22,7 +22,7 @@
 !SLIDE
 # `Watcher` module
 
-    @@@ ruby
+    @@@ruby
     widget = Widget.new
     widget.name = "Dashboard"
     
@@ -43,7 +43,7 @@
 !SLIDE
 # `Watcher` module
 
-    @@@ ruby
+    @@@ruby
     calls = []
     
     Primer::Watcher.watching(calls) do
@@ -62,7 +62,7 @@
 !SLIDE
 # `Cache#compute`
 
-    @@@ ruby
+    @@@ruby
     # Takes a key and a block. If key is in the cache,
     # return its value. Otherwise: run the block, record
     # which data are used, cache and return the result.
@@ -81,7 +81,7 @@
 !SLIDE
 # Self-aware
 
-    @@@ ruby
+    @@@ruby
     # The cache is itself watchable, so we know when
     # one cache value depends on others:
     Primer.cache.compute("/foo") do
@@ -101,7 +101,7 @@
 !SLIDE
 # Publishing updates
 
-    @@@ ruby
+    @@@ruby
     # When an ActiveRecord object changes, publish it
     
     class ActiveRecord::Base
@@ -116,7 +116,7 @@
 !SLIDE
 # Interpreting updates
 
-    @@@ ruby
+    @@@ruby
     # ActiveRecordAgent takes the message and figures out
     # which attributes have changed...
     
@@ -139,7 +139,7 @@
 !SLIDE
 # Publish related changes
 
-    @@@ ruby
+    @@@ruby
     >> alice, bob = User.find(1), User.find(2)
     
     >> post = BlogPost.find(1)
@@ -157,7 +157,7 @@
 !SLIDE
 # Cache reacts to changes
 
-    @@@ ruby
+    @@@ruby
     Primer.bus.subscribe(:changes) do |attribute|
       Primer.cache.changed(attribute)
     end
@@ -177,7 +177,7 @@
 !SLIDE
 # Real-time updates
 
-    @@@ html
+    @@@html
     <%= primer "/some/cache/key" %>
     
     // outputs...
@@ -190,7 +190,7 @@
 !SLIDE
 # Real-time updates
 
-    @@@ javascript
+    @@@javascript
     var endpoint   = '/primer/bayeux',
         fayeClient = new Faye.Client(endpoint);
     
@@ -207,7 +207,7 @@
 !SLIDE
 # Real-time updates
 
-    @@@ ruby
+    @@@ruby
     # when the cache is updated:
     Primer.cache.put("/some/cache/key", "UPDATED")
     

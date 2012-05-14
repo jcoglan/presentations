@@ -1,7 +1,7 @@
 !SLIDE
 # There’s a few bits missing
 
-    @@@ ruby
+    @@@ruby
     # Server#accept_connection
     connection.callback(&callback)
     
@@ -25,7 +25,7 @@
 !SLIDE
 # Publisher
 
-    @@@ ruby
+    @@@ruby
     module Publisher
       def add_listener(event_type, &block)
         @callbacks ||= {}
@@ -53,7 +53,7 @@
 !SLIDE
 # Deferrable
 
-    @@@ ruby
+    @@@ruby
     module Deferrable
       def defer()
         @status = :deferred

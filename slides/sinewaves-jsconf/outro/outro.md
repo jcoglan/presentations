@@ -5,7 +5,7 @@
 !SLIDE
 # Drawn with JavaScript
 
-    @@@ javascript
+    @@@javascript
     var iterate = function() {
       var nx = Math.sin(a*y) - Math.cos(b*x),
           ny = Math.sin(c*x) - Math.cos(d*y),
@@ -27,7 +27,7 @@
 !SLIDE bullets
 # Thank you!
 
-    @@@ javascript
+    @@@javascript
     var links = [
       'http://jcoglan.com',
       

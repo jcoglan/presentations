@@ -6,7 +6,7 @@
 !SLIDE
 # So, erm.
 
-    @@@ ruby
+    @@@ruby
     describe Faye::Client do
       before do
         @clients = {:a => .., :b => ..}
@@ -50,7 +50,7 @@
 !SLIDE
 # Tests MUST be readable
 
-    @@@ ruby
+    @@@ruby
                  Scenario: Alice sends a message to Bob
                    Given there is a server running on port 8000
                    And "Alice" has no subscriptions
@@ -62,7 +62,7 @@
 !SLIDE
 # Tests MUST be readable
 
-    @@@ ruby
+    @@@ruby
                  Scenario: Alice sends a message to Bob
                    Given there is a server running on port 8000
      nice          And "Alice" has no subscriptions
@@ -74,7 +74,7 @@
 !SLIDE
 # Tell us a story
 
-    @@@ ruby
+    @@@ruby
     scenario "message from Alice to Bob" do
       server 8000
       
@@ -96,7 +96,7 @@
 !SLIDE
 # Make test actions with callbacks
 
-    @@@ ruby
+    @@@ruby
     class AsyncScenario
       def initialize
         @clients = {}
@@ -118,7 +118,7 @@
 !SLIDE
 # Make test actions with callbacks
 
-    @@@ ruby
+    @@@ruby
     class AsyncScenario
       def client(name, channels, &resume)
         endpoint = "http://0.0.0.0:#{@port}/"
@@ -141,7 +141,7 @@
 !SLIDE
 # Queue up commands
 
-    @@@ ruby
+    @@@ruby
     class ClientTest < Test::Unit::TestCase
       def setup
         @scenario = AsyncScenario.new
@@ -164,7 +164,7 @@
 !SLIDE
 # Run command and schedule next
 
-    @@@ ruby
+    @@@ruby
     class ClientTest
       def run_next_command
         @started = true

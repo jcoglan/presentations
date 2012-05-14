@@ -7,7 +7,7 @@
 !SLIDE
 # WebSocket API
 
-    @@@ javascript
+    @@@javascript
     var ws = new WebSocket('ws://www.example.com/demo');
     
     ws.onopen = function() {
@@ -189,7 +189,7 @@ Data between 0x00 and 0xFF interpreted as UTF-8
 !SLIDE
 # em-websocket
 
-    @@@ ruby
+    @@@ruby
     options = {:host => "0.0.0.0", :port => 8080}
     
     EventMachine::WebSocket.start(options) do |ws|
@@ -203,7 +203,7 @@ Data between 0x00 and 0xFF interpreted as UTF-8
 !SLIDE
 # faye-websocket
 
-    @@@ ruby
+    @@@ruby
     App = lambda do |env|
       if Faye::WebSocket.websocket?(env)
         ws = Faye::WebSocket.new(env)
@@ -224,7 +224,7 @@ Data between 0x00 and 0xFF interpreted as UTF-8
 !SLIDE
 # faye-websocket
 
-    @@@ ruby
+    @@@ruby
     url = 'ws://example.com/demo'
     ws  = Faye::WebSocket::Client.new(url)
     

@@ -17,7 +17,7 @@
 !SLIDE
 # Step 1: monkeys!
 
-    @@@ ruby
+    @@@ruby
     VALIDATION_TYPES.each do |validation_type|
       define_method "validates_#{validation_type}_of" do |*attr_names|
         super(*attr_names)
@@ -35,7 +35,7 @@
 !SLIDE
 # Step 1: monkeys!
 
-    @@@ ruby
+    @@@ruby
     def Reflections.create(type, model, field, options)
       klass = const_get(type.gsub(/^(.)/) { $1.upcase })
       klass.new(model, field, options)
@@ -45,7 +45,7 @@
 !SLIDE
 # Step 2: more monkeys
 
-    @@@ ruby
+    @@@ruby
     class ActionView::Helpers::FormBuilder  
       old_initialize = instance_method(:initialize)
       
@@ -60,7 +60,7 @@
 !SLIDE
 # Step 2: more monkeys
 
-    @@@ ruby
+    @@@ruby
     class ActionView::Helpers::FormBuilder  
       TAG_HELPERS.each do |helper|
         old_helper = instance_method(helper)
@@ -76,7 +76,7 @@
 !SLIDE
 # Step 2: more monkeys
 
-    @@@ ruby
+    @@@ruby
     module ActionView::Helpers::FormTagHelper
       old_html_options_for_form = instance_method(:html_options_for_form)
       
@@ -92,7 +92,7 @@
 !SLIDE
 # Step 3: reflect and generate
 
-    @@@ ruby
+    @@@ruby
     class Acceptance::Generator
       def validations
         @object.reflect_on_all_validations.select do |v|
@@ -109,7 +109,7 @@
 !SLIDE
 # Step 3: reflect and generate
 
-    @@@ ruby
+    @@@ruby
     class Acceptance::Generator
       TEMPLATE = <<-JAVASCRIPT
       <script type="text/javascript" id="<%= form_id %>_validation">
@@ -126,7 +126,7 @@
 !SLIDE
 # Step 3: reflect and generate
 
-    @@@ ruby
+    @@@ruby
     class Acceptance::Generator
       validate :acceptance do |validation|
         <<-SCRIPT
@@ -141,7 +141,7 @@
 !SLIDE
 # Step 4: the target DSL
 
-    @@@ javascript
+    @@@javascript
     Acceptance.Requirement.prototype.
     toBeChecked = function(message) {
       this._field.addTest(function(result, validation) {
@@ -158,7 +158,7 @@ support asynchronous validation, e.g. uniqueness checks over XHR.
 !SLIDE
 # Step 5: hack the DOM
 
-    @@@ javascript
+    @@@javascript
     Acceptance.Form = Acceptance.Class({
       initialize: function(id) {
         this._form = document.getElementById(id);
@@ -177,7 +177,7 @@ support asynchronous validation, e.g. uniqueness checks over XHR.
 !SLIDE
 # Step 6: continuations
 
-    @@@ javascript
+    @@@javascript
     Acceptance.Form.prototype.
     isValid = function(callback, scope) {
       var valid = true,
@@ -197,7 +197,7 @@ support asynchronous validation, e.g. uniqueness checks over XHR.
 !SLIDE
 # Step 6: continuations
 
-    @@@ javascript
+    @@@javascript
     Acceptance.Field.prototype.
     isValid = function(callback, scope) {
       var validation = new Acceptance.Validation(this),

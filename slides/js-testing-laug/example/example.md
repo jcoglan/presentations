@@ -25,7 +25,7 @@
 !SLIDE
 # JavaScript API
 
-    @@@ javascript
+    @@@javascript
     var client = new Twitter()
     
     client.search('@jcoglan', function(tweets) {
@@ -55,7 +55,7 @@
 !SLIDE
 # test/console.js
 
-    @@@ javascript
+    @@@javascript
     JSCLASS_PATH = 'vendor/jsclass';
     require('../' + JSCLASS_PATH + '/loader')
     require('./run')
@@ -64,7 +64,7 @@
 !SLIDE
 # test/run.js
 
-    @@@ javascript
+    @@@javascript
     JS.Packages(function() { with(this) {
       autoload(/^(.*)Spec$/, {
                from: 'test/specs',
@@ -84,7 +84,7 @@
 !SLIDE
 # test/specs/twitter_spec.js
 
-    @@@ javascript
+    @@@javascript
     TwitterSpec = JS.Test.describe("Twitter", function() {
       before(function() {
         this.client = new Twitter()
@@ -120,7 +120,7 @@
 !SLIDE
 # source/twitter.js
 
-    @@@ javascript
+    @@@javascript
     Twitter = new JS.Class('Twitter')
 
 
@@ -143,7 +143,7 @@
 !SLIDE
 # source/twitter.js
 
-    @@@ javascript
+    @@@javascript
     Twitter = new JS.Class('Twitter', {
       search: function(query, callback) {
         var http   = require('http'),
@@ -180,7 +180,7 @@
 !SLIDE
 # test/browser.html
 
-    @@@ html
+    @@@html
     <!doctype html>
     <html>
       <head>
@@ -202,7 +202,7 @@
 !SLIDE
 # source/twitter.js
 
-    @@@ javascript
+    @@@javascript
     Twitter = new JS.Class('Twitter', {
       search: function(query, callback) {
         if (typeof document === 'object')
@@ -217,7 +217,7 @@
 !SLIDE
 # source/twitter.js
 
-    @@@ javascript
+    @@@javascript
     // (cont.)
     
     jsonpSearch: function(query, callback) {
@@ -249,7 +249,7 @@
 !SLIDE
 # source/twitter.js
 
-    @@@ javascript
+    @@@javascript
     Twitter = new JS.Class('Twitter', {
       search: function(query, callback) {
         var resource = 'http://search.twitter.com' +
@@ -263,7 +263,7 @@
 !SLIDE
 # test/specs/twitter_spec.js
 
-    @@@ javascript
+    @@@javascript
     TwitterSpec = JS.Test.describe("Twitter", function() {
       before(function() {
         this.client = new Twitter()

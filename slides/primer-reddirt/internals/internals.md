@@ -6,7 +6,7 @@
 !SLIDE
 # `Watcher` module
 
-    @@@ ruby
+    @@@ruby
     class Widget
       include Primer::Watcher
       watch_calls_to :name
@@ -22,7 +22,7 @@
 !SLIDE
 # `Watcher` module
 
-    @@@ ruby
+    @@@ruby
     def patch_method_for_primer(method_name)
       alias_name = Macros.alias_name(method_name)
       return unless method = instance_method(method_name)
@@ -41,7 +41,7 @@
 !SLIDE
 # `Watcher` module
 
-    @@@ ruby
+    @@@ruby
     widget = Widget.new
     widget.name = "Dashboard"
     
@@ -61,7 +61,7 @@
 !SLIDE
 # `Watcher` module
 
-    @@@ ruby
+    @@@ruby
     calls = []
     
     Primer::Watcher.watching(calls) do
@@ -80,7 +80,7 @@
 !SLIDE
 # `Cache#compute`
 
-    @@@ ruby
+    @@@ruby
     Primer.cache.compute("/concerts/1/summary") do
       concert = Concert.find(1)
       concert.date.strftime('%A %e %B %Y') + ': ' +
@@ -117,7 +117,7 @@
 !SLIDE
 # Publishing updates
 
-    @@@ ruby
+    @@@ruby
     # When an ActiveRecord object changes, publish it
     
     class ActiveRecord::Base
@@ -132,7 +132,7 @@
 !SLIDE
 # Interpreting updates
 
-    @@@ ruby
+    @@@ruby
     # ActiveRecordAgent takes the message and figures out
     # which attributes have changed...
     
@@ -151,7 +151,7 @@
 !SLIDE
 # Publish related changes
 
-    @@@ ruby
+    @@@ruby
     # e.g. object = #<Performance:1>, attribute = "artist_id"
     
     assoc = object.class.reflect_on_all_associations.
@@ -173,7 +173,7 @@
 !SLIDE
 # Publish related changes
 
-    @@@ ruby
+    @@@ruby
     >> alice, bob = User.find(1), User.find(2)
     
     >> post = BlogPost.find(1)
@@ -201,7 +201,7 @@
 !SLIDE
 # Pre-generation
 
-    @@@ ruby
+    @@@ruby
     <%= primer "/concerts/1/summary" %>
     
     # with a little help from Sinatra
@@ -218,7 +218,7 @@
 !SLIDE
 # Real-time updates
 
-    @@@ html
+    @@@html
     <%= primer "/some/cache/key" %>
     
     // outputs...
@@ -231,7 +231,7 @@
 !SLIDE
 # Real-time updates
 
-    @@@ ruby
+    @@@ruby
     # when the cache is updated:
     Primer.cache.put("/some/cache/key", "UPDATED")
     
@@ -245,7 +245,7 @@
 !SLIDE
 # Real-time updates
 
-    @@@ javascript
+    @@@javascript
     var endpoint   = '/primer/bayeux',
         fayeClient = new Faye.Client(endpoint);
     

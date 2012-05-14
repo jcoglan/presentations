@@ -16,7 +16,7 @@
 !SLIDE
 # Cross-process metaprogramming
 
-    @@@ ruby
+    @@@ruby
     Given /^the (\S+) class validates (\S+) of (\S+)$/ do
     |class_name, validation, field|
       inject_code class_name,
@@ -27,7 +27,7 @@
 !SLIDE
 # Hacking the model
 
-    @@@ ruby
+    @@@ruby
     VALIDATION_CONFIG = File.dirname(__FILE__) +
                         '/../../config/validation/'
                         
@@ -48,7 +48,7 @@
 !SLIDE
 # Hacking the model
 
-    @@@ ruby
+    @@@ruby
     # app/models/article.rb
     
     class Article < ActiveRecord::Base

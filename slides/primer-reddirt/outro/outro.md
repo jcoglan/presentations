@@ -1,7 +1,7 @@
 !SLIDE
 # Thank you!
 
-    @@@ ruby
+    @@@ruby
     @moar_info = {
       :me       => 'http://jcoglan.com',
       :twitter  => '@jcoglan',

@@ -10,7 +10,7 @@
 !SLIDE
 # Thanks
 
-    @@@ javascript
+    @@@javascript
     var moar = { me:      'http://jcoglan.com'
                , github:  'http://github.com/jcoglan'
                , jsclass: 'http://jsclass.jcoglan.com'

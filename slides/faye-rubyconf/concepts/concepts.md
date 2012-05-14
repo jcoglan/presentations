@@ -5,7 +5,7 @@
 !SLIDE
 # You’re already doing it
 
-    @@@ ruby
+    @@@ruby
     class BlogPostsController < ApplicationController
       def create
         @post = BlogPost.create(params[:blog_post])
@@ -43,7 +43,7 @@ retention and protection and hiding of state-process.”
 !SLIDE
 # Continuation-passing style
 
-    @@@ ruby
+    @@@ruby
     # Blocking
     
     response = HTTParty.post(url, :query => {:q => 'blocking'})

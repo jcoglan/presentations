@@ -12,7 +12,7 @@
 !SLIDE
 # How do I use it?
 
-    @@@ javascript
+    @@@javascript
     // server.js ================
     
     var Faye = require('faye');

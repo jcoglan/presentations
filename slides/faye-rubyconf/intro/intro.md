@@ -22,7 +22,7 @@
 !SLIDE
 # Ruby server
 
-    @@@ ruby
+    @@@ruby
     # config.ru
     
     require 'faye'
@@ -34,7 +34,7 @@
 !SLIDE
 # JavaScript client
 
-    @@@ javascript
+    @@@javascript
     // client.js
     
     var host   = 'http://localhost:9292/bayeux',
@@ -50,7 +50,7 @@
 !SLIDE
 # Ruby client
 
-    @@@ ruby
+    @@@ruby
     # client.rb
     
     require 'faye'
@@ -71,7 +71,7 @@
 !SLIDE
 # Message passing
 
-    @@@ javascript
+    @@@javascript
     // In Ruby...
     
     ruby_client.publish('/foo', 'hello' => 'world')

@@ -11,7 +11,7 @@
 !SLIDE
 # Objects
 
-    @@@ javascript
+    @@@javascript
     // object literal
     user = {"name": "jcoglan", "company": "Songkick"};
     

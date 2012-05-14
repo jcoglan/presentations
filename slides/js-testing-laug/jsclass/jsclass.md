@@ -9,7 +9,7 @@
 !SLIDE
 # Making classes
 
-    @@@ javascript
+    @@@javascript
     OrderedHash = new JS.Class('OrderedHash', {
       include: JS.Enumerable,
       
@@ -26,9 +26,8 @@
 !SLIDE
 # Loading code
 
-    @@@ javascript
+    @@@javascript
     JS.Packages(function() { with(this) {
-      
       file('/lib/js/ordered_hash.js')
         .provides('OrderedHash')
         .requires('JS.Class', 'JS.Enumerable')
@@ -48,9 +47,8 @@
 !SLIDE
 # Loading code
 
-    @@@ javascript
+    @@@javascript
     JS.Packages(function() { with(this) {
-      
       file('https://www.google.com/jsapi?key=INSERT-YOUR-KEY')
         .provides('google.load')
       
@@ -70,9 +68,8 @@
 !SLIDE
 # Loading code
 
-    @@@ javascript
+    @@@javascript
     JS.Packages(function() { with(this) {
-      
       autoload(/^(.*)Spec$/, {
                from: 'test/specs',
                require: '$1' })

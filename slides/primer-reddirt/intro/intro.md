@@ -18,7 +18,7 @@
 !SLIDE
 # Who enjoys this?
 
-    @@@ ruby
+    @@@ruby
     <% cache(:action_suffix => "all_topics") do %>
       <%= Topic.find(:all).map { ... } %>
     <% end %>
@@ -60,7 +60,7 @@
 !SLIDE
 # Isn’t this enough?
 
-    @@@ ruby
+    @@@ruby
     <% cache "/concerts/#{@concert.id}/title" do %>
       <%= @concert.title.upcase %>
     <% end %>

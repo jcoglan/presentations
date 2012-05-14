@@ -28,7 +28,7 @@
 !SLIDE
 # Default values
 
-    @@@ javascript
+    @@@javascript
     var myFunc = function(x) {
       x = x || 5;
       alert(x);

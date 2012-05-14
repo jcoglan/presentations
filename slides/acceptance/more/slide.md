@@ -5,7 +5,7 @@
 !SLIDE
 # Custom validators
 
-    @@@ javascript
+    @@@javascript
     Acceptance.form('new_user').
     requires('user[email]').
     toBeUnique({model: 'User', field: 'email'},
@@ -15,7 +15,7 @@
 !SLIDE
 # Custom validators
 
-    @@@ javascript
+    @@@javascript
     Acceptance.macro('toBeUnique', function(settings, message) {
       return function(result, validation) {
         var value = validation.getValue(),
@@ -37,7 +37,7 @@
 !SLIDE
 # Custom validators
 
-    @@@ ruby
+    @@@ruby
     class ValidationGenerator < Acceptance::DefaultGenerator
       validate :uniqueness do |validation|
         <<-SCRIPT

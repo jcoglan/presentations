@@ -25,7 +25,7 @@
 !SLIDE
 # Never block
 
-    @@@ javascript
+    @@@javascript
     var http = require('http');
     
     var server = http.createServer(
@@ -58,7 +58,7 @@
 !SLIDE
 # NodeAdapter
 
-    @@@ javascript
+    @@@javascript
     Faye.NodeAdapter = function(options) {
       this._options = {};
       this._server  = new Faye.Server();
@@ -80,7 +80,7 @@
 !SLIDE
 # NodeAdapter
 
-    @@@ javascript
+    @@@javascript
     // Incoming request:
     // GET /?message={...}&jsonp=blah
     
@@ -103,7 +103,7 @@
 !SLIDE
 # Server
 
-    @@@ javascript
+    @@@javascript
     Faye.Server = function() {
       this._channels    = new Faye.Channel.Tree();
       this._connections = {};
@@ -113,7 +113,7 @@
 !SLIDE
 # Server
     
-    @@@ javascript
+    @@@javascript
     // message = { "channel":  "/some/channel",
     //             "clientId": "p780cnvop2",
     //             "data":     {"hello": "world"}
@@ -135,7 +135,7 @@
 !SLIDE
 # Server
 
-    @@@ javascript
+    @@@javascript
     Faye.Server.prototype.
         acceptConnection = function(message, callback, scope) {
           var clientId   = message.clientId,
@@ -158,7 +158,7 @@
 !SLIDE
 # Server
 
-    @@@ javascript
+    @@@javascript
     Faye.Server.prototype.
         distributeMessage = function(message) {
           var channelName = message.channel,
@@ -173,7 +173,7 @@
 !SLIDE
 # Channel
 
-    @@@ javascript
+    @@@javascript
     Faye.Channel = function(name) {
       this._name = name;
     };
@@ -190,7 +190,7 @@
 !SLIDE
 # Connection
 
-    @@@ javascript
+    @@@javascript
     Faye.Connection = function(clientId) {
       this._clientId = clientId;
       this._channels = new Faye.Set();

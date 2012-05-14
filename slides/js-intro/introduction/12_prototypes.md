@@ -9,7 +9,7 @@
 !SLIDE
 # Prototypes
 
-    @@@ javascript
+    @@@javascript
     var object1 = {name: "jcoglan"};
     var object2 = {company: "Songkick"};
     

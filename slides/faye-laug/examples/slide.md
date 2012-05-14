@@ -9,7 +9,7 @@ store their details and log the event with Analytics.
 !SLIDE
 # Example
 
-    @@@ javascript
+    @@@javascript
     $('a.facebook-connect').bind('click', function() {
       FB.login(function(response) {
         if (!response.session) return;
@@ -26,7 +26,7 @@ store their details and log the event with Analytics.
 !SLIDE
 ## 1. Separate DOM from business logic
 
-    @@@ javascript
+    @@@javascript
     Facebook = {
       connect: function() {
         FB.login(function(response) {
@@ -49,7 +49,7 @@ store their details and log the event with Analytics.
 !SLIDE
 ## 2. Defer actions until login
 
-    @@@ javascript
+    @@@javascript
     Facebook = {
       connect: function() {
         this.login(this.authenticate, this);
@@ -68,7 +68,7 @@ store their details and log the event with Analytics.
 !SLIDE
 ## 2. Defer actions until login
 
-    @@@ javascript
+    @@@javascript
     $.extend(Facebook, Deferrable);
     
     Facebook.login = function(callback, scope) {
@@ -88,7 +88,7 @@ store their details and log the event with Analytics.
 !SLIDE
 ## 3. Separate logging with events
 
-    @@@ javascript
+    @@@javascript
     $.extend(Facebook, Observable);
     
     Facebook.authenticate = function() {

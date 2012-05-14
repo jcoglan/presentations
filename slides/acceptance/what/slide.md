@@ -11,7 +11,7 @@
 !SLIDE
 # Have validations
 
-    @@@ ruby
+    @@@ruby
     class User < ActiveRecord::Base
       extend Acceptance::ReflectsOnValidations
       
@@ -24,7 +24,7 @@
 !SLIDE
 # Have a form
 
-    @@@ html
+    @@@html
     <% validated_form_for(@user) do |f| %>
       <%= f.text_field :email %>
       <%= f.password_field :password %>
@@ -37,7 +37,7 @@
 !SLIDE
 # Get JavaScript
 
-    @@@ javascript
+    @@@javascript
     Acceptance.form('new_user').
     requires('user[email]').toMatch(/^[a-z0-9@.-]+$/i);
     
@@ -56,7 +56,7 @@
 !SLIDE
 # Reflect on your validations
 
-    @@@ ruby
+    @@@ruby
     v = User.reflect_on_validations_for :email
     # => [ #<Acceptance::Reflections::Presence>,
     #      #<Acceptance::Reflections::Format>,

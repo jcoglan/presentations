@@ -5,7 +5,7 @@
 !SLIDE
 # JSON representation
 
-    @@@ javascript
+    @@@javascript
     {
       "amp": 0.5, "ampMute": false,
       "share": 0, "shareMute": true,
@@ -30,7 +30,7 @@
 !SLIDE
 # Syncing data
 
-    @@@ javascript
+    @@@javascript
     Performance.prototype.toJSON = function() {
       return {
         channels: this._channels.map(function(c) {

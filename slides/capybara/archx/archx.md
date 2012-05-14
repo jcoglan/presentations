@@ -6,7 +6,7 @@
 !SLIDE
 # Capybara internals
 
-    @@@ ruby
+    @@@ruby
                   Capybara::DSL
                         |
                         |
@@ -21,7 +21,7 @@
 !SLIDE
 # DSL >> Object Model
 
-    @@@ ruby
+    @@@ruby
             session.click_link "Sign up!"
                         |
                         |
@@ -36,7 +36,7 @@
 !SLIDE
 # Messaging
 
-    @@@ ruby
+    @@@ruby
     ruby
     /-----------------------\
     | click_link "Sign up!" |

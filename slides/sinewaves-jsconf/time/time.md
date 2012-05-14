@@ -27,7 +27,7 @@ Resolution: 2 ^ -3 seconds
 !SLIDE
 # Time client
 
-    @@@ javascript
+    @@@javascript
     c.publish('/time', {
       clientId: unique_id,
       t0:       currentTime()
@@ -46,7 +46,7 @@ Resolution: 2 ^ -3 seconds
 !SLIDE
 # Time server
 
-    @@@ javascript
+    @@@javascript
     
     s.subscribe('/time', function(message) {
       var received = currentTime(),

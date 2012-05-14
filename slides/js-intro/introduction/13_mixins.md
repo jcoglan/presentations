@@ -9,7 +9,7 @@
 !SLIDE
 # Mixins
 
-    @@@ javascript
+    @@@javascript
     Object.extend = function(destination, source) {
       for (var key in source) {
         destination[key] = source[key];
@@ -21,7 +21,7 @@
 !SLIDE
 # Mixins
 
-    @@@ javascript
+    @@@javascript
     Enumerable = {
       map: function(block, context) {
         var result = [];
@@ -45,7 +45,7 @@
 !SLIDE
 # Mixins
 
-    @@@ javascript
+    @@@javascript
     Collection = function(list) {
       this._list = list;
     };
@@ -64,7 +64,7 @@
 !SLIDE
 # Mixins
 
-    @@@ javascript
+    @@@javascript
     var list = new Collection([1,2,3,4]);
     
     list.map(function(x) { return x * x })

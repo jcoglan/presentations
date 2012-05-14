@@ -12,7 +12,7 @@
 !SLIDE
 # Functions
 
-    @@@ javascript
+    @@@javascript
     // function declaration
     function add(x, y) {
       return x + y;
@@ -36,7 +36,7 @@
 !SLIDE
 # `arguments`
 
-    @@@ javascript
+    @@@javascript
     // All functions have a special `arguments`
     // object. It's array-like, but is not an Array.
     
@@ -57,7 +57,7 @@
 !SLIDE
 # Optional arguments
 
-    @@@ javascript
+    @@@javascript
     // There's no syntax support for objects as final
     // arguments. e.g. you cannot do, as in Ruby:
     hasMany("artists", through: "trackings")
@@ -81,7 +81,7 @@
 !SLIDE
 # Closures
 
-    @@@ javascript
+    @@@javascript
     var add = function(x) {
       return function(y) {
         return x + y;
@@ -95,7 +95,7 @@
 !SLIDE
 # Closures
 
-    @@@ javascript
+    @@@javascript
     var makeCounter = function() {
       var count = 0;
       return function() {
@@ -113,7 +113,7 @@
 !SLIDE
 # Closures
 
-    @@@ javascript
+    @@@javascript
     // beware - all timeouts will see the final value of i
     for (var i = 0; i < 10; i += 1) {
       setTimeout(function() {
@@ -141,7 +141,7 @@
 !SLIDE
 # Closures as templates
 
-    @@@ javascript
+    @@@javascript
     var log = function(pseudoUrl) {
       return function() {
         pageTracker._trackPageview("/behavior/" + pseudoUrl);

@@ -5,7 +5,7 @@
 !SLIDE
 # Watch the models
 
-    @@@ ruby
+    @@@ruby
     class Artist < ActiveRecord::Base
       has_many :performances
       has_many :concerts, :through => :performances
@@ -18,7 +18,7 @@
 !SLIDE
 # Add view helper
 
-    @@@ ruby
+    @@@ruby
     # Sinatra
     helpers { include Primer::Helpers::ERB }
     
@@ -31,7 +31,7 @@
 !SLIDE
 # Configure cache
 
-    @@@ ruby
+    @@@ruby
     Primer.cache = Primer::Cache::Redis.new
     Primer.cache.bind_to_bus
 
@@ -39,7 +39,7 @@
 !SLIDE bullets
 # Cache your output
 
-    @@@ html
+    @@@html
     <% primer "/concerts/#{@concert.id}/summary" do %>
       
       <h1><%= @concert.date.strftime('%A %e %B %Y') %></h1>

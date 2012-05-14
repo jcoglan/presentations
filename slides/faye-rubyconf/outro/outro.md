@@ -1,7 +1,7 @@
 !SLIDE
 # Further reading
 
-    @@@ ruby
+    @@@ruby
     @sites = { :me   => 'http://jcoglan.com',
                :blog => 'http://blog.jcoglan.com',
                :code => 'http://github.com/jcoglan',

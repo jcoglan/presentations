@@ -12,7 +12,7 @@
 !SLIDE
 # RackAdapter
 
-    @@@ ruby
+    @@@ruby
     class Faye::RackAdapter
       def initialize(options = {})
         @options = options
@@ -29,7 +29,7 @@
 !SLIDE
 # RackAdapter
 
-    @@@ ruby
+    @@@ruby
     # POST /bayeux '{"channel": "..."}'
     
     class Faye::RackAdapter
@@ -53,7 +53,7 @@
 !SLIDE
 # Server
 
-    @@@ ruby
+    @@@ruby
     class Faye::Server
       def initialize
         @channels    = Channel::Tree.new
@@ -65,7 +65,7 @@
 !SLIDE
 # Server
 
-    @@@ ruby
+    @@@ruby
     # message = { 'id'       => '60esy10j',
     #             'channel'  => '/some/channel',
     #             'clientId' => '85b1xuzz',
@@ -92,7 +92,7 @@
 !SLIDE
 # Server
 
-    @@@ ruby
+    @@@ruby
     class Faye::Server
       def accept_connection(message, &callback)
         client_id  = message['clientId']
@@ -110,7 +110,7 @@
 !SLIDE
 # Server
 
-    @@@ ruby
+    @@@ruby
     class Faye::Server
       def add_subscription(message, &callback)
         connection   = get_connection(message['clientId'])
@@ -128,7 +128,7 @@
 !SLIDE
 # Server
 
-    @@@ ruby
+    @@@ruby
     class Faye::Server
       def distribute_message(message, &callback)
         channel_name = message['channel']
@@ -147,7 +147,7 @@
 !SLIDE
 # Channel
 
-    @@@ ruby
+    @@@ruby
     class Faye::Channel
       include Publisher
       
@@ -164,7 +164,7 @@
 !SLIDE
 # Connection
 
-    @@@ ruby
+    @@@ruby
     class Faye::Connection
       include Deferrable
       

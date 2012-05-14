@@ -17,7 +17,7 @@
 !SLIDE
 # Simple generator
 
-    @@@ javascript
+    @@@javascript
     var audio = new Audio();
     audio.mozSetup(2, 44100);
     
@@ -33,7 +33,7 @@
 !SLIDE
 # Note sample generator
 
-    @@@ javascript
+    @@@javascript
     Note.prototype.timeSlice = 
     
     function(time, interval, rate) {
@@ -53,7 +53,7 @@
 !SLIDE
 # Note value over time
 
-    @@@ javascript
+    @@@javascript
     Note.prototype.valueAt = 
     
     function(time) {
@@ -73,7 +73,7 @@
 !SLIDE
 # Discontinuous output
 
-    @@@ javascript
+    @@@javascript
     
     t =  0 -> write([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
     t = 10 -> write([10,11,12,13,14,15,16,17,18,19])
@@ -88,7 +88,7 @@
 !SLIDE
 # Improved generator
 
-    @@@ javascript
+    @@@javascript
     var audio = new Audio();
     audio.mozSetup(2, 44100);
     
@@ -106,7 +106,7 @@
 !SLIDE
 # User input
 
-    @@@ javascript
+    @@@javascript
     var notes = {};
     
     $(document).keydown(function(e) {
@@ -128,7 +128,7 @@
 !SLIDE
 # Recording
 
-    @@@ javascript
+    @@@javascript
     var recording = new Recording()
     
     $(document).keydown(function(e) {
@@ -149,7 +149,7 @@
 !SLIDE
 # Playback
 
-    @@@ javascript
+    @@@javascript
     recording = {
       "duration": 8200,
       "events": [

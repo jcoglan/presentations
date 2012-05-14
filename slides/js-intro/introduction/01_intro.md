@@ -23,7 +23,7 @@
 !SLIDE
 # Brendan Eich:
 
-    @@@ javascript
+    @@@javascript
     // 'I was recruited to Netscape with the promise
     //  of "doing Scheme" in the browser.'
     
@@ -45,7 +45,7 @@
 !SLIDE
 # Netscape:
 
-    @@@ javascript
+    @@@javascript
     public interface RequestProcessorFactoryFactory {
       RequestProcessorFactory
           getRequestProcessorFactory(java.lang.class pClass)

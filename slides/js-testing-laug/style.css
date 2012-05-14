@@ -30,9 +30,14 @@ h2 {
   font-size: 2.5em;
 }
 
+pre, code {
+  font-size: 65%;
+}
 pre {
-  font-size: 2em;
-  padding: 2em;
+  padding: 0 0.5em;
+}
+.commandline pre {
+  font-size: 3em;
 }
 
 .callout h1 {

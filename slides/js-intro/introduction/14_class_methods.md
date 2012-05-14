@@ -10,7 +10,7 @@
 !SLIDE
 # Class methods
 
-    @@@ javascript
+    @@@javascript
     Person = function(name, company) {
       this._name = name;
       this._company = company;

@@ -8,7 +8,7 @@
 !SLIDE
 # Lazy-loading
 
-    @@@ ruby
+    @@@ruby
     # Don't load the model
     concert = Concert.find(1)
     
@@ -22,7 +22,7 @@
 !SLIDE
 # SSI integration
 
-    @@@ ruby
+    @@@ruby
     # view.html.erb
     <%= primer "/some/cache/key" %>
     # => <!--# include virtual="/primer/some/cache/key" -->
@@ -43,7 +43,7 @@
 !SLIDE
 # SSI integration
 
-    @@@ ruby
+    @@@ruby
     # config.ru
     
     class Application
@@ -63,7 +63,7 @@
 
 !SLIDE
 
-    @@@ ruby
+    @@@ruby
     @moar_info = {
       :primer   => 'http://github.com/jcoglan/primer',
       :me       => 'http://jcoglan.com',

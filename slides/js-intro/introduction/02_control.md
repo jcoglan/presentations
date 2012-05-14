@@ -12,7 +12,7 @@
 !SLIDE
 # `if` / `else`
 
-    @@@ javascript
+    @@@javascript
     // can have a single statement
     if (expression) doSomething();
     
@@ -33,7 +33,7 @@
 !SLIDE
 # `switch`
 
-    @@@ javascript
+    @@@javascript
     // * takes any expression and a bunch of cases
     // * case values can be any expression
     // * cases fall through unless you break
@@ -55,7 +55,7 @@
 !SLIDE
 # `for` and `for in`
 
-    @@@ javascript
+    @@@javascript
     // standard for loop
     for (var i = 0, n = images.length; i < n; i += 1) {
       displayImage(images[i]);
@@ -81,7 +81,7 @@
 !SLIDE
 # `while`
 
-    @@@ javascript
+    @@@javascript
     // checks the expression /before/ each iteration
     
     while (expression) {
@@ -97,7 +97,7 @@
 !SLIDE
 # `try` / `catch` / `finally`
 
-    @@@ javascript
+    @@@javascript
     // Runs the `try` block. If an exception is thrown
     // then runs the `catch` block. The `finally` block
     // is run either way.

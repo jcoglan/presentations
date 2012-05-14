@@ -11,7 +11,7 @@
 !SLIDE bullets
 # Constructors
 
-    @@@ javascript
+    @@@javascript
     var Person = function(name) {
       this.name = name;
     };
@@ -29,7 +29,7 @@
 !SLIDE bullets
 # Constructors
 
-    @@@ javascript
+    @@@javascript
     // the expression `var user = new Person("jcoglan")`
     // is exactly equivalent to:
     

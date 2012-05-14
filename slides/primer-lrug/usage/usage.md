@@ -5,7 +5,7 @@
 !SLIDE
 # Watch the models
 
-    @@@ ruby
+    @@@ruby
     class Artist < ActiveRecord::Base
       has_many :performances
       has_many :concerts, :through => :performances
@@ -18,7 +18,7 @@
 !SLIDE
 # Add view helper
 
-    @@@ ruby
+    @@@ruby
     # Sinatra
     helpers { include Primer::Helpers::ERB }
     
@@ -31,7 +31,7 @@
 !SLIDE
 # Configure cache
 
-    @@@ ruby
+    @@@ruby
     Primer.cache = Primer::Cache::Redis.new
     Primer.cache.bind_to_bus
 
@@ -39,7 +39,7 @@
 !SLIDE bullets
 # Cache your output
 
-    @@@ html
+    @@@html
     <% primer "/concerts/#{@concert.id}/title" do %>
       <%= @concert.title.upcase %>
     <% end %>
@@ -52,7 +52,7 @@
 !SLIDE
 # Don’t write observers!
 
-    @@@ ruby
+    @@@ruby
     >> Primer.cache.get("/concerts/1/title")
     => "OMG IT'S WEB SCALE!"
     
@@ -68,7 +68,7 @@
 !SLIDE
 # Declare generators
 
-    @@@ ruby
+    @@@ruby
     # config/primer.rb
     Primer.cache.routes do
       get '/concerts/:id/title' do
@@ -84,7 +84,7 @@
 !SLIDE
 # It updates automagically
 
-    @@@ ruby
+    @@@ruby
     >> Primer.cache.get("/concerts/1/title")
     => "OMG IT'S WEB SCALE!"
     
@@ -100,7 +100,7 @@
 !SLIDE
 # Precompute data
 
-    @@@ ruby
+    @@@ruby
     class ConcertObserver < ActiveRecord::Observer
       def after_create(concert)
         Primer.cache.compute("/concerts/#{concert.id}/title")
@@ -111,7 +111,7 @@
 !SLIDE
 # Move computing offline
 
-    @@@ ruby
+    @@@ruby
     # config/primer.rb
     Primer.bus = Primer::Bus::AMQP.new
     
@@ -123,7 +123,7 @@
 !SLIDE
 # Throttling
 
-    @@@ ruby
+    @@@ruby
     Primer.cache.throttle = 5
     
     Primer.routes do
@@ -139,7 +139,7 @@
 !SLIDE
 # Real-time updates
 
-    @@@ ruby
+    @@@ruby
     # config/primer.rb
     Primer.real_time = true
     Primer::RealTime.bayeux_server = "http://www.songkick.com"
