@@ -64,7 +64,7 @@
       visit "/signup"
       fill_in "Username", :with => "jcoglan"
       fill_in "Email", :with => "jcoglan@mailinator.com"
-      fill_in "Password", :with => "correct horse battery"
+      fill_in "Password", :with => "super safe password"
       click_button "Sign up"
       page.should have_content("Welcome, jcoglan!")
     end
@@ -81,7 +81,7 @@
         visit "/signup"
         fill_in "Username", :with => "jcoglan"
         fill_in "Email", :with => "jcoglan@mailinator.com"
-        fill_in "Password", :with => "correct horse battery"
+        fill_in "Password", :with => "super safe password"
         click_button "Sign up"
         page.should_not have_content("Welcome, jcoglan!")
         page.should have_content("Sorry, that name is taken")
@@ -260,6 +260,21 @@
 
 
 !SLIDE
+# Form reloads the page
+
+    @@@javascript
+    $('form').on('submit', function(e) {
+      e.preventDefault();
+      var form = this;
+      
+      // Handle errors ...
+      
+      // OH NOES! This will reload the page
+      form.submit();
+    });
+
+
+!SLIDE
 # Use mocking
 
     @@@javascript
@@ -270,7 +285,7 @@
       
       form.find("#username").val("jcoglan")
       form.find("#email").val("jcoglan@mailinator.com")
-      form.find("#password").val("correct horse battery")
+      form.find("#password").val("super safe password")
       form.submit()
     }})
 
@@ -312,7 +327,7 @@
       
       form.find("#username").val("jcoglan")
       form.find("#email").val("jcoglan@mailinator.com")
-      form.find("#password").val("correct horse battery")
+      form.find("#password").val("super safe password")
       form.submit()
       
       assertEqual( "Sorry, that name is taken",
@@ -378,7 +393,7 @@
           this.data = {
             username: "jcoglan",
             email:    "jcoglan@mailinator.com",
-            password: "correct horse battery"
+            password: "super safe password"
           }
           
           stub(jQuery, "getJSON")
