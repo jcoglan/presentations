@@ -1,7 +1,7 @@
 !SLIDE title
+## http://slides.jcoglan.com
 # Automating testing across the multi-platform web
 ## James Coglan / @jcoglan
-## http://slides.jcoglan.com
 
 
 !SLIDE bullets
