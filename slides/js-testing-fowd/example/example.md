@@ -99,11 +99,11 @@
       with an existing user
         does not allow sign-up with a registered name
 
-    Finished in 17.67 seconds
+    Finished in 20.81 seconds
 
 
 !SLIDE title
-# 3 whole seconds per test?
+# 4 whole seconds per test?
 ## How am I ever going to ship on time?
 
 
