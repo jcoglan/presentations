@@ -59,11 +59,11 @@
     
     it "allows sign-up with valid parameters" do
       visit "/signup"
-      fill_in "Username", :with => "jcoglan"
-      fill_in "Email", :with => "jcoglan@mailinator.com"
+      fill_in "Username", :with => "bob"
+      fill_in "Email", :with => "bob@mailinator.com"
       fill_in "Password", :with => "super safe password"
       click_button "Sign up"
-      page.should have_content("Welcome, jcoglan!")
+      page.should have_content("Welcome, bob!")
     end
 
 
@@ -71,15 +71,15 @@
 
     @@@ruby
     describe "with an existing user" do
-      before { User.create(:username => "jcoglan") }
+      before { User.create(:username => "bob") }
       
       it "does not allow sign-up with a registered name" do
         visit "/signup"
-        fill_in "Username", :with => "jcoglan"
-        fill_in "Email", :with => "jcoglan@mailinator.com"
+        fill_in "Username", :with => "bob"
+        fill_in "Email", :with => "bob@mailinator.com"
         fill_in "Password", :with => "super safe password"
         click_button "Sign up"
-        page.should_not have_content("Welcome, jcoglan!")
+        page.should_not have_content("Welcome, bob!")
         page.should have_content("Sorry, that name is taken")
       end
     end
@@ -219,7 +219,7 @@
     it("displays an error when the user makes a mistake",
     function() { with(this) {
       
-      form.find("#username").val("jcoglan")
+      form.find("#username").val("bob")
       form.find("#email").val("not an email address")
       form.submit()
       
@@ -284,8 +284,8 @@
       
       expect(form[0], "submit") // expect form.submit()
       
-      form.find("#username").val("jcoglan")
-      form.find("#email").val("jcoglan@mailinator.com")
+      form.find("#username").val("bob")
+      form.find("#email").val("bob@mailinator.com")
       form.find("#password").val("super safe password")
       form.submit()
     }})
@@ -323,11 +323,11 @@
     function() { with(this) {
       
       stub(jQuery, "getJSON")
-          .given("/users/jcoglan")
+          .given("/users/bob")
           .yields([{successful: true}])
       
-      form.find("#username").val("jcoglan")
-      form.find("#email").val("jcoglan@mailinator.com")
+      form.find("#username").val("bob")
+      form.find("#email").val("bob@mailinator.com")
       form.find("#password").val("super safe password")
       form.submit()
       
@@ -392,8 +392,8 @@
       describe("validation rules", function() { with(this) {
         before(function() { with(this) {
           this.data = {
-            username: "jcoglan",
-            email:    "jcoglan@mailinator.com",
+            username: "bob",
+            email:    "bob@mailinator.com",
             password: "super safe password"
           }
           
@@ -423,7 +423,7 @@
     it("yields an error if there is an existing user",
     function() { with(this) {
       stub(jQuery, "getJSON")
-          .given("/users/jcoglan")
+          .given("/users/bob")
           .yields([{successful: true}])
       
       App.validate(data, function(errors) {
