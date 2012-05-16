@@ -3,7 +3,6 @@
 ## Client-side form validation
 
 !SLIDE
-# Markup
 
     @@@html
     <form method="post" action="/users/new">
@@ -23,7 +22,6 @@
 
 
 !SLIDE
-# JavaScript
 
     @@@javascript
     form.on('submit', function(e) {
@@ -54,7 +52,6 @@
 
 
 !SLIDE
-# Selenium, via Capybara
 
     @@@ruby
     Capybara.default_driver = :selenium
@@ -71,7 +68,6 @@
 
 
 !SLIDE
-# Selenium, via Capybara
 
     @@@ruby
     describe "with an existing user" do
@@ -158,9 +154,10 @@
 
 
 !SLIDE
-# Runner script
 
     @@@javascript
+    // spec/js/runner.js
+    
     JS.Packages(function() { with(this) {
       file('http://code.jquery.com/jquery-1.7.2.min.js')
         .provides('jQuery')
@@ -178,9 +175,10 @@
 
 
 !SLIDE
-# Set up a use case
 
     @@@javascript
+    // spec/js/app_spec.js
+    
     AppSpec = JS.Test.describe("App", function() { with(this) {
       before(function() { with(this) {
         $("#fixture").html('\
@@ -199,9 +197,10 @@
 
 
 !SLIDE
-# Clean up afterwards
 
     @@@javascript
+    // spec/js/app_spec.js
+    
       after(function() { with(this) {
         $("#fixture").empty()
       }})
@@ -213,9 +212,10 @@
 
 
 !SLIDE
-# Add test examples
 
     @@@javascript
+    // spec/js/app_spec.js
+    
     it("displays an error when the user makes a mistake",
     function() { with(this) {
       
@@ -229,9 +229,10 @@
 
 
 !SLIDE
-# Extract inline JS into module
 
     @@@javascript
+    // lib/public/app.js
+    
     App = {
       setupListeners: function(form) {
         form.on('submit', function(e) {
