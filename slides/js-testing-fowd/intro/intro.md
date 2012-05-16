@@ -8,7 +8,7 @@
 # Who am I?
 * Full-stack developer at Songkick
 * Open-source Ruby and JavaScript developer
-* Author of Faye, JS.Class, Bluff, Fargo
+* Author of Faye, JS.Class, Vault, Fargo
 
 
 !SLIDE bullets
