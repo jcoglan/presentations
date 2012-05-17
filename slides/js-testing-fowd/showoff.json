@@ -1,6 +1,5 @@
 {
   "name": "Automating testing across the multi-platform web",
-  "encoding": "UTF-8",
   "sections": [
     {"section":"intro"},
     {"section":"example"},

@@ -5,6 +5,7 @@ Dir.entries(dir + '/slides').each do |presentation|
   map '/' + presentation do
     app = Class.new(ShowOff)
     app.pres_dir = dir + '/slides/' + presentation
+    app.encoding = 'UTF-8'
     run app
   end
 end
