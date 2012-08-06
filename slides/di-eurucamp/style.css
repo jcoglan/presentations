@@ -1,0 +1,64 @@
+body {
+  font-family: FreeSans, Helvetica, Arial, sans-serif;
+}
+
+body, #preso, .slide, pre.sh_sourceCode, code {
+  background-color: #191818;
+  box-shadow: none;
+  color: #00D4FF;
+}
+
+#footer {
+  display: none;
+}
+
+.title h1, .bullets h1 {
+  font-size: 500%;
+  font-weight: bold;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.title h2, .bullets h2, .bullets ul {
+  color: #73AD43;
+  font-size: 250%;
+  font-weight: normal;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.bullets ul li {
+  list-style: disc inside;
+  margin: 0;
+  padding: 0.2em 0;
+  text-align: left;
+}
+
+pre, code {
+  font-size: 72%;
+}
+.commandline pre {
+  font-size: 4em;
+  font-weight: bold;
+}
+pre.sh_sourceCode .sh_string {
+  color: #73AD43;
+  font-weight: bold;
+}
+pre.sh_sourceCode .sh_keyword {
+  color: #fff;
+}
+pre.sh_sourceCode .sh_cbracket, pre.sh_sourceCode .sh_symbol {
+  color: #FF00A2;
+}
+pre.sh_sourceCode .sh_type {
+  color: #73AD43;
+}
+pre.sh_sourceCode .sh_function {
+  color: #00D4FF;
+}
+
+h1 {
+  font-weight: bold;
+  letter-spacing: -0.05em;
+}
