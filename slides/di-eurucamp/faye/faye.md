@@ -31,7 +31,7 @@
       end
       
       def get_user(name)
-        data = @http.get("/users/#{name}").data
+        data = @http.get("/users/#{name}").json_data
         Models::User.new(data)
       end
     end
