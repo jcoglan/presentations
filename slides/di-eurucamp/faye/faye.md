@@ -14,7 +14,7 @@
         response = http.request_get(u.path)
         if response.code == '200'
           data = JSON.parse(response.body)
-          Models::User.new(data)
+          Github::User.new(data)
         else
           raise NotFound
         end
@@ -32,7 +32,7 @@
       
       def get_user(name)
         data = @http.get("/users/#{name}").json_data
-        Models::User.new(data)
+        Github::User.new(data)
       end
     end
 
