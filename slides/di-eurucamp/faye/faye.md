@@ -7,8 +7,8 @@
 
     @@@ruby
     class Github::Client
-      def get_user(username)
-        u = URI.parse('https://api.github.com/users/jcoglan')
+      def get_user(name)
+        u = URI.parse("https://api.github.com/users/#{name}")
         http = Net::HTTP.new(u.host, u.port)
         http.use_ssl = true
         response = http.request_get(u.path)
@@ -30,8 +30,8 @@
         @http = http_client
       end
       
-      def get_user(username)
-        data = @http.get("/users/#{username}").data
+      def get_user(name)
+        data = @http.get("/users/#{name}").data
         Models::User.new(data)
       end
     end
