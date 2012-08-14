@@ -18,10 +18,6 @@
 # It’s about making decisions
 
 !SLIDE title
-# Let’s talk about Rails
-## Bear with me, this won’t take long
-
-!SLIDE title
 # Is your code SOLID?
 ## aka, “Won’t somebody _please_ think of the children?”
 

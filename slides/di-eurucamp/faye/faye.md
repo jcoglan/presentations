@@ -6,15 +6,35 @@
 # What is DI?
 
     @@@ruby
-    class Logger                class Logger
-      def info(message)           def initialize(output)
-        STDOUT.puts(message)        @output = output
-      end                         end
-    end                           
-                                  def info(message)
-                                    @output.puts(message)
-                                  end
-                                end
+    class Github::Client
+      def get_user(username)
+        u = URI.parse('https://api.github.com/users/jcoglan')
+        http = Net::HTTP.new(u.host, u.port)
+        http.use_ssl = true
+        response = http.request_get(u.path)
+        if response.code == '200'
+          data = JSON.parse(response.body)
+          Models::User.new(data)
+        else
+          raise NotFound
+        end
+      end
+    end
+
+!SLIDE
+# What is DI?
+
+    @@@ruby
+    class Github::Client
+      def initialize(http_client)
+        @http = http_client
+      end
+      
+      def get_user(username)
+        data = @http.get("/users/#{username}").data
+        Models::User.new(data)
+      end
+    end
 
 !SLIDE title
 # What is DI _for_?
