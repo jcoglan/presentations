@@ -34,11 +34,11 @@
 # They are _observations_
 
 !SLIDE title
-# You’re not doing _true_ OO
+# “You’re not doing _true_ OO”
 ## #unhelpfulneckbeardadvice
 
 !SLIDE title
-# You’re reinventing Java!
+# “You’re reinventing Java!”
 ## #shitmyteamleadsays
 
 !SLIDE title

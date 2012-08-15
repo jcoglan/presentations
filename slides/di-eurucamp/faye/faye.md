@@ -13,8 +13,7 @@
         http.use_ssl = true
         response = http.request_get(u.path)
         if response.code == '200'
-          data = JSON.parse(response.body)
-          Github::User.new(data)
+          JSON.parse(response.body)
         else
           raise NotFound
         end
