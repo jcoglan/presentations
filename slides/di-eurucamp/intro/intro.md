@@ -39,7 +39,7 @@
 
 !SLIDE title
 # “You’re reinventing Java!”
-## #shitmyteamleadsays
+## #shithackernewssays
 
 !SLIDE title
 # Your job is not about making Alan Kay happy

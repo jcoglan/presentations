@@ -40,7 +40,7 @@
 
 !SLIDE title
 # Wrong.
-## If you said ‘testing’, you lose ten internets
+## If you said ‘testing’, you owe me a beer
 
 !SLIDE title
 # s/testable/usable/
@@ -77,14 +77,14 @@
 
     @@@javascript
     // Client -> Server
-    { "clientId":     "cpym7ufcmkebx4nnki5loe36f",
-      "channel":      "/meta/subscribe",
+    { "channel":      "/meta/subscribe",
+      "clientId":     "cpym7ufcmkebx4nnki5loe36f",
       "subscription": "/foo"
     }
     
     // Server -> Client
-    { "clientId":   "cpym7ufcmkebx4nnki5loe36f",
-      "channel":    "/meta/subscribe",
+    { "channel":    "/meta/subscribe",
+      "clientId":   "cpym7ufcmkebx4nnki5loe36f",
       "successful": true
     }
 

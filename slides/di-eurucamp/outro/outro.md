@@ -10,7 +10,7 @@
 
 !SLIDE title
 # Write better case studies
-## Code might not be the right tool
+## Real-world experience > toy examples
 
 !SLIDE title
 # Focus on usability
