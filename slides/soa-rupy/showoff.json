@@ -1,0 +1,7 @@
+{
+  "name": "Breaking the big ball of mud",
+  "sections": [
+    {"section":"intro"},
+    {"section":"dependencies"}
+  ]
+}

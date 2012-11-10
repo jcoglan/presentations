@@ -1,0 +1,101 @@
+body {
+  font-family: FreeSans, Helvetica, Arial, sans-serif;
+}
+
+body, #preso, .slide, pre.sh_sourceCode, pre.sh_sourceCode .sh_preproc, code {
+  background-color: #003;
+  box-shadow: none;
+  color: #E20031;
+}
+
+#footer {
+  display: none;
+}
+
+.title h1, .bullets h1 {
+  font-size: 480%;
+  font-weight: bold;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.title h2, .bullets h2, .bullets ul {
+  color: #FFF;
+  font-size: 250%;
+  font-weight: normal;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.bullets ul li {
+  list-style: disc inside;
+  margin: 0;
+  padding: 0.2em 0;
+  text-align: left;
+}
+
+pre, code {
+  font-size: 72%;
+}
+.commandline pre {
+  font-size: 4em;
+  font-weight: bold;
+}
+pre.sh_sourceCode .sh_string {
+  color: #FFF;
+}
+pre.sh_sourceCode .sh_keyword {
+  color: #fff;
+}
+pre.sh_sourceCode .sh_cbracket, pre.sh_sourceCode .sh_symbol {
+  color: #FFF;
+}
+pre.sh_sourceCode .sh_type {
+  color: #FFF;
+}
+pre.sh_sourceCode .sh_function {
+  color: #00D4FF;
+}
+
+h1 {
+  font-weight: bold;
+  letter-spacing: -0.05em;
+}
+
+.gems:after {
+  content: "";
+  clear: both;
+  display: block;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.gems ul {
+  float: left;
+  font-size: 80%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 20%;
+}
+
+.content.gems li {
+  padding: 0 0 0 0;
+}
+
+.gems em {
+  color: #FFF;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.dependencies img {
+  border: 10px solid #FFF;
+  width: 90%;
+}
+
+.listing code {
+  color: #FFF !important;
+}
+
