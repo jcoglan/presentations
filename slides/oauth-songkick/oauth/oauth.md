@@ -354,7 +354,7 @@ It receives:
 !SLIDE bullets
 # Resources
 * http://tools.ietf.org/html/draft-ietf-oauth-v2-10
-* http://www.rfc-editor.org/rfc/rfc6749.txt
+* http://www.ietf.org/rfc/rfc6749.txt
 * http://gist.github.com/3054344
 * http://hueniverse.com/2012/07/oauth-2-0-and-the-road-to-hell/
 
