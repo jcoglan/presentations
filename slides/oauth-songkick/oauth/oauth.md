@@ -148,7 +148,8 @@ It receives:
     redirect_uri=https%3A%2F%2Fprinter.com%2Fcallback&
     grant_type=password&
     username=alice&
-    password=p455w0rd
+    password=p455w0rd&
+    scope=photos%20friends_photos
 
 
 !SLIDE
@@ -159,7 +160,8 @@ It receives:
     Authorization: Basic czZCaGRSa3F0Mzo3RmpmcDBaQnIxS3REUmJuZlZkbUl3
     
     redirect_uri=https%3A%2F%2Fprinter.com%2Fcallback&
-    grant_type=client_credentials
+    grant_type=client_credentials&
+    scope=photos%20friends_photos
 
 
 !SLIDE
@@ -171,7 +173,8 @@ It receives:
     
     redirect_uri=https%3A%2F%2Fprinter.com%2Fcallback&
     grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Asaml2-bearer&
-    assertion=PEFzc2VydGlvbiBJc3N1ZUluc3RhbnQ9IjIwMTEtMDU
+    assertion=PEFzc2VydGlvbiBJc3N1ZUluc3RhbnQ9IjIwMTEtMDU&
+    scope=photos%20friends_photos
 
 
 !SLIDE
@@ -184,7 +187,8 @@ It receives:
     redirect_uri=https%3A%2F%2Fprinter.com%2Fcallback&
     grant_type=assertion&
     assertion_type=https%3A%2F%2Fgraph.facebook.com%2Fme&
-    assertion=AAAAdrtydtr6r87mr6798
+    assertion=AAAAdrtydtr6r87mr6798&
+    scope=photos%20friends_photos
 
 
 !SLIDE
@@ -338,6 +342,7 @@ It receives:
 * Many ways of doing the same thing
 * Spec is bloated and terrible documentation
 * Incompatible implementations
+* The largest deployment of it (Facebook) is full of bugs
 * So bad the chief editor quit in disgust
 
 
@@ -351,4 +356,5 @@ It receives:
 * http://tools.ietf.org/html/draft-ietf-oauth-v2-10
 * http://www.rfc-editor.org/rfc/rfc6749.txt
 * http://gist.github.com/3054344
+* http://hueniverse.com/2012/07/oauth-2-0-and-the-road-to-hell/
 
