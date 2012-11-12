@@ -118,7 +118,6 @@ It receives:
     POST /oauth/exchange HTTP/1.1
     Host: fotos.com
     Content-Type: application/x-www-form-urlencoded
-    Content-Length: 165
     
     client_id=s6BhdRkqt3&
     client_secret=7Fjfp0ZBr1KtDRbnfVdmIw&
@@ -132,7 +131,6 @@ It receives:
     POST /oauth/exchange HTTP/1.1
     Host: fotos.com
     Content-Type: application/x-www-form-urlencoded
-    Content-Length: 107
     Authorization: Basic czZCaGRSa3F0Mzo3RmpmcDBaQnIxS3REUmJuZlZkbUl3
     
     redirect_uri=https%3A%2F%2Fprinter.com%2Fcallback&
@@ -145,7 +143,6 @@ It receives:
     POST /oauth/exchange HTTP/1.1
     Host: fotos.com
     Content-Type: application/x-www-form-urlencoded
-    Content-Length: 102
     Authorization: Basic czZCaGRSa3F0Mzo3RmpmcDBaQnIxS3REUmJuZlZkbUl3
     
     redirect_uri=https%3A%2F%2Fprinter.com%2Fcallback&
@@ -159,7 +156,6 @@ It receives:
     POST /oauth/exchange HTTP/1.1
     Host: fotos.com
     Content-Type: application/x-www-form-urlencoded
-    Content-Length: 79
     Authorization: Basic czZCaGRSa3F0Mzo3RmpmcDBaQnIxS3REUmJuZlZkbUl3
     
     redirect_uri=https%3A%2F%2Fprinter.com%2Fcallback&
@@ -171,7 +167,6 @@ It receives:
     POST /oauth/exchange HTTP/1.1
     Host: fotos.com
     Content-Type: application/x-www-form-urlencoded
-    Content-Length: 170
     Authorization: Basic czZCaGRSa3F0Mzo3RmpmcDBaQnIxS3REUmJuZlZkbUl3
     
     redirect_uri=https%3A%2F%2Fprinter.com%2Fcallback&
@@ -184,7 +179,6 @@ It receives:
     POST /oauth/exchange HTTP/1.1
     Host: fotos.com
     Content-Type: application/x-www-form-urlencoded
-    Content-Length: 155
     Authorization: Basic czZCaGRSa3F0Mzo3RmpmcDBaQnIxS3REUmJuZlZkbUl3
     
     redirect_uri=https%3A%2F%2Fprinter.com%2Fcallback&
@@ -248,7 +242,6 @@ It receives:
     PUT /photos HTTP/1.1
     Host: api.fotos.com
     Content-Type: application/x-www-form-urlencoded
-    Content-Length: 35
     
     access_token=2YotnFZFEjr1zCsicMWpAA
 
