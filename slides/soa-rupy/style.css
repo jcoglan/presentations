@@ -12,10 +12,12 @@ body, #preso, .slide, pre.sh_sourceCode, pre.sh_sourceCode .sh_preproc, code {
   display: none;
 }
 
-.title h1, .bullets h1 {
+h1 {
   font-size: 480%;
   font-weight: bold;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
+}
+.title h1, .bullets h1 {
   text-align: left;
 }
 
@@ -34,32 +36,26 @@ body, #preso, .slide, pre.sh_sourceCode, pre.sh_sourceCode .sh_preproc, code {
   text-align: left;
 }
 
+.image p {
+  color: #FFF;
+  font-size: 100%;
+}
+.image img {
+  width: 90%;
+}
+
 pre, code {
   font-size: 72%;
 }
-.commandline pre {
-  font-size: 4em;
-  font-weight: bold;
-}
-pre.sh_sourceCode .sh_string {
-  color: #FFF;
-}
-pre.sh_sourceCode .sh_keyword {
-  color: #fff;
-}
-pre.sh_sourceCode .sh_cbracket, pre.sh_sourceCode .sh_symbol {
-  color: #FFF;
-}
+pre.sh_sourceCode .sh_string,
+pre.sh_sourceCode .sh_keyword,
+pre.sh_sourceCode .sh_cbracket,
+pre.sh_sourceCode .sh_symbol,
 pre.sh_sourceCode .sh_type {
   color: #FFF;
 }
 pre.sh_sourceCode .sh_function {
   color: #00D4FF;
-}
-
-h1 {
-  font-weight: bold;
-  letter-spacing: -0.05em;
 }
 
 blockquote {

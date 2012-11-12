@@ -17,8 +17,8 @@
         batch_processing/
         daemons/
         file_store/
-        object_merging/
         notifications/
+        web_scrapers/
 
 
 !SLIDE bullets
@@ -42,6 +42,12 @@
 * Focus on new features
 * Ignorance of tech debt
 * Small team can cope with complexity
+
+
+!SLIDE image center
+![Rube Goldberg Machine](rube.jpg)
+
+http://www.flickr.com/photos/freshwater2006/693945631/
 
 
 !SLIDE bullets

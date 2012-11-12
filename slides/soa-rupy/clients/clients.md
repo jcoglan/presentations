@@ -47,6 +47,7 @@
 !SLIDE bullets
 # Songkick::Transport
 * JSON over HTTP
-* Same API over Curb HTTParty or Rack::Test
+* Handles serialization and parsing
+* Same API over Curb, HTTParty or Rack::Test
 * All types of errors raise exceptions
 
