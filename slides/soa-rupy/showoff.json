@@ -4,6 +4,7 @@
     {"section":"intro"},
     {"section":"dependencies"},
     {"section":"services"},
-    {"section":"clients"}
+    {"section":"clients"},
+    {"section":"outro"}
   ]
 }
