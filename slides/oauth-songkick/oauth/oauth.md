@@ -93,7 +93,7 @@ It receives:
     Location: https://printer.com/callback?
               code=SplxlOBeZQQYbYS6WxSbIA&
               scope=photos%20friends_photos&
-              state=xhz
+              state=xyz
 
 
 !SLIDE
@@ -356,5 +356,7 @@ It receives:
 * http://tools.ietf.org/html/draft-ietf-oauth-v2-10
 * http://www.ietf.org/rfc/rfc6749.txt
 * http://gist.github.com/3054344
+* http://www.songkick.com/devblog/2012/05/09/fun-with-turtles-how-songkick-uses-oauth-for-just-about-everything/
+* https://sites.google.com/a/songkick.com/sk-central/development/service-apis/oauth-20
 * http://hueniverse.com/2012/07/oauth-2-0-and-the-road-to-hell/
 
