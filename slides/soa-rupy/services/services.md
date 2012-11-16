@@ -25,7 +25,7 @@
 
 
 !SLIDE listing
-# An object-based API
+# An graph-based API
 
     $ curl http://service/concerts/123
     {
