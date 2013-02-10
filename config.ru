@@ -1,3 +1,5 @@
+ENV['BUNDLE_GEMFILE'] = File.expand_path('../vendor/showoff/Gemfile', __FILE__)
+
 require 'rubygems'
 require 'bundler/setup'
 require File.expand_path('../vendor/showoff/lib/showoff', __FILE__)
