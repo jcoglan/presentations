@@ -1,3 +1,5 @@
+require 'rubygems'
+require 'bundler/setup'
 require File.expand_path('../vendor/showoff/lib/showoff', __FILE__)
 
 $dir   = File.expand_path('..', __FILE__)
