@@ -1,0 +1,8 @@
+title "Faye: an Evented Server-Side App"
+
+section "intro"
+section "internals"
+section "patterns"
+section "examples"
+section "testing"
+section "outro"
