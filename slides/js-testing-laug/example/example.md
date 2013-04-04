@@ -6,7 +6,7 @@
 !SLIDE commandline
 
     $ curl 'http://search.twitter.com/search.json?q=@jcoglan'
-    
+
     {
         "results": [{
             "id": 23843942428577792,
@@ -25,12 +25,13 @@
 !SLIDE
 # JavaScript API
 
-    @@@javascript
-    var client = new Twitter()
-    
-    client.search('@jcoglan', function(tweets) {
-      // tweets == [{to_user: 'jcoglan', ...}, ...]
-    })
+```javascript
+var client = new Twitter()
+
+client.search('@jcoglan', function(tweets) {
+  // tweets == [{to_user: 'jcoglan', ...}, ...]
+})
+```
 
 !SLIDE
 # Project layout
@@ -55,55 +56,55 @@
 !SLIDE
 # test/console.js
 
-    @@@javascript
-    JSCLASS_PATH = 'vendor/jsclass';
-    require('../' + JSCLASS_PATH + '/loader')
-    require('./run')
-
+```javascript
+JSCLASS_PATH = 'vendor/jsclass';
+require('../' + JSCLASS_PATH + '/loader')
+require('./run')
+```
 
 !SLIDE
 # test/run.js
 
-    @@@javascript
-    JS.Packages(function() { with(this) {
-      autoload(/^(.*)Spec$/, {
-               from: 'test/specs',
-               require: '$1' })
-      
-      file('source/twitter.js')
-        .provides('Twitter')
-        .requires('JS.Class')
-    }})
-    
-    JS.require('JS.Test', function() {
-      JS.require('TwitterSpec',
-                 function() { JS.Test.autorun() })
-    })
+```javascript
+JS.Packages(function() { with(this) {
+  autoload(/^(.*)Spec$/, {
+           from: 'test/specs',
+           require: '$1' })
 
+  file('source/twitter.js')
+    .provides('Twitter')
+    .requires('JS.Class')
+}})
+
+JS.require('JS.Test', function() {
+  JS.require('TwitterSpec',
+             function() { JS.Test.autorun() })
+})
+```
 
 !SLIDE
 # test/specs/twitter_spec.js
 
-    @@@javascript
-    TwitterSpec = JS.Test.describe("Twitter", function() {
-      before(function() {
-        this.client = new Twitter()
-      })
+```javascript
+TwitterSpec = JS.Test.describe("Twitter", function() {
+  before(function() {
+    this.client = new Twitter()
+  })
 
-      it("yields matching tweets", function(resume) {
-        client.search("@jcoglan", function(tweets) {
-          resume(function() {
-            assertEqual( "jcoglan", tweets[0].to_user )
-          })
-        })
+  it("yields matching tweets", function(resume) {
+    client.search("@jcoglan", function(tweets) {
+      resume(function() {
+        assertEqual( "jcoglan", tweets[0].to_user )
       })
     })
-
+  })
+})
+```
 
 !SLIDE commandline
 
     $ node test/console.js
-    
+
     Error: Cannot find module './source/twitter'
 
 
@@ -112,7 +113,7 @@
     $ mkdir source
     $ touch source/twitter.js
     $ node test/console.js
-    
+
     Error: Expected package at ./source/twitter.js
            to define Twitter
 
@@ -120,14 +121,14 @@
 !SLIDE
 # source/twitter.js
 
-    @@@javascript
-    Twitter = new JS.Class('Twitter')
-
+```javascript
+Twitter = new JS.Class('Twitter')
+```
 
 !SLIDE commandline
 
     $ node test/console.js
-    
+
     Loaded suite Twitter
     Started
     E
@@ -143,32 +144,32 @@
 !SLIDE
 # source/twitter.js
 
-    @@@javascript
-    Twitter = new JS.Class('Twitter', {
-      search: function(query, callback) {
-        var http   = require('http'),
-            host   = 'search.twitter.com',
-            client = http.createClient(80, host)
+```javascript
+Twitter = new JS.Class('Twitter', {
+  search: function(query, callback) {
+    var http   = require('http'),
+        host   = 'search.twitter.com',
+        client = http.createClient(80, host)
 
-        var request = client.request('GET',
-                      '/search.json?q=' + query,
-                      {host: host})
-        
-        request.addListener('response', function(response) {
-          response.addListener('data', function(data) {
-            var tweets = JSON.parse(data).results
-            callback(tweets)
-          })
-        })
-        request.end()
-      }
+    var request = client.request('GET',
+                  '/search.json?q=' + query,
+                  {host: host})
+
+    request.addListener('response', function(response) {
+      response.addListener('data', function(data) {
+        var tweets = JSON.parse(data).results
+        callback(tweets)
+      })
     })
-
+    request.end()
+  }
+})
+```
 
 !SLIDE commandline
 
-    $ node test/console.js 
-    
+    $ node test/console.js
+
     Loaded suite Twitter
     Started
     .
@@ -180,19 +181,19 @@
 !SLIDE
 # test/browser.html
 
-    @@@html
-    <!doctype html>
-    <html>
-      <head>
-        <meta http-equiv="Content-type" content="text/html">
-        <title>Twitter test suite</title>
-      </head>
-      <body>
-        <script src="../vendor/jsclass/loader.js"></script>
-        <script src="../test/run.js"></script>
-      </body>
-    </html>
-
+```html
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html">
+    <title>Twitter test suite</title>
+  </head>
+  <body>
+    <script src="../vendor/jsclass/loader.js"></script>
+    <script src="../test/run.js"></script>
+  </body>
+</html>
+```
 
 !SLIDE center
 # Browser results
@@ -202,44 +203,44 @@
 !SLIDE
 # source/twitter.js
 
-    @@@javascript
-    Twitter = new JS.Class('Twitter', {
-      search: function(query, callback) {
-        if (typeof document === 'object')
-          this.jsonpSearch(query, callback)
-        else
-          this.nodeSearch(query, callback)
-      },
-      
-      // ...
+```javascript
+Twitter = new JS.Class('Twitter', {
+  search: function(query, callback) {
+    if (typeof document === 'object')
+      this.jsonpSearch(query, callback)
+    else
+      this.nodeSearch(query, callback)
+  },
 
+  // ...
+```
 
 !SLIDE
 # source/twitter.js
 
-    @@@javascript
-    // (cont.)
-    
-    jsonpSearch: function(query, callback) {
-      var script  = document.createElement('script')
-      script.type = 'text/javascript'
-      script.src  = 'http://search.twitter.com/search.json?' +
-                    'callback=__twitterCB__&' +
-                    'q=' + query
-      
-      window.__twitterCB__ = function(tweets) {
-        window.__twitterCB__ = undefined
-        callback(tweets.results)
-      }
-      var head = document.getElementsByTagName('head')[0]
-      head.appendChild(script)
-    },
-    
-    nodeSearch: function(query, callback) {
-      // ...
-    }
-  })
+```javascript
+  // (cont.)
 
+  jsonpSearch: function(query, callback) {
+    var script  = document.createElement('script')
+    script.type = 'text/javascript'
+    script.src  = 'http://search.twitter.com/search.json?' +
+                  'callback=__twitterCB__&' +
+                  'q=' + query
+
+    window.__twitterCB__ = function(tweets) {
+      window.__twitterCB__ = undefined
+      callback(tweets.results)
+    }
+    var head = document.getElementsByTagName('head')[0]
+    head.appendChild(script)
+  },
+
+  nodeSearch: function(query, callback) {
+    // ...
+  }
+})
+```
 
 !SLIDE center
 # Browser results
@@ -249,31 +250,32 @@
 !SLIDE
 # source/twitter.js
 
-    @@@javascript
-    Twitter = new JS.Class('Twitter', {
-      search: function(query, callback) {
-        var resource = 'http://search.twitter.com' +
-                       '/search.json?q=' + query
-        
-        Twitter.Net.getJSON(resource, callback)
-      }
-    })
+```javascript
+Twitter = new JS.Class('Twitter', {
+  search: function(query, callback) {
+    var resource = 'http://search.twitter.com' +
+                   '/search.json?q=' + query
 
+    Twitter.Net.getJSON(resource, callback)
+  }
+})
+```
 
 !SLIDE
 # test/specs/twitter_spec.js
 
-    @@@javascript
-    TwitterSpec = JS.Test.describe("Twitter", function() {
-      before(function() {
-        this.client = new Twitter()
-        
-        stub(Twitter.Net, "getJSON")
-            .given("http://search.twitter.com/...")
-            .yields([{to_user: "jcoglan"}])
-      })
-      
-      it("yields matching tweets", function() {
-        // ...
-      })
-    })
+```javascript
+TwitterSpec = JS.Test.describe("Twitter", function() {
+  before(function() {
+    this.client = new Twitter()
+
+    stub(Twitter.Net, "getJSON")
+        .given("http://search.twitter.com/...")
+        .yields([{to_user: "jcoglan"}])
+  })
+
+  it("yields matching tweets", function() {
+    // ...
+  })
+})
+```
