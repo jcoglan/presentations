@@ -7,21 +7,21 @@
 !SLIDE
 # WebSocket API
 
-    @@@javascript
-    var ws = new WebSocket('ws://www.example.com/demo');
-    
-    ws.onopen = function() {
-      ws.send('Hello, World!');
-    };
-    
-    ws.onmessage = function(event) {
-      console.log(event.data);
-    };
-    
-    ws.onclose = function(event) {
-      console.log('close', event.code, event.reason);
-    };
+```javascript
+var ws = new WebSocket('ws://www.example.com/demo');
 
+ws.onopen = function() {
+  ws.send('Hello, World!');
+};
+
+ws.onmessage = function(event) {
+  console.log(event.data);
+};
+
+ws.onclose = function(event) {
+  console.log('close', event.code, event.reason);
+};
+```
 
 !SLIDE bullets
 
@@ -89,7 +89,7 @@ Data between 0x00 and 0xFF interpreted as UTF-8
     Upgrade: WebSocket
     Sec-WebSocket-Key1: 4 @1  46546xW%0l 1 5
     Origin: http://example.com
-    
+
     ^n:ds[4U
 
 
@@ -102,7 +102,7 @@ Data between 0x00 and 0xFF interpreted as UTF-8
     Sec-WebSocket-Origin: http://example.com
     Sec-WebSocket-Location: ws://example.com/demo
     Sec-WebSocket-Protocol: sample
-    
+
     8jKS'y:G*Co,Wxa-
 
 
@@ -117,7 +117,7 @@ Data between 0x00 and 0xFF interpreted as UTF-8
     Upgrade: WebSocket
     Sec-WebSocket-Key1: 4 @1  46546xW%0l 1 5
     Origin: http://example.com
-    
+
     ----------------------------------------
     ^n:ds[4U
 
@@ -189,57 +189,57 @@ Data between 0x00 and 0xFF interpreted as UTF-8
 !SLIDE
 # em-websocket
 
-    @@@ruby
-    options = {:host => "0.0.0.0", :port => 8080}
-    
-    EventMachine::WebSocket.start(options) do |ws|
-      ws.onopen    { ws.send "Hello Client!"}
-      ws.onmessage { |msg| ws.send "Pong: #{msg}" }
-      ws.onclose   { puts "WebSocket closed" }
-      ws.onerror   { |e| puts "Error: #{e.message}" }
-    end
+```ruby
+options = {:host => "0.0.0.0", :port => 8080}
 
-
-!SLIDE
-# faye-websocket
-
-    @@@ruby
-    App = lambda do |env|
-      if Faye::WebSocket.websocket?(env)
-        ws = Faye::WebSocket.new(env)
-        
-        ws.onmessage = lambda do |event|
-          ws.send(event.data)
-        end
-        
-        ws.onclose = lambda do |event|
-          p [:close, event.code, event.reason]
-        end
-      else
-        # Normal HTTP request
-      end
-    end
-
+EventMachine::WebSocket.start(options) do |ws|
+  ws.onopen    { ws.send "Hello Client!"}
+  ws.onmessage { |msg| ws.send "Pong: #{msg}" }
+  ws.onclose   { puts "WebSocket closed" }
+  ws.onerror   { |e| puts "Error: #{e.message}" }
+end
+```
 
 !SLIDE
 # faye-websocket
 
-    @@@ruby
-    url = 'ws://example.com/demo'
-    ws  = Faye::WebSocket::Client.new(url)
-    
-    ws.onopen = lambda do |event|
-      p [:open, ws.protocol]
-    end
-    
+```ruby
+App = lambda do |env|
+  if Faye::WebSocket.websocket?(env)
+    ws = Faye::WebSocket.new(env)
+
     ws.onmessage = lambda do |event|
       ws.send(event.data)
     end
-    
+
     ws.onclose = lambda do |event|
       p [:close, event.code, event.reason]
     end
+  else
+    # Normal HTTP request
+  end
+end
+```
 
+!SLIDE
+# faye-websocket
+
+```ruby
+url = 'ws://example.com/demo'
+ws  = Faye::WebSocket::Client.new(url)
+
+ws.onopen = lambda do |event|
+  p [:open, ws.protocol]
+end
+
+ws.onmessage = lambda do |event|
+  ws.send(event.data)
+end
+
+ws.onclose = lambda do |event|
+  p [:close, event.code, event.reason]
+end
+```
 
 !SLIDE bullets
 # Tons of other options
