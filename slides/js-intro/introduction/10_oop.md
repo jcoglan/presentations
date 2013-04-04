@@ -14,45 +14,45 @@
 !SLIDE
 # Object orientation
 
-    @@@javascript
-    var user = {name: "jcoglan"};
-    
-    var sayHello = function(greeting) {
-      return greeting + ", " + this.name;
-    };
-    
-    sayHello.call(user, "Hi there");
-    // -> "Hi there, jcoglan"
-    
-    sayHello.apply(user, ["Hi there"]);
-    // -> "Hi there, jcoglan"
-    
-    // `this` refers to the global object
-    sayHello("Hi there");
-    // -> "Hi there, "
+```javascript
+var user = {name: "jcoglan"};
 
+var sayHello = function(greeting) {
+return greeting + ", " + this.name;
+};
+
+sayHello.call(user, "Hi there");
+// -> "Hi there, jcoglan"
+
+sayHello.apply(user, ["Hi there"]);
+// -> "Hi there, jcoglan"
+
+// `this` refers to the global object
+sayHello("Hi there");
+// -> "Hi there, "
+```
 
 !SLIDE
 # Object orientation
 
-    @@@javascript
-    // we can store functions in objects
-    var user = {
-      name: "jcoglan",
-      
-      sayHello: function(greeting) {
-        return greeting + ", " + this.name;
-      }
-    };
-    
-    user.sayHello("Hi there");
-    // -> "Hi there, jcoglan"
-    
-    var method = user.sayHello
-    //-> function()
-    
-    method("What the") // -> "What  the, "
+```javascript
+// we can store functions in objects
+var user = {
+  name: "jcoglan",
 
+  sayHello: function(greeting) {
+    return greeting + ", " + this.name;
+  }
+};
+
+user.sayHello("Hi there");
+// -> "Hi there, jcoglan"
+
+var method = user.sayHello
+//-> function()
+
+method("What the") // -> "What  the, "
+```
 
 !SLIDE bullets
 # Object orientation
