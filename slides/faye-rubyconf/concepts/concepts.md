@@ -5,19 +5,19 @@
 !SLIDE
 # You’re already doing it
 
-    @@@ruby
-    class BlogPostsController < ApplicationController
-      def create
-        @post = BlogPost.create(params[:blog_post])
-        if @post.save
-          flash[:notice] = 'Your post was created!'
-          redirect_to(dashboard_path)
-        else
-          render(:template => 'blog_posts/form')
-        end
-      end
+```ruby
+class BlogPostsController < ApplicationController
+  def create
+    @post = BlogPost.create(params[:blog_post])
+    if @post.save
+      flash[:notice] = 'Your post was created!'
+      redirect_to(dashboard_path)
+    else
+      render(:template => 'blog_posts/form')
     end
-
+  end
+end
+```
 
 !SLIDE callout
 # Tell, don’t ask
@@ -43,23 +43,23 @@ retention and protection and hiding of state-process.”
 !SLIDE
 # Continuation-passing style
 
-    @@@ruby
-    # Blocking
-    
-    response = HTTParty.post(url, :query => {:q => 'blocking'})
-    # process response ...
-    
-    
-    # Non-blocking
-    
-    req = EM::HttpRequest.new(url).post(:body => 'q=blocking')
-    
-    req.callback do
-      response = req.response
-      # process response ...
-      
-      puts 'This happens last'
-    end
-    
-    puts 'This happens first'
+```ruby
+# Blocking
 
+response = HTTParty.post(url, :query => {:q => 'blocking'})
+# process response ...
+
+
+# Non-blocking
+
+req = EM::HttpRequest.new(url).post(:body => 'q=blocking')
+
+req.callback do
+  response = req.response
+  # process response ...
+
+  puts 'This happens last'
+end
+
+puts 'This happens first'
+```
