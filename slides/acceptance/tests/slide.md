@@ -1,4 +1,4 @@
-!SLIDE
+!SLIDE title
 # Tests?
 
 
@@ -16,49 +16,49 @@
 !SLIDE
 # Cross-process metaprogramming
 
-    @@@ruby
-    Given /^the (\S+) class validates (\S+) of (\S+)$/ do
-    |class_name, validation, field|
-      inject_code class_name,
-        "validates_#{validation}_of :#{field}"
-    end
-
+```ruby
+Given /^the (\S+) class validates (\S+) of (\S+)$/ do
+|class_name, validation, field|
+  inject_code class_name,
+    "validates_#{validation}_of :#{field}"
+end
+```
 
 !SLIDE
 # Hacking the model
 
-    @@@ruby
-    VALIDATION_CONFIG = File.dirname(__FILE__) +
-                        '/../../config/validation/'
-                        
-    FileUtils.mkdir_p(VALIDATION_CONFIG)
-     
-    def inject_code(class_name, code)
-      file = class_name.tableize.singularize
-      File.open(VALIDATION_CONFIG + file + '.rb', 'a') do |f|
-        f.write <<-CODE
-          class #{class_name}
-            #{code}
-          end
-        CODE
+```ruby
+VALIDATION_CONFIG = File.dirname(__FILE__) +
+                    '/../../config/validation/'
+
+FileUtils.mkdir_p(VALIDATION_CONFIG)
+
+def inject_code(class_name, code)
+  file = class_name.tableize.singularize
+  File.open(VALIDATION_CONFIG + file + '.rb', 'a') do |f|
+    f.write <<-CODE
+      class #{class_name}
+        #{code}
       end
-    end
-
+    CODE
+  end
+end
+```
 
 !SLIDE
 # Hacking the model
 
-    @@@ruby
-    # app/models/article.rb
-    
-    class Article < ActiveRecord::Base
-      extend Acceptance::ReflectsOnValidations
-      attr_accessor :terms, :password_confirmation
-    end
-    
-    path = File.dirname(__FILE__) + '/../../config/validation/article.rb'
-    load path if File.file?(path)
+```ruby
+# app/models/article.rb
 
+class Article < ActiveRecord::Base
+  extend Acceptance::ReflectsOnValidations
+  attr_accessor :terms, :password_confirmation
+end
+
+path = File.dirname(__FILE__) + '/../../config/validation/article.rb'
+load path if File.file?(path)
+```
 
 !SLIDE commandline
 # Get the code
