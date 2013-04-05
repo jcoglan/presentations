@@ -147,6 +147,7 @@
 # XMLHttpRequest
 
 * HTTP request-response semantics
+* `POST` request with `Content-Type: application/json`
 * Cannot set certain headers, e.g. `Cookie`, `Origin`
 * Browsers only allow same-origin by default
 
