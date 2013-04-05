@@ -12,6 +12,18 @@
 * Author of Faye
 
 
+!SLIDE image center
+![Horse](horse.png)
+
+
+!SLIDE bullets
+# Security is hard
+
+* This is not the last word
+* We do this to protect users first
+* Conversation > flamewar
+
+
 !SLIDE bullets
 # What do we use sockets for?
 
