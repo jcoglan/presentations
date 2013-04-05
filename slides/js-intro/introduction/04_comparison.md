@@ -28,21 +28,21 @@
 !SLIDE
 # Default values
 
-    @@@javascript
-    var myFunc = function(x) {
-      x = x || 5;
-      alert(x);
-    };
-    
-    myFunc(0) // alerts "5"
-    
-    var betterFunc = function(x) {
-      if (x === undefined) x = 5;
-      alert(x);
-    };
-    
-    betterFunc(0) // alerts "0"
+```javascript
+var myFunc = function(x) {
+  x = x || 5;
+  alert(x);
+};
 
+myFunc(0) // alerts "5"
+
+var betterFunc = function(x) {
+  if (x === undefined) x = 5;
+  alert(x);
+};
+
+betterFunc(0) // alerts "0"
+```
 
 !SLIDE
 # Always use `===`

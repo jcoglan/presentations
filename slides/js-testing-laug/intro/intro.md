@@ -19,15 +19,15 @@
 !SLIDE
 # Problem: DOM implementations
 
-    @@@javascript
-    if (element.addEventListener)
-      element.addEventListener('click', callback, false)
-    else if (element.attachEvent)
-      element.attachEvent('onclick', callback)
-
+```javascript
+if (element.addEventListener)
+  element.addEventListener('click', callback, false)
+else if (element.attachEvent)
+  element.attachEvent('onclick', callback)
+```
 
 !SLIDE callout
-# Solution: 
+# Solution:
 ## DOM libraries
 
 

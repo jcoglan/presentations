@@ -1,74 +1,75 @@
-!SLIDE
+!SLIDE title
 # Acceptance
 
 ## Client-side validation for Rails
 
 
-!SLIDE
+!SLIDE title
 # What?
 
 
 !SLIDE
 # Have validations
 
-    @@@ruby
-    class User < ActiveRecord::Base
-      extend Acceptance::ReflectsOnValidations
-      
-      validates_format_of :email, :with => /^[a-z0-9@.-]+$/i
-      validates_confirmation_of :password
-      validates_inclusion_of :gender, :in => %w[M F]
-    end
+```ruby
+class User < ActiveRecord::Base
+  extend Acceptance::ReflectsOnValidations
+
+  validates_format_of :email, :with => /^[a-z0-9@.-]+$/i
+  validates_confirmation_of :password
+  validates_inclusion_of :gender, :in => %w[M F]
+end
+```
 
 
 !SLIDE
 # Have a form
 
-    @@@html
-    <% validated_form_for(@user) do |f| %>
-      <%= f.text_field :email %>
-      <%= f.password_field :password %>
-      <%= f.password_field :password_confirmation %>
-      <%= f.text_field :gender %>
-      <%= submit_tag('Sign up!') %>
-    <% end %>
-
+```html
+<% validated_form_for(@user) do |f| %>
+  <%= f.text_field :email %>
+  <%= f.password_field :password %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.text_field :gender %>
+  <%= submit_tag('Sign up!') %>
+<% end %>
+```
 
 !SLIDE
 # Get JavaScript
 
-    @@@javascript
-    Acceptance.form('new_user').
-    requires('user[email]').toMatch(/^[a-z0-9@.-]+$/i);
-    
-    Acceptance.form('new_user').
-    requires('user[password_confirmation]').
-    toConfirm('user[password]');
-    
-    Acceptance.form('new_user').
-    requires('user[gender]').toBeOneOf(["M", "F"]);
+```javascript
+Acceptance.form('new_user').
+requires('user[email]').toMatch(/^[a-z0-9@.-]+$/i);
 
+Acceptance.form('new_user').
+requires('user[password_confirmation]').
+toConfirm('user[password]');
 
-!SLIDE
+Acceptance.form('new_user').
+requires('user[gender]').toBeOneOf(["M", "F"]);
+```
+
+!SLIDE title
 # What else?
 
 
 !SLIDE
 # Reflect on your validations
 
-    @@@ruby
-    v = User.reflect_on_validations_for :email
-    # => [ #<Acceptance::Reflections::Presence>,
-    #      #<Acceptance::Reflections::Format>,
-    #      #<Acceptance::Reflections::Uniqueness>
-    #    ]
-    
-    v[1].with
-    # => /^[a-z0-9@.-]+$/i
-    
-    v[1].message
-    # => "Email is invalid."
+```ruby
+v = User.reflect_on_validations_for :email
+# => [ #<Acceptance::Reflections::Presence>,
+#      #<Acceptance::Reflections::Format>,
+#      #<Acceptance::Reflections::Uniqueness>
+#    ]
 
+v[1].with
+# => /^[a-z0-9@.-]+$/i
+
+v[1].message
+# => "Email is invalid."
+```
 
 !SLIDE bullets
 # Supports most validations

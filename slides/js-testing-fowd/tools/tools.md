@@ -6,35 +6,35 @@
 !SLIDE
 # Node.js test runner
 
-    @@@javascript
-    // spec/js/console.js
-    
-    JSCLASS_PATH = 'node_modules/jsclass/src'
-    require('../../' + JSCLASS_PATH + '/loader')
+```javascript
+// spec/js/console.js
 
-    jQuery = $ = {}
-    zxcvbn = function() { return {entropy: 10} }
+JSCLASS_PATH = 'node_modules/jsclass/src'
+require('../../' + JSCLASS_PATH + '/loader')
 
-    require('./runner')
+jQuery = $ = {}
+zxcvbn = function() { return {entropy: 10} }
 
+require('./runner')
+```
 
 !SLIDE
 # Skip the UI tests
 
-    @@@javascript
-    describe("user interface", function() { with(this) {
-      if (typeof window === "undefined") return
-      
-      it("displays an error when the user makes a mistake",
-      function() { with(this) {
-      
-      // etc.
-    }})
+```javascript
+describe("user interface", function() { with(this) {
+  if (typeof window === "undefined") return
 
+  it("displays an error when the user makes a mistake",
+  function() { with(this) {
+
+  // etc.
+}})
+```
 
 !SLIDE commandline incremental
 
-    $ node spec/js/console.js 
+    $ node spec/js/console.js
     Loaded suite App
     Started
     .....
@@ -54,25 +54,25 @@
 
 !SLIDE
 
-    @@@javascript
-    // spec/js/phantom.js
-    
-    var page = new WebPage()
+```javascript
+// spec/js/phantom.js
 
-    page.onConsoleMessage = function(message) {
-      try {
-        var data = JSON.parse(message).jstest
-        // process JSON console output
-        
-      } catch (e) {}
-    }
-    
-    page.open('spec/js/browser.html')
+var page = new WebPage()
 
+page.onConsoleMessage = function(message) {
+  try {
+    var data = JSON.parse(message).jstest
+    // process JSON console output
+
+  } catch (e) {}
+}
+
+page.open('spec/js/browser.html')
+```
 
 !SLIDE commandline incremental
 
-    $ time phantomjs spec/js/phantom.js 
+    $ time phantomjs spec/js/phantom.js
     [PASSED] App user interface displays an error if the username is taken
     [PASSED] App user interface displays an error when the user makes a mistake
     [PASSED] App user interface submits the form when the data is valid
