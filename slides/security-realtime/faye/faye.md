@@ -167,5 +167,6 @@
 * Can only make `GET` requests
 * Works by injecting `script` elements
 * Server returns JavaScript
+* (i.e. it executes code from the target server!)
 * No origin restrictions
 
