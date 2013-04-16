@@ -245,7 +245,7 @@
 
     @@@javascript
     client.subscribe('/commands', function(msg) {
-      eval(message.payload);
+      eval(msg.payload);
     });
 
 
