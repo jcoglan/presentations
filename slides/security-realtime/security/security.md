@@ -221,12 +221,12 @@
 !SLIDE
 
     @@@javascript
-    var c     = require('crypto'),
-        hmac  = c.createHmac('sha256', 'secret'),
-        tag   = hmac.update('the user ID'),
-        token = tag.digest('hex');
+    var token = require('crypto')
+                .createHmac('sha256', 'secret')
+                .update('the user ID')
+                .digest('hex');
 
-    // token = '340256c4276b2...'
+    // token = '060ce6d2f2215...'
 
 
 !SLIDE bullets
