@@ -248,6 +248,10 @@
       eval(msg.payload);
     });
 
+    server.publish('/commands', {
+      payload: '$("#foo").fadeIn("slow");'
+    });
+
 
 !SLIDE bullets
 # Problems
