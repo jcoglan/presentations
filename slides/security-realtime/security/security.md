@@ -145,6 +145,7 @@
 * Check the `Origin` header
 * Set the `HttpOnly` flag
 * Set the `Secure` flag and connect over `wss:`
+* Never authenticate CORS resources with cookies
 * Use server-stored (not cookie-stored) sessions
 * Generate large (> 160 bits) session IDs
 
@@ -160,11 +161,141 @@
 
 
 !SLIDE bullets
-# TODO
+# Securing the protocol
+## Moving above the transport layer
 
-* Signing: HMAC, not hash functions
-* Restricting read access (subscriptions)
-* Restricting write access (publications)
-* Making sure messages come from your app (CSRF)
-* Safely publishing JavaScript (push-only)
 
+!SLIDE
+
+    @@@javascript
+    {
+      "channel":      "/meta/subscribe",
+      "clientId":     "79o6pn01muyqn1t5gkte0zy",
+      "subscription": "/messages",
+      "ext": {
+        "userId":     18787,
+        "token":      "340256c4276b2d3483f02fe"
+      }
+    }
+
+
+!SLIDE
+
+    @@@javascript
+    client.addExtension({
+      outgoing: function(message, callback) {
+        if (message.channel === '/meta/subscribe') {
+          message.ext = message.ext || {};
+          message.ext.userId = 18787;
+          message.ext.token = '340256c4276b2...';
+        }
+        callback(message);
+      }
+    });
+
+
+!SLIDE
+
+    @@@javascript
+    server.addExtension({
+      incoming: function(message, callback) {
+        if (message.channel === '/meta/subscribe') {
+          var sub    = message.subscription,
+              ext    = message.ext,
+              userId = ext.userId,
+              token  = ext.token;
+          
+          if (!valid(sub, userId, token))
+            message.error = '403::Forbidden';
+        }
+        callback(message);
+      }
+    });
+
+
+!SLIDE title
+# Generating tokens
+## Use HMAC, *not* hash functions
+
+
+!SLIDE
+
+    @@@javascript
+    var c     = require('crypto'),
+        hmac  = c.createHmac('sha256', 'secret'),
+        tag   = hmac.update('the user ID'),
+        token = tag.digest('hex');
+
+    // token = '340256c4276b2...'
+
+
+!SLIDE bullets
+# Protects against
+
+* Unauthorized access to publish/subscribe
+* Fraudulent requests sent from other sites
+
+
+!SLIDE title
+# Publishing JavaScript
+## *Please* don’t do this
+
+
+!SLIDE
+
+    @@@javascript
+    client.subscribe('/commands', function(msg) {
+      eval(message.payload);
+    });
+
+
+!SLIDE bullets
+# Problems
+
+* You can’t validate JavaScript for safety
+* How do we trust the code came from our app?
+
+
+!SLIDE title
+# Push-only servers
+## Require a password for publishing
+
+
+!SLIDE
+
+    @@@JavaScript
+    server.addExtension({
+      incoming: function(message, callback) {
+        if (!/^\/meta\//.test(message.channel)) {
+          var pass = message.ext.password;
+          if (pass !== 'magic words')
+            message.error = '403::Forbidden';
+        }
+        callback(message);
+      }
+    });
+
+
+!SLIDE
+
+    @@@javascript
+    server.addExtension({
+      outgoing: function(message, callback) {
+        if (message.ext)
+          delete message.ext.password;
+
+        callback(message);
+      }
+    });
+
+
+!SLIDE
+
+    @@@javascript
+    client.addExtension({
+      outgoing: function(message, callback) {
+        message.ext = message.ext || {};
+        message.ext.password = 'magic words';
+        callback(message);
+      }
+    });
