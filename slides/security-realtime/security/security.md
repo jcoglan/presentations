@@ -124,7 +124,7 @@
                     | Host: example.com  |
                     | Origin: hacker.com |
                     | Upgrade: websocket |
-                    | Cookie: sessid=abc |
+         ZOMG!! --> | Cookie: sessid=abc | <-- ZOMG!!
                     +--------------------+
                    /
             +--------+
@@ -257,6 +257,7 @@
 # Problems
 
 * You can’t validate JavaScript for safety
+* Turing-complete wire formats are *very bad news*
 * How do we trust the code came from our app?
 
 

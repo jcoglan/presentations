@@ -112,6 +112,7 @@
 
     @@@javascript
     // client -> server
+    // server -> client
 
     {
       "channel": "/messages",

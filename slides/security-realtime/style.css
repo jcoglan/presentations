@@ -1,62 +1,29 @@
-body {
-  font-family: FreeSans, Helvetica, Arial, sans-serif;
-}
-
-body, #preso, .slide, pre.sh_sourceCode, code {
+body, #preso, .slide, pre.sh_sourceCode {
   background-color: #fff;
-  box-shadow: none;
   color: #725e47;
-}
-
-#footer {
-  display: none;
 }
 
 h1 {
   color: #00569e;
-  font-size: 500%;
-  font-weight: bold;
-  letter-spacing: -0.04em;
-}
-.title h1, .bullets h1 {
-  text-align: left;
 }
 
-.title h2, .bullets h2, .bullets ul, .bullets p {
-  font-size: 250%;
-  font-weight: normal;
-  letter-spacing: -0.02em;
-  text-align: left;
-}
-
-.bullets ul li {
-  list-style: disc inside;
-  margin: 0;
-  padding: 0.2em 0;
-  text-align: left;
-}
-
-pre, code {
-  font-size: 72%;
-  line-height: 1.4em;
-}
-h2, code, p code, ul code {
-  font-size: 90%;
-}
-.diagram pre {
-  font-size: 200%;
-}
 a {
   color: #6495be;
-  text-decoration: none;
 }
 
-pre.sh_sourceCode .sh_cbracket, pre.sh_sourceCode .sh_keyword {
+pre code {
+  font-size: 90%;
+}
+
+pre.sh_sourceCode .sh_cbracket,
+pre.sh_sourceCode .sh_keyword {
   color: #d29815;
 }
 pre.sh_sourceCode .sh_function {
   color: #00569e;
 }
-pre.sh_sourceCode .sh_number, pre.sh_sourceCode .sh_string {
+pre.sh_sourceCode .sh_number,
+pre.sh_sourceCode .sh_string {
   color: #6495be;
 }
+
