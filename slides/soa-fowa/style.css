@@ -36,11 +36,11 @@ h1 {
   text-align: left;
 }
 
-pre, .sh_sourceCode code, code {
+pre, code {
   font-size: 72%;
   line-height: 1.0em;
 }
-h2, code, p code, ul code {
+h2 code, p code, ul code {
   font-size: 90%;
 }
 .diagram pre {
