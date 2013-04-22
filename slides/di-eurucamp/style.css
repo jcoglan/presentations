@@ -2,7 +2,7 @@ body {
   font-family: FreeSans, Helvetica, Arial, sans-serif;
 }
 
-body, #preso, .slide, pre.sh_sourceCode, code {
+body, #preso, .slide, pre.sh_sourceCode {
   background-color: #191818;
   box-shadow: none;
   color: #00D4FF;

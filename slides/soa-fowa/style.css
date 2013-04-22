@@ -2,7 +2,7 @@ body {
   font-family: FreeSans, Helvetica, Arial, sans-serif;
 }
 
-body, #preso, .slide, pre.sh_sourceCode, code {
+body, #preso, .slide, pre.sh_sourceCode {
   background-color: #003;
   box-shadow: none;
   color: #FFF;
@@ -36,12 +36,12 @@ h1 {
   text-align: left;
 }
 
-pre, code {
+code {
+  font-size: 90%;
+}
+pre code {
   font-size: 72%;
   line-height: 1.0em;
-}
-h2 code, p code, ul code {
-  font-size: 90%;
 }
 .diagram pre {
   font-size: 220%;
