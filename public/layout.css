@@ -8,13 +8,9 @@ body, #preso, .slide, pre.sh_sourceCode {
   color: #333;
 }
 
-#footer {
-  display: none;
-}
-
 h1 {
   color: #000;
-  font-size: 500%;
+  font-size: 5em;
   font-weight: bold;
   letter-spacing: -0.04em;
 }
@@ -22,8 +18,8 @@ h1 {
   text-align: left;
 }
 
-.title h2, .bullets h2, .bullets ul, .bullets p {
-  font-size: 250%;
+h2, .bullets ul, .bullets p {
+  font-size: 2.5em;
   font-weight: normal;
   letter-spacing: -0.02em;
   text-align: left;
@@ -36,14 +32,30 @@ h1 {
   text-align: left;
 }
 
+a {
+  text-decoration: none;
+}
+
 code {
-  font-size: 90%;
+  font-size: 0.9em;
 }
 pre code {
-  font-size: 72%;
+  font-size: 0.72em;
   line-height: 1.4em;
 }
 .diagram pre {
-  font-size: 220%;
+  font-size: 2.2em;
+}
+.commandline pre {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+.quote blockquote p {
+  color: #000;
+  font-family: Times New Roman;
+  font-style: italic;
+  letter-spacing: 0;
+  line-height: 1.4em;
 }
 

@@ -1,51 +1,16 @@
-body {
-  font-family: FreeSans, Helvetica, Arial, sans-serif;
-}
-
 body, #preso, .slide, pre.sh_sourceCode {
   background-color: #003;
-  box-shadow: none;
   color: #FFF;
-}
-
-#footer {
-  display: none;
 }
 
 h1 {
   color: #E20031;
-  font-size: 500%;
-  font-weight: bold;
-  letter-spacing: -0.04em;
-}
-.title h1, .bullets h1 {
-  text-align: left;
 }
 
-.title h2, .bullets h2, .bullets ul, .bullets p {
-  font-size: 250%;
-  font-weight: normal;
-  letter-spacing: -0.02em;
-  text-align: left;
+.quote blockquote p {
+  color: #FFF;
 }
 
-.bullets ul li {
-  list-style: disc inside;
-  margin: 0;
-  padding: 0.2em 0;
-  text-align: left;
-}
-
-code {
-  font-size: 90%;
-}
-pre code {
-  font-size: 72%;
-  line-height: 1.0em;
-}
-.diagram pre {
-  font-size: 220%;
-}
 pre.sh_sourceCode .sh_keyword,
 pre.sh_sourceCode .sh_comment {
   color: #E20031;
@@ -68,13 +33,6 @@ pre.sh_sourceCode .sh_preproc {
   border: 24px solid #FFF;
 }
 
-.quote blockquote p {
-  color: #FFF;
-  font-family: Times New Roman;
-  font-style: italic;
-  letter-spacing: 0;
-  line-height: 1.4em;
-}
 .quote p {
   color: #E20031;
 }
