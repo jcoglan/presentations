@@ -4,6 +4,44 @@
 
 
 !SLIDE title
+## Rule 0.1 of web applications:
+# Everything is a language
+
+
+!SLIDE
+
+    SELECT *
+    FROM accounts
+    WHERE username = '' OR 1 = 1; --';
+                      ^^^^^^^^^^^^^^
+                            WAT
+
+
+!SLIDE
+
+    http://example.com/?foo=bar&amp;hello=wor ld
+                               ^^^^^         ^
+                                WAT         WAT
+
+
+!SLIDE
+
+    { "email": "user%40example.com" }
+                    ^^^
+                    WAT
+
+
+!SLIDE
+
+    <p class="comment">
+      <script>alert(document.cookie);</script>
+      lol, p0wnd
+    </p>
+
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       WAT
+
+!SLIDE title
 # Layered validation
 ## A cleanly separated stack is easier to reason about
 
@@ -12,7 +50,7 @@
 
     +--------------------+
     |    Node HTTP lib   |      * Handles HTTP
-    +----------+---------+      * Provides request, response objects
+    +----------+---------+      * Provides request, response
                |
                V
     +--------------------+      * Handles WebSocket, EventSource
