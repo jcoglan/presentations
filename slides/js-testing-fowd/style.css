@@ -1,3 +1,5 @@
+@import url(/layout.css);
+
 body, #preso, .slide, pre.sh_sourceCode, code {
   background-color: #f9f7f6;
   color: #1f1b14;
