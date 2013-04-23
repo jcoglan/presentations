@@ -26,6 +26,7 @@
 
 !SLIDE
 
+    @@@javascript
     { "email": "user%40example.com" }
                     ^^^
                     WAT
@@ -33,6 +34,7 @@
 
 !SLIDE
 
+    @@@html
     <p class="comment">
       <script>alert(document.cookie);</script>
       lol, p0wnd
@@ -40,6 +42,12 @@
 
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
                        WAT
+
+
+!SLIDE image center
+
+![duck horse](duckhorse.jpg)
+
 
 !SLIDE title
 # Layered validation
@@ -276,7 +284,7 @@
 
 !SLIDE title
 # Publishing JavaScript
-## *Please* don’t do this
+## *Please*, **never** do this
 
 
 !SLIDE
