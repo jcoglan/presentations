@@ -290,12 +290,12 @@
 !SLIDE
 
     @@@javascript
-    client.subscribe('/commands', function(msg) {
-      eval(msg.payload);
-    });
-
     server.publish('/commands', {
       payload: '$("#foo").fadeIn("slow");'
+    });
+
+    client.subscribe('/commands', function(msg) {
+      eval(msg.payload);
     });
 
 
