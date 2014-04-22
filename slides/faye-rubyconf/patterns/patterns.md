@@ -1,19 +1,19 @@
 !SLIDE
 # There’s a few bits missing
 
-    @@@ruby
-    # Server#accept_connection
-    connection.callback(&callback)
-    
-    # Connection#subscribe
-    channel.add_listener(:receive) do |message|
-    
-    # Channel#<<
-    publish(:receive, message)
-    
-    # Connection#subscribe
-    succeed(message)
+```ruby
+# Server#accept_connection
+connection.callback(&callback)
 
+# Connection#subscribe
+channel.add_listener(:receive) do |message|
+
+# Channel#<<
+publish(:receive, message)
+
+# Connection#subscribe
+succeed(message)
+```
 
 !SLIDE bullets
 # Publisher
@@ -25,22 +25,22 @@
 !SLIDE
 # Publisher
 
-    @@@ruby
-    module Publisher
-      def add_listener(event_type, &block)
-        @callbacks ||= {}
-        @callbacks[event_type] ||= []
-        @callbacks[event_type] << block
-      end
-      
-      def publish(event_type, data)
-        return unless @callbacks and @callbacks[event_type]
-        @callbacks[event_type].each do |callback|
-          callback.call(data)
-        end
-      end
-    end
+```ruby
+module Publisher
+  def add_listener(event_type, &block)
+    @callbacks ||= {}
+    @callbacks[event_type] ||= []
+    @callbacks[event_type] << block
+  end
 
+  def publish(event_type, data)
+    return unless @callbacks and @callbacks[event_type]
+    @callbacks[event_type].each do |callback|
+      callback.call(data)
+    end
+  end
+end
+```
 
 !SLIDE bullets
 # Deferrable
@@ -53,27 +53,27 @@
 !SLIDE
 # Deferrable
 
-    @@@ruby
-    module Deferrable
-      def defer()
-        @status = :deferred
-        @value  = nil
-      end
-      
-      def succeed(data)
-        @status = :success
-        @value  = data
-        @callbacks.each { |callback| callback.call(data) }
-        @callbacks = []
-      end
-      
-      def callback(&block)
-        return block.call(@value) if @status == :success
-        @callbacks ||= []
-        @callbacks << block
-      end
-    end
+```ruby
+module Deferrable
+  def defer()
+    @status = :deferred
+    @value  = nil
+  end
 
+  def succeed(data)
+    @status = :success
+    @value  = data
+    @callbacks.each { |callback| callback.call(data) }
+    @callbacks = []
+  end
+
+  def callback(&block)
+    return block.call(@value) if @status == :success
+    @callbacks ||= []
+    @callbacks << block
+  end
+end
+```
 
 !SLIDE center
 # Cyclic data flow

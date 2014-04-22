@@ -18,23 +18,23 @@
 !SLIDE
 # Who enjoys this?
 
-    @@@ruby
-    <% cache(:action_suffix => "all_topics") do %>
-      <%= Topic.find(:all).map { ... } %>
-    <% end %>
-    
-    class TopicObserver < ActiveRecord::Observer
-      def after_create(topic)
-        expire_fragment(:controller    => "topics",
-                        :action        => "list",
-                        :action_suffix => "all_topics")
-      end
-      
-      def after_destroy(topic)
-        # etc.
-      end
-    end
+```ruby
+<% cache(:action_suffix => "all_topics") do %>
+  <%= Topic.find(:all).map { ... } %>
+<% end %>
 
+class TopicObserver < ActiveRecord::Observer
+  def after_create(topic)
+    expire_fragment(:controller    => "topics",
+                    :action        => "list",
+                    :action_suffix => "all_topics")
+  end
+
+  def after_destroy(topic)
+    # etc.
+  end
+end
+```
 
 !SLIDE bullets
 # Hi, there!
@@ -60,15 +60,15 @@
 !SLIDE
 # Isn’t this enough?
 
-    @@@ruby
-    <% cache "/concerts/#{@concert.id}/title" do %>
-      <%= @concert.title.upcase %>
-    <% end %>
-    
-    # key "/concerts/#{@concert.id}/title"
-    # depends on @concert.title. It says so
-    # right there!
+```ruby
+<% cache "/concerts/#{@concert.id}/title" do %>
+  <%= @concert.title.upcase %>
+<% end %>
 
+# key "/concerts/#{@concert.id}/title"
+# depends on @concert.title. It says so
+# right there!
+```
 
 !SLIDE bullets incremental
 # Primer

@@ -9,15 +9,15 @@
 !SLIDE
 # Prototypes
 
-    @@@javascript
-    var object1 = {name: "jcoglan"};
-    var object2 = {company: "Songkick"};
-    
-    object2.name // -> undefined
-    
-    object2.__proto__ = object1;
-    object2.name // -> "jcoglan"
-    
-    object2.hasOwnProperty("company") // -> true
-    object2.hasOwnProperty("name")    // -> false
+```javascript
+var object1 = {name: "jcoglan"};
+var object2 = {company: "Songkick"};
 
+object2.name // -> undefined
+
+object2.__proto__ = object1;
+object2.name // -> "jcoglan"
+
+object2.hasOwnProperty("company") // -> true
+object2.hasOwnProperty("name")    // -> false
+```
