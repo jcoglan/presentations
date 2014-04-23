@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'bundler/setup'
-require File.expand_path('../vendor/parade/lib/parade', __FILE__)
+require 'parade'
 
 $dir    = File.expand_path('..', __FILE__)
 $decks  = {}
@@ -19,10 +19,7 @@ app = lambda do |env|
   path = env['PATH_INFO']
   deck_name = path.scan(/[^\/]+/).delete_if { |s| s == '' }.first
   
-  if path !~ /\.\./ and File.file?(full_path)
-    [200, {'Content-Type' => 'text/html'}, File.new(full_path)]
-
-  elsif Dir.entries(File.join($dir, 'slides')).include?(deck_name)
+  if Dir.entries(File.join($dir, 'slides')).include?(deck_name)
     env['SCRIPT_NAME'] = "/#{deck_name}"
     env['PATH_INFO'] = env['PATH_INFO'].gsub(%r{^\/#{deck_name}}, '')
     deck(deck_name).call(env)

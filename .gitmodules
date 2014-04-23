@@ -1,6 +1,0 @@
-[submodule "vendor/showoff"]
-	path = vendor/showoff
-	url = git://github.com/jcoglan/showoff.git
-[submodule "vendor/parade"]
-	path = vendor/parade
-	url = git://github.com/burtlo/parade.git
