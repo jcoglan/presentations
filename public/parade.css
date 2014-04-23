@@ -1,0 +1,69 @@
+body {
+  font-family: FreeSans, Helvetica, Arial, sans-serif;
+}
+
+body, #preso, .slide {
+  background: #eee;
+  box-shadow: none;
+  color: #333;
+}
+
+.slide {
+  display: table;
+  padding-top: 0 !important;
+}
+
+.content {
+  display: table-cell;
+  padding-top: 0 !important;
+  vertical-align: middle;
+}
+
+h1, h2, h3 {
+  text-align: left;
+}
+
+h1 {
+  font-size: 5em;
+  font-weight: bold;
+  letter-spacing: -0.04em;
+}
+
+h2, h3 {
+  font-size: 2.5em;
+  letter-spacing: -0.02em;
+}
+
+.bullets ul li {
+  font-size: 0.8em;
+  letter-spacing: -0.02em;
+  line-height: 1.5em;
+  list-style: disc outside;
+  margin: 0 0 0 1em;
+  padding: 0;
+  text-align: left;
+}
+
+li code {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1.1em;
+  padding: 0;
+}
+
+pre.highlight {
+  background: transparent;
+  color: inherit;
+  font-size: 2.6em;
+  line-height: 1.4em;
+}
+
+pre.highlight .err {
+  background: transparent;
+}
+
+.diagram pre {
+  font-size: 2em;
+}
+
