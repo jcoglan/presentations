@@ -1,0 +1,9 @@
+@import url(/parade.css);
+
+pre.highlight {
+  font-size: 1.5em;
+}
+
+.diagram pre {
+  font-size: 2em;
+}

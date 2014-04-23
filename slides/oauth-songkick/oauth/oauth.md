@@ -317,7 +317,7 @@ It receives:
 
 !SLIDE title
 # OAuth for identity
-## aka the 'me' resource
+## aka the ‘me’ resource
 
 
 !SLIDE
