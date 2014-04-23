@@ -10,38 +10,44 @@
 
 !SLIDE
 
-    SELECT *
-    FROM accounts
-    WHERE username = '' OR 1 = 1; --';
-                      ^^^^^^^^^^^^^^
-                            WAT
+```sql
+SELECT *
+FROM accounts
+WHERE username = '' OR 1 = 1; --';
+                  ^^^^^^^^^^^^^^
+                        WAT
+```
 
 
 !SLIDE
 
-    http://example.com/?foo=bar&amp;hello=wor ld
-                               ^^^^^         ^
-                                WAT         WAT
+```
+http://example.com/?foo=bar&amp;hello=wor ld
+                           ^^^^^         ^
+                            WAT         WAT
+```
 
 
 !SLIDE
 
-    @@@javascript
-    { "email": "user%40example.com" }
-                    ^^^
-                    WAT
+```js
+{ "email": "user%40example.com" }
+                ^^^
+                WAT
+```
 
 
 !SLIDE
 
-    @@@html
-    <p class="comment">
-      <script>alert(document.cookie);</script>
-      lol, p0wnd
-    </p>
+```html
+<p class="comment">
+  <script>alert(document.cookie);</script>
+  lol, p0wnd
+</p>
 
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                       WAT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                   WAT
+```
 
 
 !SLIDE image center
@@ -56,24 +62,26 @@
 
 !SLIDE diagram
 
-    +--------------------+
-    |    Node HTTP lib   |      * Handles HTTP
-    +----------+---------+      * Provides request, response
-               |
-               V
-    +--------------------+      * Handles WebSocket, EventSource
-    |  Faye.NodeAdapter  |      * Extracts messages from requests/sockets
-    +----------+---------+      * Provides Bayeux message objects
-               |                * Sends response messages out
-               V
-    +--------------------+
-    | Faye.BayeuxHandler |      * Handles Bayeux messages
-    +----------+---------+      * Generates response messages
-               |
-               V
-    +--------------------+      * Executes business logic
-    |     Faye.Engine    |      * Stores subscriptions
-    +--------------------+      * Routes messages
+```
++--------------------+
+|    Node HTTP lib   |      * Handles HTTP
++----------+---------+      * Provides request, response
+           |
+           V
++--------------------+      * Handles WebSocket, EventSource
+|  Faye.NodeAdapter  |      * Extracts messages from requests/sockets
++----------+---------+      * Provides Bayeux message objects
+           |                * Sends response messages out
+           V
++--------------------+
+| Faye.BayeuxHandler |      * Handles Bayeux messages
++----------+---------+      * Generates response messages
+           |
+           V
++--------------------+      * Executes business logic
+|     Faye.Engine    |      * Stores subscriptions
++--------------------+      * Routes messages
+```
 
 
 !SLIDE title
@@ -104,78 +112,86 @@
 
 !SLIDE diagram
 
-       +--------------------+           +-------------------+
-       | http://example.com |           | http://hacker.com |
-       +---------+----------+           +-------------------+
-                 |
-                 |
-    +------------+------------+
-    | POST /session HTTP/1.1  |
-    | Host: example.com       |
-    | Origin: example.com     |
-    +------------+------------+
-                 |
-                 V
-            +--------+
-            | Server |
-            +--------+
+```
+   +--------------------+           +-------------------+
+   | http://example.com |           | http://hacker.com |
+   +---------+----------+           +-------------------+
+             |
+             |
++------------+------------+
+| POST /session HTTP/1.1  |
+| Host: example.com       |
+| Origin: example.com     |
++------------+------------+
+             |
+             V
+        +--------+
+        | Server |
+        +--------+
+```
 
 
 !SLIDE diagram
 
-       +--------------------+           +-------------------+
-       | http://example.com |           | http://hacker.com |
-       +--------------------+           +-------------------+
-                 ^
-                 |
-    +------------+------------+
-    | Set-Cookie: sessid=abc; |
-    |     Domain=example.com; |
-    |     Path=/              |
-    +------------+------------+
-                 |
-                 |
-            +----+---+
-            | Server |
-            +--------+
+```
+   +--------------------+           +-------------------+
+   | http://example.com |           | http://hacker.com |
+   +--------------------+           +-------------------+
+             ^
+             |
++------------+------------+
+| Set-Cookie: sessid=abc; |
+|     Domain=example.com; |
+|     Path=/              |
++------------+------------+
+             |
+             |
+        +----+---+
+        | Server |
+        +--------+
+```
 
 
 !SLIDE diagram
 
-       +--------------------+           +-------------------+
-       | http://example.com |           | http://hacker.com |
-       +--------------------+           +-------------------+
-                                             /\
-                       +--------------------'  `------------+
-                       | new WebSocket('ws://example.com/') |
-                       +------------------------------------+
+```
+   +--------------------+           +-------------------+
+   | http://example.com |           | http://hacker.com |
+   +--------------------+           +-------------------+
+                                         /\
+                   +--------------------'  `------------+
+                   | new WebSocket('ws://example.com/') |
+                   +------------------------------------+
 
 
 
 
 
-            +--------+
-            | Server |
-            +--------+
+        +--------+
+        | Server |
+        +--------+
+```
 
 
 !SLIDE diagram
 
-       +--------------------+           +-------------------+
-       | http://example.com |           | http://hacker.com |
-       +--------------------+           +-------------------+
-                                          /
-                    +--------------------+
-                    | GET / HTTP/1.1     |
-                    | Host: example.com  |
-                    | Origin: hacker.com |
-                    | Upgrade: websocket |
-         ZOMG!! --> | Cookie: sessid=abc | <-- ZOMG!!
-                    +--------------------+
-                   /
-            +--------+
-            | Server |
-            +--------+
+```
+   +--------------------+           +-------------------+
+   | http://example.com |           | http://hacker.com |
+   +--------------------+           +-------------------+
+                                      /
+                +--------------------+
+                | GET / HTTP/1.1     |
+                | Host: example.com  |
+                | Origin: hacker.com |
+                | Upgrade: websocket |
+     ZOMG!! --> | Cookie: sessid=abc | <-- ZOMG!!
+                +--------------------+
+               /
+        +--------+
+        | Server |
+        +--------+
+```
 
 
 !SLIDE bullets
@@ -213,50 +229,53 @@
 
 !SLIDE
 
-    @@@javascript
-    {
-      "channel":      "/meta/subscribe",
-      "clientId":     "79o6pn01muyqn1t5gkte0zy",
-      "subscription": "/messages",
-      "ext": {
-        "userId":     18787,
-        "token":      "340256c4276b2d3483f02fe"
-      }
+```js
+{
+  "channel":      "/meta/subscribe",
+  "clientId":     "79o6pn01muyqn1t5gkte0zy",
+  "subscription": "/messages",
+  "ext": {
+    "userId":     18787,
+    "token":      "340256c4276b2d3483f02fe"
+  }
+}
+```
+
+
+!SLIDE
+
+```js
+client.addExtension({
+  outgoing: function(message, callback) {
+    if (message.channel === '/meta/subscribe') {
+      message.ext = message.ext || {};
+      message.ext.userId = 18787;
+      message.ext.token = '340256c4276b2...';
     }
+    callback(message);
+  }
+});
+```
 
 
 !SLIDE
 
-    @@@javascript
-    client.addExtension({
-      outgoing: function(message, callback) {
-        if (message.channel === '/meta/subscribe') {
-          message.ext = message.ext || {};
-          message.ext.userId = 18787;
-          message.ext.token = '340256c4276b2...';
-        }
-        callback(message);
-      }
-    });
+```js
+server.addExtension({
+  incoming: function(message, callback) {
+    if (message.channel === '/meta/subscribe') {
+      var sub    = message.subscription,
+          ext    = message.ext,
+          userId = ext.userId,
+          token  = ext.token;
 
-
-!SLIDE
-
-    @@@javascript
-    server.addExtension({
-      incoming: function(message, callback) {
-        if (message.channel === '/meta/subscribe') {
-          var sub    = message.subscription,
-              ext    = message.ext,
-              userId = ext.userId,
-              token  = ext.token;
-          
-          if (!valid(sub, userId, token))
-            message.error = '403::Forbidden';
-        }
-        callback(message);
-      }
-    });
+      if (!valid(sub, userId, token))
+        message.error = '403::Forbidden';
+    }
+    callback(message);
+  }
+});
+```
 
 
 !SLIDE title
@@ -266,13 +285,14 @@
 
 !SLIDE
 
-    @@@javascript
-    var token = require('crypto')
-                .createHmac('sha256', 'secret')
-                .update('the user ID')
-                .digest('hex');
+```js
+var token = require('crypto')
+            .createHmac('sha256', 'secret')
+            .update('the user ID')
+            .digest('hex');
 
-    // token = '060ce6d2f2215...'
+// token = '060ce6d2f2215...'
+```
 
 
 !SLIDE bullets
@@ -289,14 +309,15 @@
 
 !SLIDE
 
-    @@@javascript
-    server.publish('/commands', {
-      payload: '$("#foo").fadeIn("slow");'
-    });
+```js
+server.publish('/commands', {
+  payload: '$("#foo").fadeIn("slow");'
+});
 
-    client.subscribe('/commands', function(msg) {
-      eval(msg.payload);
-    });
+client.subscribe('/commands', function(msg) {
+  eval(msg.payload);
+});
+```
 
 
 !SLIDE bullets
@@ -314,39 +335,42 @@
 
 !SLIDE
 
-    @@@JavaScript
-    server.addExtension({
-      incoming: function(message, callback) {
-        if (!/^\/meta\//.test(message.channel)) {
-          var pass = message.ext.password;
-          if (pass !== 'magic words')
-            message.error = '403::Forbidden';
-        }
-        callback(message);
-      }
-    });
+```js
+server.addExtension({
+  incoming: function(message, callback) {
+    if (!/^\/meta\//.test(message.channel)) {
+      var pass = message.ext.password;
+      if (pass !== 'magic words')
+        message.error = '403::Forbidden';
+    }
+    callback(message);
+  }
+});
+```
 
 
 !SLIDE
 
-    @@@javascript
-    server.addExtension({
-      outgoing: function(message, callback) {
-        if (message.ext)
-          delete message.ext.password;
+```js
+server.addExtension({
+  outgoing: function(message, callback) {
+    if (message.ext)
+      delete message.ext.password;
 
-        callback(message);
-      }
-    });
+    callback(message);
+  }
+});
+```
 
 
 !SLIDE
 
-    @@@javascript
-    client.addExtension({
-      outgoing: function(message, callback) {
-        message.ext = message.ext || {};
-        message.ext.password = 'magic words';
-        callback(message);
-      }
-    });
+```js
+client.addExtension({
+  outgoing: function(message, callback) {
+    message.ext = message.ext || {};
+    message.ext.password = 'magic words';
+    callback(message);
+  }
+});
+```

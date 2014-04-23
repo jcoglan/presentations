@@ -1,9 +1,0 @@
-{
-  "name": "Securing socket applications",
-  "sections": [
-    {"section":"intro"},
-    {"section":"faye"},
-    {"section":"security"},
-    {"section":"outro"}
-  ]
-}

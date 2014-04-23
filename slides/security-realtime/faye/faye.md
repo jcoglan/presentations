@@ -8,33 +8,36 @@
 
 !SLIDE
 
-    @@@javascript
-    var Faye = require('faye');
+```js
+var Faye = require('faye');
 
-    var server = new Faye.NodeAdapter({
-      mount:   '/faye',
-      timeout: 60
-    });
-    server.listen(8000);
-
-
-!SLIDE
-
-    @@@javascript
-    var url    = 'http://localhost:8000/faye',
-        client = new Faye.Client(url);
-
-    client.subscribe('/messages', function(msg) {
-      alert('Got a message: ' + msg.text);
-    });
+var server = new Faye.NodeAdapter({
+  mount:   '/faye',
+  timeout: 60
+});
+server.listen(8000);
+```
 
 
 !SLIDE
 
-    @@@javascript
-    client.publish('/messages', {
-      text: 'Hello, world!'
-    });
+```js
+var url    = 'http://localhost:8000/faye',
+    client = new Faye.Client(url);
+
+client.subscribe('/messages', function(msg) {
+  alert('Got a message: ' + msg.text);
+});
+```
+
+
+!SLIDE
+
+```js
+client.publish('/messages', {
+  text: 'Hello, world!'
+});
+```
 
 
 !SLIDE title
@@ -44,82 +47,88 @@
 
 !SLIDE
 
-    @@@javascript
-    // client -> server
+```js
+// client -> server
 
-    {
-      "channel": "/meta/handshake",
-      "version": "1.0",
-      "supportedConnectionTypes": [
-        "websocket", "long-polling"
-      ]
-    }
-
-
-!SLIDE
-
-    @@@javascript
-    // server -> client
-
-    {
-      "channel":    "/meta/handshake",
-      "successful": true,
-      "clientId":   "79o6pn01muyqn1t5gkte0zy",
-      "version":    "1.0",
-      "supportedConnectionTypes": [
-        "websocket", "long-polling"
-      ]
-    }
+{
+  "channel": "/meta/handshake",
+  "version": "1.0",
+  "supportedConnectionTypes": [
+    "websocket", "long-polling"
+  ]
+}
+```
 
 
 !SLIDE
 
-    @@@javascript
-    // client -> server
+```js
+// server -> client
 
-    {
-      "channel":      "/meta/subscribe",
-      "clientId":     "79o6pn01muyqn1t5gkte0zy",
-      "subscription": "/messages"
-    }
-
-
-!SLIDE
-
-    @@@javascript
-    // server -> client
-
-    {
-      "channel":      "/meta/subscribe",
-      "clientId":     "79o6pn01muyqn1t5gkte0zy",
-      "subscription": "/messages",
-      "successful":   true
-    }
+{
+  "channel":    "/meta/handshake",
+  "successful": true,
+  "clientId":   "79o6pn01muyqn1t5gkte0zy",
+  "version":    "1.0",
+  "supportedConnectionTypes": [
+    "websocket", "long-polling"
+  ]
+}
+```
 
 
 !SLIDE
 
-    @@@javascript
-    // client -> server
+```js
+// client -> server
 
-    {
-      "channel":  "/meta/connect",
-      "clientId": "79o6pn01muyqn1t5gkte0zy"
-    }
+{
+  "channel":      "/meta/subscribe",
+  "clientId":     "79o6pn01muyqn1t5gkte0zy",
+  "subscription": "/messages"
+}
+```
 
 
 !SLIDE
 
-    @@@javascript
-    // client -> server
-    // server -> client
+```js
+// server -> client
 
-    {
-      "channel": "/messages",
-      "data": {
-        "text": "Hello, world!"
-      }
-    }
+{
+  "channel":      "/meta/subscribe",
+  "clientId":     "79o6pn01muyqn1t5gkte0zy",
+  "subscription": "/messages",
+  "successful":   true
+}
+```
+
+
+!SLIDE
+
+```js
+// client -> server
+
+{
+  "channel":  "/meta/connect",
+  "clientId": "79o6pn01muyqn1t5gkte0zy"
+}
+```
+
+
+!SLIDE
+
+```js
+// client -> server
+// server -> client
+
+{
+  "channel": "/messages",
+  "data": {
+    "text": "Hello, world!"
+  }
+}
+```
 
 
 !SLIDES title

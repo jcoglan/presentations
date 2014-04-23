@@ -3,15 +3,18 @@ body, #preso, .slide {
   color: #725e47;
 }
 
-h1 { color: #00569e; }
+h1 {
+  color: #00569e;
+}
+
+a {
+  color: #6495be;
+}
 
 pre.highlight .c1 {
   color: brown;
 }
 pre.highlight .k, pre.highlight .kc, pre.highlight .kd {
-  color: #d29815;
-}
-pre.highlight .p {
   color: #d29815;
 }
 pre.highlight .mi {
@@ -25,7 +28,9 @@ pre.highlight .nt {
   color: #d29815;
   font-weight: bold;
 }
+pre.highlight .p {
+  color: #d29815;
+}
 pre.highlight .s, pre.highlight .s1, pre.highlight .s2 {
   color: #6495be;
 }
-
