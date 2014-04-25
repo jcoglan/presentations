@@ -12,7 +12,7 @@
 * Author of Faye
 
 
-!SLIDE image center
+!SLIDE
 ![Horse](horse.png)
 
 

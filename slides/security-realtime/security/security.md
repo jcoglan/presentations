@@ -50,7 +50,7 @@ http://example.com/?foo=bar&amp;hello=wor ld
 ```
 
 
-!SLIDE image center
+!SLIDE
 
 ![duck horse](duckhorse.jpg)
 
