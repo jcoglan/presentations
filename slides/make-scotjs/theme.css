@@ -1,0 +1,23 @@
+@import url(/parade.css);
+
+body {
+  background: #f9f9f9;
+  color: #394249;
+}
+
+.hashtag {
+  color: #5695be;
+  font-size: 1.8em;
+  position: absolute;
+  right: 0;
+  top: 1em;
+}
+
+h1 {
+  color: #8d2d2d;
+  font-size: 7em;
+}
+
+a {
+  color: #5695be;
+}

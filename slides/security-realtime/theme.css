@@ -1,6 +1,6 @@
 @import url(/parade.css);
 
-body, #preso, .slide {
+body {
   background: #fff;
   color: #725e47;
 }

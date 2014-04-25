@@ -1,15 +1,17 @@
 body {
+  background: #eee;
+  color: #333;
   font-family: FreeSans, Helvetica, Arial, sans-serif;
+}
+
+#preso, .slide {
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
 }
 
 #footer {
   display: none;
-}
-
-body, #preso, .slide {
-  background: #eee;
-  box-shadow: none;
-  color: #333;
 }
 
 .slide {

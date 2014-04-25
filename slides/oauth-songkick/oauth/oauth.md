@@ -81,7 +81,7 @@ It receives:
               state=xyz
 
 
-!SLIDE image center
+!SLIDE
 # Meanwhile on fotos.com
 ![](win-98-security-hack1.gif)
 
