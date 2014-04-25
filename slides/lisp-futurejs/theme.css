@@ -1,0 +1,51 @@
+@import url(/parade.css);
+
+body, #preso, .slide {
+  background: #231f20;
+  color: #ef474e;
+}
+
+h1 {
+  color: #00cfff;
+}
+
+a {
+  color: #fff27d;
+}
+
+pre.highlight {
+  font-size: 4.4em;
+}
+.big pre {
+  font-size: 14.4em;
+  text-align: center;
+}
+.huge pre {
+  font-size: 28.8em;
+  margin-top: 0.2em;
+  text-align: center;
+}
+pre.highlight .k {
+  color: #00cfff;
+}
+pre.highlight .mi {
+  color: #00cfff;
+}
+pre.highlight .nb {
+  color: #fff27d;
+  font-weight: bold;
+}
+pre.highlight .nf {
+  color: #898989;
+}
+pre.highlight .no {
+  color: #ef474e;
+  font-weight: bold;
+}
+pre.highlight .nv {
+  color: #fff27d;
+}
+pre.highlight .p {
+  color: #ef474e;
+  font-weight: bold;
+}

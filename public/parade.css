@@ -2,6 +2,10 @@ body {
   font-family: FreeSans, Helvetica, Arial, sans-serif;
 }
 
+#footer {
+  display: none;
+}
+
 body, #preso, .slide {
   background: #eee;
   box-shadow: none;
@@ -19,7 +23,8 @@ body, #preso, .slide {
   vertical-align: middle;
 }
 
-h1, h2, h3 {
+.title h1, .title h2,
+.bullets h1, .bullets h2 {
   text-align: left;
 }
 
@@ -34,6 +39,13 @@ h2, h3 {
   letter-spacing: -0.02em;
 }
 
+.bullets p {
+  font-size: 2.4em;
+  line-height: 1.5em;
+  margin: 1.5em 0;
+  text-align: left;
+}
+
 .bullets ul li {
   font-size: 0.8em;
   letter-spacing: -0.02em;
@@ -44,7 +56,7 @@ h2, h3 {
   text-align: left;
 }
 
-li code {
+code {
   background: transparent;
   border: none;
   color: inherit;
