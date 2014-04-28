@@ -25,6 +25,10 @@ pre.highlight {
   margin-top: 0.2em;
   text-align: center;
 }
+.diagram pre.highlight {
+  color: #00cfff;
+  font-size: 2.8em;
+}
 pre.highlight .k {
   color: #00cfff;
 }

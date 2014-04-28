@@ -77,7 +77,7 @@ pre.highlight .err {
   background: transparent;
 }
 
-.diagram pre {
+.diagram pre.highlight {
   font-size: 2em;
 }
 
