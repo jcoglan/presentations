@@ -1,6 +1,16 @@
 !SLIDE title
 # The language
 
+!SLIDE bullets
+# Subset of Scheme
+* Invented in 1975 by Steele and Sussman
+* Arithmetic
+* Conditional logic
+* Variables
+* User-defined functions
+* Recursion
+* Lexical closures
+
 !SLIDE huge
 ```scheme
 #t

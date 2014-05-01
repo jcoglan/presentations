@@ -20,7 +20,7 @@ delimiter <- "(" / ")" / [\s\n\r\t]
 
 !SLIDE diagram
 ```
-                      (* 10 x)
+                    (* 10 x)
  
 
 
@@ -34,10 +34,10 @@ delimiter <- "(" / ")" / [\s\n\r\t]
 
 !SLIDE diagram
 ```
-                      (* 10 x)
- 
-         "(" --------------------------- ")"
-                       <List>
+                    (* 10 x)
+
+       "(" --------------------------- ")"
+                     <List>
 
 
 
@@ -48,40 +48,40 @@ delimiter <- "(" / ")" / [\s\n\r\t]
 
 !SLIDE diagram
 ```
-                      (* 10 x)
- 
-  <List> "(" -------------+------------- ")"
-                          |
-              +-----------+-----------+
-              |           |           |
-             "* "        "10 "       "x"
-            <Cell>      <Cell>     <Cell>
+                    (* 10 x)
+
+<List> "(" -------------+------------- ")"
+                        |
+            +-----------+-----------+
+            |           |           |
+           "* "        "10 "       "x"
+          <Cell>      <Cell>     <Cell>
 
 
 ```
 
 !SLIDE diagram
 ```
-                      (* 10 x)
- 
-  <List> "(" -------------+------------- ")"
-                          |
-              +-----------+-----------+
-              |           |           |
-      <Cell> "* "        "10 "       "x"
-              |           |           |
-             "*"         "10"        "x"
-           <Symbol>    <Integer>   <Symbol>
+                    (* 10 x)
+
+<List> "(" -------------+------------- ")"
+                        |
+            +-----------+-----------+
+            |           |           |
+    <Cell> "* "        "10 "       "x"
+            |           |           |
+           "*"         "10"        "x"
+         <Symbol>    <Integer>   <Symbol>
 ```
 
 !SLIDE diagram
 ```
-             "*"         "10"        "x"
-           <Symbol>    <Integer>   <Symbol>
+           "*"         "10"        "x"
+         <Symbol>    <Integer>   <Symbol>
 
-              |           |           |
-              V           V           V
-        <Procedure:*>     10          5
+            |           |           |
+            V           V           V
+      <Procedure:*>     10          5
 
 
 
@@ -89,15 +89,15 @@ delimiter <- "(" / ")" / [\s\n\r\t]
 
 !SLIDE diagram
 ```
-             "*"         "10"        "x"
-           <Symbol>    <Integer>   <Symbol>
+           "*"         "10"        "x"
+         <Symbol>    <Integer>   <Symbol>
 
-              |           |           |
-              V           V           V
-        <Procedure:*>     10          5
+            |           |           |
+            V           V           V
+      <Procedure:*>     10          5
 
 
-                   *(10, 5) => 50
+                 *(10, 5) => 50
 ```
 
 !SLIDE diagram

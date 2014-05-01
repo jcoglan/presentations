@@ -5,6 +5,11 @@ body {
   color: #ef474e;
 }
 
+.lang h1 {
+  color: #fff27d;
+  font-size: 11em;
+}
+
 h1 {
   color: #00cfff;
 }
