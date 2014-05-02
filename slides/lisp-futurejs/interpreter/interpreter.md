@@ -79,6 +79,19 @@ delimiter <- "(" / ")" / [\s\n\r\t]
            "*"         "10"        "x"
          <Symbol>    <Integer>   <Symbol>
 
+
+
+
+
+
+
+```
+
+!SLIDE diagram
+```
+           "*"         "10"        "x"
+         <Symbol>    <Integer>   <Symbol>
+
             |
             V
       <Procedure:*>
@@ -141,6 +154,20 @@ delimiter <- "(" / ")" / [\s\n\r\t]
        |             |             |
     "define"        "x"        "(+ 2 3)"
     <Symbol>      <Symbol>       <List>
+```
+
+!SLIDE diagram
+```
+    "define"        "x"        "(+ 2 3)"
+    <Symbol>      <Symbol>       <List>
+
+
+
+
+
+
+
+
 ```
 
 !SLIDE diagram
