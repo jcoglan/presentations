@@ -1,5 +1,5 @@
 !SLIDE title
-# Compiling templates
+# Templates
 
 !SLIDE diagram
 ```
@@ -81,7 +81,7 @@ make: `build/templates.js' is up to date.
 ```
 
 !SLIDE title
-# Compiling CoffeeScript
+# CoffeeScript
 
 !SLIDE diagram
 ```
@@ -269,7 +269,7 @@ $<
 ```
 
 !SLIDE title
-# Creating a bundle
+# Minification
 
 !SLIDE diagram
 ```
@@ -452,6 +452,9 @@ clean:
 
 !SLIDE diagram
 ```
+$ make clean
+rm -rf build
+
 $ make test
 coffee -co build/lib/ lib/concert.coffee
 coffee -co build/lib/ lib/concert_view.coffee
@@ -463,12 +466,19 @@ coffee -co build/spec/ spec/concert_view_spec.coffee
 phantomjs spec/phantom.js
 Loaded suite: templates.concert(), ConcertView
 
+....
+
 Finished in 0.041 seconds
 4 tests, 4 assertions, 0 failures, 0 errors
+```
 
+!SLIDE diagram
+```
 $ make test
 phantomjs spec/phantom.js
 Loaded suite: templates.concert(), ConcertView
+
+....
 
 Finished in 0.038 seconds
 4 tests, 4 assertions, 0 failures, 0 errors
