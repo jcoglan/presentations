@@ -3,6 +3,7 @@
 
 !SLIDE diagram
 ```
+.
 ├── Makefile
 ├── lib
 │   ├── concert.coffee
@@ -19,6 +20,7 @@
 
 !SLIDE diagram
 ```
+.
 ├── Makefile
 ├── build
 │   └── templates.js <-------------------------+
