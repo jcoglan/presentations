@@ -21,3 +21,23 @@ h1 {
 a {
   color: #5695be;
 }
+
+.diagram pre.highlight {
+  font-size: 1.7em;
+}
+.html pre.highlight {
+  font-size: 1.8em;
+}
+.make pre.highlight {
+  font-size: 2.4em;
+}
+.sigil pre.highlight {
+  font-size: 12em;
+  text-align: center;
+}
+.test pre.highlight {
+  font-size: 1.8em;
+}
+pre.highlight .c, pre.highlight .c1 {
+  font-style: normal;
+}

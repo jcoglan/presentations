@@ -1,3 +1,5 @@
 title "Make: the forgotten build tool"
 
 section "intro"
+section "project"
+section "make"

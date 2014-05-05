@@ -1,5 +1,5 @@
 !SLIDE title
-## http://slides.jcoglan.com
+## http://slides.jcoglan.com
 # A language in 20 minutes
 ## James Coglan / @jcoglan
 
