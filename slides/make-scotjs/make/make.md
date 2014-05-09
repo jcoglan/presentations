@@ -396,6 +396,68 @@ $^
 ```
 
 !SLIDE title
+# Browserify
+
+!SLIDE
+```js
+// pizza.js
+var dough = require('./components/dough');
+
+// components/dough.js
+var flour = require('../ingredients/flour');
+
+// ingredients/flour.js
+module.exports = { ... };
+```
+
+!SLIDE make
+```make
+dinner.js: pizza.js
+        browserify $< > $@
+```
+
+!SLIDE
+```
+$ make
+browserify pizza.js > dinner.js
+
+$ touch ingredients/flour.js
+
+$ make
+make: `dinner.js' is up to date.
+```
+
+!SLIDE
+```
+$ browserify --list pizza.js
+pizza.js
+components/dough.js
+ingredients/flour.js
+```
+
+!SLIDE make
+``` make
+app_root := pizza.js
+
+dinner.js: $(shell browserify --list $(app_root))
+        browserify $(app_root) > $@
+```
+
+!SLIDE
+```
+$ make
+browserify pizza.js > dinner.js
+
+$ touch ingredients/flour.js
+
+$ make
+browserify pizza.js > dinner.js
+
+$ make
+make: `dinner.js' is up to date.
+```
+
+!SLIDE title
 # Running tests
 
 !SLIDE html
