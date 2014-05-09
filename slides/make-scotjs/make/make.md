@@ -43,8 +43,8 @@ PATH  := node_modules/.bin:$(PATH)
 SHELL := /bin/bash
 
 build/templates.js: templates/*.handlebars
-        mkdir -p $(dir $@)
-        handlebars templates/*.handlebars > $@
+    mkdir -p $(dir $@)
+    handlebars templates/*.handlebars > $@
 ```
 
 !SLIDE sigil
@@ -66,8 +66,8 @@ template_source := templates/*.handlebars
 template_js     := build/templates.js
 
 $(template_js): $(templates_source)
-        mkdir -p $(dir $@)
-        handlebars $(templates_source) > $@
+    mkdir -p $(dir $@)
+    handlebars $(templates_source) > $@
 ```
 
 !SLIDE
@@ -257,7 +257,7 @@ make: `build/templates.js' is up to date.
 !SLIDE make
 ```make
 build/%.js: %.coffee
-        coffee -co $(dir $@) $<
+    coffee -co $(dir $@) $<
 
 # e.g.
 # 
@@ -358,7 +358,7 @@ spec_coffee  := $(wildcard spec/*.coffee)
 spec_js      := $(spec_coffee:%.coffee=build/%.js)
 
 build/%.js: %.coffee
-        coffee -co $(dir $@) $<
+    coffee -co $(dir $@) $<
 ```
 
 !SLIDE make
@@ -371,7 +371,7 @@ libs := vendor/jquery.js \
     node_modules/backbone/backbone.js
 
 $(app_bundle): $(libs) $(build_files) $(template_js)
-        uglifyjs -cmo $@ $^
+    uglifyjs -cmo $@ $^
 ```
 !SLIDE make
 ```make
@@ -387,7 +387,7 @@ libs := vendor/jquery.js \
 all: $(app_bundle)
 
 $(app_bundle): $(libs) $(build_files) $(template_js)
-        uglifyjs -cmo $@ $^
+    uglifyjs -cmo $@ $^
 ```
 
 !SLIDE sigil
@@ -412,8 +412,10 @@ module.exports = { ... };
 
 !SLIDE make
 ```make
+# WRONG!
+
 dinner.js: pizza.js
-        browserify $< > $@
+    browserify $< > $@
 ```
 
 !SLIDE
@@ -440,7 +442,7 @@ ingredients/flour.js
 app_root := pizza.js
 
 dinner.js: $(shell browserify --list $(app_root))
-        browserify $(app_root) > $@
+    browserify $(app_root) > $@
 ```
 
 !SLIDE
@@ -491,22 +493,22 @@ make: `dinner.js' is up to date.
 ```js
 // spec/phantom.js
 
-var JS = require("../node_modules/jstest/jstest")
+var JS = require('../node_modules/jstest/jstest')
 
 var reporter = new JS.Test.Reporters.Headless({})
-reporter.open("spec/test.html")
+reporter.open('spec/test.html')
 ```
 
 !SLIDE make
 ```make
 test: $(app_bundle) $(spec_js)
-        phantomjs spec/phantom.js
+    phantomjs spec/phantom.js
 ```
 
 !SLIDE make
 ``` make
 clean:
-        rm -rf build
+    rm -rf build
 ```
 
 !SLIDE make

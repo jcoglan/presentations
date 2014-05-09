@@ -22,6 +22,10 @@ a {
   color: #5695be;
 }
 
+.bullets {
+  font-size: 1.4em;
+}
+
 .diagram pre.highlight {
   font-size: 1.7em;
 }
