@@ -550,6 +550,9 @@ Finished in 0.038 seconds
 4 tests, 4 assertions, 0 failures, 0 errors
 ```
 
+!SLIDE title
+# Lazy tests
+
 !SLIDE make
 ```make
 test: $(app_bundle) $(spec_js)
