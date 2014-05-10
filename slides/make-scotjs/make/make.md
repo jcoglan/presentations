@@ -65,9 +65,9 @@ SHELL := /bin/bash
 template_source := templates/*.handlebars
 template_js     := build/templates.js
 
-$(template_js): $(templates_source)
+$(template_js): $(template_source)
     mkdir -p $(dir $@)
-    handlebars $(templates_source) > $@
+    handlebars $(template_source) > $@
 ```
 
 !SLIDE
@@ -548,6 +548,41 @@ Loaded suite: templates.concert(), ConcertView
 
 Finished in 0.038 seconds
 4 tests, 4 assertions, 0 failures, 0 errors
+```
+
+!SLIDE make
+```make
+test: $(app_bundle) $(spec_js)
+    phantomjs spec/phantom.js
+```
+
+!SLIDE make
+```make
+.DELETE_ON_ERROR:
+
+test_results := spec/results.xml
+
+test: $(test_results)
+
+$(test_results): $(app_bundle) $(spec_js)
+    FORMAT=xml phantomjs spec/phantom.js > $@
+```
+
+!SLIDE diagram
+```
+$ make test
+FORMAT=xml phantomjs spec/phantom.js > spec/results.xml
+make: *** [spec/results.xml] Error 1
+make: *** Deleting file `spec/results.xml'
+
+# Fix tests
+
+$ make test
+coffee -co build/spec/ spec/concert_template_spec.coffee
+FORMAT=xml phantomjs spec/phantom.js > spec/results.xml
+
+$ make test
+make: Nothing to be done for `test'.
 ```
 
 !SLIDE

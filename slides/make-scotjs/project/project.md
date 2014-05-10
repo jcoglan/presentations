@@ -84,11 +84,11 @@ JS.Test.describe "templates.concert()", ->
     @html = $(Handlebars.templates.concert(@concert))
 
   @it "renders the artist name", ->
-    @assertEqual "Boredoms", @html.find(".artist").text()
+    @assertEqual "Boredoms", @html.find(".artist").text().trim()
 
   @it "renders the venue details", ->
     @assertEqual "The Forum, Kentish Town, UK",
-                 @html.find(".venue").text()
+                 @html.find(".venue").text().trim()
 ```
 
 !SLIDE test
@@ -110,11 +110,11 @@ JS.Test.describe "ConcertView", ->
       model: @concert
 
   @it "renders the artist name", ->
-    @assertEqual "Boredoms", @fixture.find(".artist").text()
+    @assertEqual "Boredoms", @fixture.find(".artist").text().trim()
 
   @it "updates the artist name if it changes", ->
     @concert.set "artist", "Low"
-    @assertEqual "Low", @fixture.find(".artist").text()
+    @assertEqual "Low", @fixture.find(".artist").text().trim()
 ```
 
 !SLIDE title
