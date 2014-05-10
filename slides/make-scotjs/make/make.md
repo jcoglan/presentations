@@ -549,3 +549,28 @@ Loaded suite: templates.concert(), ConcertView
 Finished in 0.038 seconds
 4 tests, 4 assertions, 0 failures, 0 errors
 ```
+
+!SLIDE
+# Grunt
+```
+    handlebars    coffee    uglify    test
+        |           |          |        |
+        +-----------+----+-----+--------+
+                         |
+                         |
+                       build
+```
+
+!SLIDE
+# Make
+```
+           handlebars      coffee
+               |              |
+               +-------+------+
+                       |
+                       |
+                    uglify
+                       |
+                       |
+                     test
+```
