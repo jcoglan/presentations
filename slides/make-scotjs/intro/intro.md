@@ -7,21 +7,25 @@
 # The problem
 
 !SLIDE bullets
+* grunt-contrib-handlebars
 * grunt-handlebars
-* gulp-handlebars
 
 !SLIDE
 ```
-$ npm install handlebars grunt-handlebars
+$ npm install handlebars \
+              grunt-contrib-handlebars \
+              grunt-handlebars
 
 $ npm ls
+├─┬ grunt-contrib-handlebars@0.8.0
+│ └── handlebars@1.3.0
 ├─┬ grunt-handlebars@0.0.6
 │ └── handlebars@1.0.5-beta
 └── handlebars@2.0.0-alpha.2
 ```
 
 !SLIDE bullets
-* grunt-coffee
+* grunt-contrib-coffee
 * gulp-coffee
 * broccoli-coffee
 
