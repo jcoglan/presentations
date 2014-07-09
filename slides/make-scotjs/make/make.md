@@ -11,7 +11,7 @@
 ├── package.json
 ├── spec
 │   ├── concert_template_spec.coffee
-│   ├── concert_view_spec.coffee
+│   └── concert_view_spec.coffee
 ├── templates
 │   └── concert.handlebars
 └── vendor
@@ -30,7 +30,7 @@
 ├── package.json                               |
 ├── spec                                       |
 │   ├── concert_template_spec.coffee           |
-│   ├── concert_view_spec.coffee               |
+│   └── concert_view_spec.coffee               |
 ├── templates                                  |
 │   └── concert.handlebars O-------------------+
 └── vendor
@@ -97,7 +97,7 @@ make: `build/templates.js' is up to date.
 ├── package.json
 ├── spec
 │   ├── concert_template_spec.coffee
-│   ├── concert_view_spec.coffee
+│   └── concert_view_spec.coffee
 ├── templates
 │   └── concert.handlebars
 └── vendor
@@ -122,7 +122,7 @@ make: `build/templates.js' is up to date.
 ├── package.json
 ├── spec
 │   ├── concert_template_spec.coffee
-│   ├── concert_view_spec.coffee
+│   └── concert_view_spec.coffee
 ├── templates
 │   └── concert.handlebars
 └── vendor
@@ -147,7 +147,7 @@ make: `build/templates.js' is up to date.
 ├── package.json
 ├── spec
 │   ├── concert_template_spec.coffee
-│   ├── concert_view_spec.coffee
+│   └── concert_view_spec.coffee
 ├── templates
 │   └── concert.handlebars
 └── vendor
@@ -172,7 +172,7 @@ make: `build/templates.js' is up to date.
 ├── package.json
 ├── spec
 │   ├── concert_template_spec.coffee
-│   ├── concert_view_spec.coffee
+│   └── concert_view_spec.coffee
 ├── templates
 │   └── concert.handlebars
 └── vendor
@@ -197,7 +197,7 @@ make: `build/templates.js' is up to date.
 ├── package.json                               |
 ├── spec                                       |
 │   ├── concert_template_spec.coffee O---------+
-│   ├── concert_view_spec.coffee
+│   └── concert_view_spec.coffee
 ├── templates
 │   └── concert.handlebars
 └── vendor
@@ -222,7 +222,7 @@ make: `build/templates.js' is up to date.
 ├── package.json                               |
 ├── spec                                       |
 │   ├── concert_template_spec.coffee           |
-│   ├── concert_view_spec.coffee O-------------+
+│   └── concert_view_spec.coffee O-------------+
 ├── templates
 │   └── concert.handlebars
 └── vendor
@@ -247,7 +247,7 @@ make: `build/templates.js' is up to date.
 ├── package.json                               |
 ├── spec                                       |
 │   ├── concert_template_spec.coffee O---------+
-│   ├── concert_view_spec.coffee O-------------+
+│   └── concert_view_spec.coffee O-------------+
 ├── templates
 │   └── concert.handlebars
 └── vendor
@@ -293,7 +293,7 @@ $<
 ├── package.json
 ├── spec
 │   ├── concert_template_spec.coffee
-│   ├── concert_view_spec.coffee
+│   └── concert_view_spec.coffee
 ├── templates
 │   └── concert.handlebars
 └── vendor
@@ -321,7 +321,7 @@ $<
 ├── package.json                               |
 ├── spec                                       |
 │   ├── concert_template_spec.coffee           |
-│   ├── concert_view_spec.coffee               |
+│   └── concert_view_spec.coffee               |
 ├── templates                                  |
 │   └── concert.handlebars                     |
 └── vendor                                     |

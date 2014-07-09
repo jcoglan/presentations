@@ -62,7 +62,7 @@ window.ConcertView = ConcertView
 │   └── concert_view.coffee
 ├── spec
 │   ├── concert_template_spec.coffee
-│   ├── concert_view_spec.coffee
+│   └── concert_view_spec.coffee
 ├── templates
 │   └── concert.handlebars
 └── vendor
@@ -129,7 +129,7 @@ JS.Test.describe "ConcertView", ->
 ├── package.json
 ├── spec
 │   ├── concert_template_spec.coffee
-│   ├── concert_view_spec.coffee
+│   └── concert_view_spec.coffee
 ├── templates
 │   └── concert.handlebars
 └── vendor
