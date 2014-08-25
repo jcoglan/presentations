@@ -1,0 +1,8 @@
+title "Practical functional programming: pick two"
+
+section "intro"
+section "promises"
+section "laziness"
+section "streams"
+section "frp"
+section "outro"
