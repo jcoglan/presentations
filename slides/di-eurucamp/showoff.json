@@ -1,9 +1,0 @@
-{
-  "name": "Do I need DI?",
-  "sections": [
-    {"section":"intro"},
-    {"section":"faye"},
-    {"section":"songkick"},
-    {"section":"outro"}
-  ]
-}

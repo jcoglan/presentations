@@ -1,0 +1,48 @@
+@import url(/parade.css);
+
+body {
+  background: #191818;
+  color: #73ad43;
+}
+
+h1 {
+  color: #00d4ff;
+}
+
+a {
+  color: #ff00a2;
+}
+
+pre.highlight {
+  color: #00d4ff;
+  font-size: 2em;
+}
+.diagram pre {
+  font-size: 2.2em;
+}
+pre.highlight .c1 {
+  color: brown;
+  font-style: normal;
+}
+pre.highlight .k, pre.highlight .kd, pre.highlight .kp {
+  color: #fff;
+}
+pre.highlight .nb {
+  color: #ff00a2;
+}
+pre.highlight .nc, pre.highlight .nf {
+  color: #00d4ff;
+}
+pre.highlight .no {
+  color: #ff00a2;
+}
+pre.highlight .o, pre.highlight .p, pre.highlight .si, pre.highlight .err {
+  color: #fff;
+}
+pre.highlight .s, pre.highlight .s1, pre.highlight .s2, pre.highlight .ss {
+  color: #73ad43;
+  font-weight: bold;
+}
+pre.highlight .vi {
+  color: #73ad43;
+}
