@@ -44,8 +44,8 @@ join = (promises) ->
         promise.then (value) ->
             list[i] = value
             expecting -= 1
-            deferred.resolve(list) if expecting is 0
+            deferred.fulfill(list) if expecting is 0
 
-    deferred.resolve(list) if expecting is 0
+    deferred.fulfill(list) if expecting is 0
     deferred.promise
 ```

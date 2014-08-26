@@ -150,7 +150,7 @@ app = (tcpIn, userIn) ->
     ircIn     = tcpIn.map(irc.parse)
 
     rooms     = userIn.map    (line)      -> line.match /^\/join +(\S+)/        #
-                      .filter (match)     -> match                              #
+                      .filter (match)     -> match isnt null                    #
                       .map    ([_, room]) -> room                               #
 
     joinCmd   = rooms.map (room) -> { command: 'JOIN', params: [room] }         #
@@ -176,7 +176,7 @@ app = (tcpIn, userIn) ->
     ircIn     = tcpIn.map(irc.parse)
 
     rooms     = userIn.map    (line)      -> line.match /^\/join +(\S+)/
-                      .filter (match)     -> match
+                      .filter (match)     -> match isnt null
                       .map    ([_, room]) -> room
 
     joinCmd   = rooms.map (room) -> { command: 'JOIN', params: [room] }
@@ -206,7 +206,7 @@ app = (tcpIn, userIn) ->
     ircIn     = tcpIn.map(irc.parse)
 
     rooms     = userIn.map    (line)      -> line.match /^\/join +(\S+)/
-                      .filter (match)     -> match
+                      .filter (match)     -> match isnt null
                       .map    ([_, room]) -> room
 
     joinCmd   = rooms.map (room) -> { command: 'JOIN', params: [room] }
