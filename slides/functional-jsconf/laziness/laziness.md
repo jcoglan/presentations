@@ -1,5 +1,19 @@
 !SLIDE
 
+![](excel.jpg)
+
+
+!SLIDE big
+
+```coffee
+CoffeeScript    Haskell
+
+[x, xs...]      x : xs
+```
+
+
+!SLIDE
+
 ```hs
 map           :: (a -> b) -> [a] -> [b]
 map _ []      =  []

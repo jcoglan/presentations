@@ -152,7 +152,7 @@ length ['Willkommen', 'in', 'Berlin']
 !SLIDE
 
 ```coffee
-# [1, 2, 3, 4] == [1, [2, 3, 4]...]
+# [1, 2, 3, 4] is [1, [2, 3, 4]...]
 
 # length :: [a] -> Int
 length = ([x, xs...]) ->
@@ -190,7 +190,7 @@ length = ([x, xs...]) ->
 
 ```coffee
     length ['Willkommen', 'in', 'Berlin']
- == 1 + length ['in', 'Berlin']
+ is 1 + length ['in', 'Berlin']
 
 
 
@@ -202,8 +202,8 @@ length = ([x, xs...]) ->
 
 ```coffee
     length ['Willkommen', 'in', 'Berlin']
- == 1 + length ['in', 'Berlin']
- == 1 + (1 + length ['Berlin'])
+ is 1 + length ['in', 'Berlin']
+ is 1 + (1 + length ['Berlin'])
 
 
 
@@ -214,9 +214,9 @@ length = ([x, xs...]) ->
 
 ```coffee
     length ['Willkommen', 'in', 'Berlin']
- == 1 + length ['in', 'Berlin']
- == 1 + (1 + length ['Berlin'])
- == 1 + (1 + (1 + length [])
+ is 1 + length ['in', 'Berlin']
+ is 1 + (1 + length ['Berlin'])
+ is 1 + (1 + (1 + length [])
 
 
 ```
@@ -237,10 +237,10 @@ length = ([x, xs...]) ->
 
 ```coffee
     length ['Willkommen', 'in', 'Berlin']
- == 1 + length ['in', 'Berlin']
- == 1 + (1 + length ['Berlin'])
- == 1 + (1 + (1 + length [])
- == 1 + (1 + (1 + 0))
+ is 1 + length ['in', 'Berlin']
+ is 1 + (1 + length ['Berlin'])
+ is 1 + (1 + (1 + length [])
+ is 1 + (1 + (1 + 0))
 
 ```
 
@@ -249,11 +249,11 @@ length = ([x, xs...]) ->
 
 ```coffee
     length ['Willkommen', 'in', 'Berlin']
- == 1 + length ['in', 'Berlin']
- == 1 + (1 + length ['Berlin'])
- == 1 + (1 + (1 + length [])
- == 1 + (1 + (1 + 0))
- == 3
+ is 1 + length ['in', 'Berlin']
+ is 1 + (1 + length ['Berlin'])
+ is 1 + (1 + (1 + length [])
+ is 1 + (1 + (1 + 0))
+ is 3
 ```
 
 
@@ -311,7 +311,7 @@ map = (f, [x, xs...]) ->
     square = (x) -> x * x
 
     map square, [1, 2, 3]
- == [1, map(square, [2, 3])...]
+ is [1, map(square, [2, 3])...]
 
 
 
@@ -325,8 +325,8 @@ map = (f, [x, xs...]) ->
     square = (x) -> x * x
 
     map square, [1, 2, 3]
- == [1, map(square, [2, 3])...]
- == [1, [4, map(square, [3])...]...]
+ is [1, map(square, [2, 3])...]
+ is [1, [4, map(square, [3])...]...]
 
 
 
@@ -339,9 +339,9 @@ map = (f, [x, xs...]) ->
     square = (x) -> x * x
 
     map square, [1, 2, 3]
- == [1, map(square, [2, 3])...]
- == [1, [4, map(square, [3])...]...]
- == [1, [4, [9, map(square, [])...]...]...]
+ is [1, map(square, [2, 3])...]
+ is [1, [4, map(square, [3])...]...]
+ is [1, [4, [9, map(square, [])...]...]...]
 
 
 ```
@@ -364,10 +364,10 @@ map = (f, [x, xs...]) ->
     square = (x) -> x * x
 
     map square, [1, 2, 3]
- == [1, map(square, [2, 3])...]
- == [1, [4, map(square, [3])...]...]
- == [1, [4, [9, map(square, [])...]...]...]
- == [1, [4, [9, []...]...]...]
+ is [1, map(square, [2, 3])...]
+ is [1, [4, map(square, [3])...]...]
+ is [1, [4, [9, map(square, [])...]...]...]
+ is [1, [4, [9, []...]...]...]
 
 ```
 
@@ -378,11 +378,11 @@ map = (f, [x, xs...]) ->
     square = (x) -> x * x
 
     map square, [1, 2, 3]
- == [1, map(square, [2, 3])...]
- == [1, [4, map(square, [3])...]...]
- == [1, [4, [9, map(square, [])...]...]...]
- == [1, [4, [9, []...]...]...]
- == [1, 4, 9]
+ is [1, map(square, [2, 3])...]
+ is [1, [4, map(square, [3])...]...]
+ is [1, [4, [9, map(square, [])...]...]...]
+ is [1, [4, [9, []...]...]...]
+ is [1, 4, 9]
 ```
 
 

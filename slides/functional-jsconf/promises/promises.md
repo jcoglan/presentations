@@ -2,6 +2,8 @@
 
 ![](underwood.png)
 
+http://blog.jcoglan.com/2013/03/30/callbacks-are-imperative-promises-are-functional-nodes-biggest-missed-opportunity/
+
 
 !SLIDE
 

@@ -4,6 +4,10 @@ pre.highlight {
   font-size: 2.2em;
 }
 
+.big pre.highlight {
+  font-size: 4.6em;
+}
+
 .diagram pre.highlight {
   font-size: 1.8em;
 }
