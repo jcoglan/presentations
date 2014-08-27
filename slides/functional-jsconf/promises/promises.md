@@ -1,3 +1,7 @@
+!SLIDE title
+# Promises
+
+
 !SLIDE
 
 ![](underwood.png)
@@ -24,30 +28,121 @@ async.parallel [
         http.get url, callback
     ,
     (callback) ->
-        db.get 'api-key', callback
+        db.get 'users:4', callback
 
-], (error, [file, [response, body], key]) ->
+], (error, [file, response, user]) ->
     console.log file
-    console.log JSON.parse(body)[0]
-    console.log key
+    console.log JSON.parse(response)[0]
+    console.log user
+```
+
+!SLIDE
+
+
+```coffee
+fs.readFile 'package.json', 'utf8', (error, file) ->
+    doSomethingWith file unless error
+
+    async.parallel [
+        (callback) ->
+            url = 'https://api.github.com/users/faye/repos'
+            http.get url, callback
+        ,
+        (callback) ->
+            db.get 'users:4', callback
+
+    ], (error, [response, user]) ->
+        console.log JSON.parse(response)[0]
+        console.log user
 ```
 
 
 !SLIDE
 
 ```coffee
-# join :: [Promise a] -> Promise [a]
-join = (promises) ->
-    deferred  = Q.defer()
-    expecting = promises.length
-    list      = []
+async.parallel [
+    (callback) ->
+        fs.readFile 'package.json', 'utf8', (error, file) ->
+            doSomethingWith file unless error
+            callback error, file
+    ,
+    (callback) ->
+        url = 'https://api.github.com/users/faye/repos'
+        http.get url, callback
+    ,
+    (callback) ->
+        db.get 'users:4', callback
 
-    promises.forEach (promise, i) ->
-        promise.then (value) ->
-            list[i] = value
-            expecting -= 1
-            deferred.fulfill(list) if expecting is 0
+], (error, [file, response, user]) ->
+    console.log file
+    console.log JSON.parse(response)[0]
+    console.log user
+```
 
-    deferred.fulfill(list) if expecting is 0
-    deferred.promise
+
+!SLIDE
+
+```coffee
+# fs.readFile :: Pathname -> Encoding -> Promise String
+# http.get    :: URL -> Promise String
+# db.get      :: String -> Promise String
+
+# documents   :: [Promise String]
+
+documents = [
+    fs.readFile('package.json', 'utf8'),
+    http.get('https://api.github.com/users/faye/repos'),
+    db.get('users:4')
+]
+
+documents[0].then (file) -> # ...
+
+Promise.all(documents).then (docs) -> # ...
+```
+
+
+!SLIDE
+
+```coffee
+# Promise.then :: Promise a -> (a -> b) -> Promise b
+
+# doc   :: Promise String
+# words :: Promise Int
+
+words = doc.then (s) -> s.split(/\S+/).length
+
+
+# Array.map :: [a] -> (a -> b) -> [b]
+
+# docs  :: [String]
+# words :: [Int]
+
+words = docs.map (s) -> s.split(/\S+/).length
+```
+
+
+!SLIDE
+
+```coffee
+# documents :: [Promise String]
+# words     :: [Promise Int]
+
+words = documents.map (promise) ->
+            promise.then (string) ->
+                string.split(/\S+/).length
+```
+
+
+!SLIDE
+
+```coffee
+# Promise.all :: [Promise a] -> Promise [a]
+
+# words       :: [Promise Int]
+# allWords    :: Promise [Int]
+
+allWords = Promise.all words
+
+allWords.then ([fileWords, responseWords, userWords]) ->
+    # ...
 ```
