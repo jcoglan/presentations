@@ -1,3 +1,7 @@
+!SLIDE title
+# Laziness and infinity
+
+
 !SLIDE
 
 ![](excel.jpg)

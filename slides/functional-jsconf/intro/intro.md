@@ -18,6 +18,10 @@
 <cite>Richard Feynman</cite>
 
 
+!SLIDE title
+# Functional programming
+
+
 !SLIDE
 
 ```coffee

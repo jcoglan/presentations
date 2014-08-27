@@ -1,5 +1,5 @@
 !SLIDE title
-# Promises
+# Promises and types
 
 
 !SLIDE
@@ -19,6 +19,17 @@ http://blog.jcoglan.com/2013/03/30/callbacks-are-imperative-promises-are-functio
 !SLIDE
 
 ```coffee
+# fs.readFile :: Pathname -> Encoding -> Callback -> ()
+
+# type Callback = Error -> Value -> ()
+
+fs.readFile 'package.json', 'utf8', (error, file) ->
+    console.log file unless error
+
+
+!SLIDE
+
+```coffee
 async.parallel [
     (callback) ->
         fs.readFile 'package.json', 'utf8', callback
@@ -32,7 +43,7 @@ async.parallel [
 
 ], (error, [file, response, user]) ->
     console.log file
-    console.log JSON.parse(response)[0]
+    console.log response
     console.log user
 ```
 
@@ -52,7 +63,7 @@ fs.readFile 'package.json', 'utf8', (error, file) ->
             db.get 'users:4', callback
 
     ], (error, [response, user]) ->
-        console.log JSON.parse(response)[0]
+        console.log response
         console.log user
 ```
 
@@ -75,7 +86,7 @@ async.parallel [
 
 ], (error, [file, response, user]) ->
     console.log file
-    console.log JSON.parse(response)[0]
+    console.log response
     console.log user
 ```
 
