@@ -1,5 +1,5 @@
 !SLIDE title
-# Laziness and infinity
+# Laziness
 
 
 !SLIDE

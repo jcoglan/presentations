@@ -9,17 +9,8 @@
 ![](pick-two.png)
 
 
-!SLIDE
-
-> You can know what the name of that bird is in all the languages you want to
-> know. And when you’ve finished with all that, you’ll know absolutely nothing
-> whatever about the bird.
-
-<cite>Richard Feynman</cite>
-
-
 !SLIDE title
-# Functional programming
+# Functions
 
 
 !SLIDE

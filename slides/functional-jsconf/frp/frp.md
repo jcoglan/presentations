@@ -1,5 +1,5 @@
 !SLIDE title
-# Functional reactive programming
+# Reactive
 
 
 !SLIDE frp

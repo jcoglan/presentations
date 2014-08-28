@@ -1,19 +1,5 @@
 !SLIDE title
-# Promises and types
-
-
-!SLIDE
-
-![](underwood.png)
-
-http://blog.jcoglan.com/2013/03/30/callbacks-are-imperative-promises-are-functional-nodes-biggest-missed-opportunity/
-
-
-!SLIDE
-
-> The nature of promises is that they remain immune to changing circumstances.
-
-<cite>Frank Underwood, ‘House of Cards’</cite>
+# Promises
 
 
 !SLIDE
@@ -93,6 +79,20 @@ async.parallel [
 
 !SLIDE
 
+![](underwood.png)
+
+http://blog.jcoglan.com/2013/03/30/callbacks-are-imperative-promises-are-functional-nodes-biggest-missed-opportunity/
+
+
+!SLIDE
+
+> The nature of promises is that they remain immune to changing circumstances.
+
+<cite>Frank Underwood, ‘House of Cards’</cite>
+
+
+!SLIDE
+
 ```coffee
 # fs.readFile :: Pathname -> Encoding -> Promise String
 # http.get    :: URL -> Promise String
@@ -106,9 +106,9 @@ documents = [
     db.get('users:4')
 ]
 
-documents[0].then (file) -> # ...
+documents[0].then doSomething
 
-Promise.all(documents).then (docs) -> # ...
+Promise.all(documents).then console.log
 ```
 
 
@@ -156,4 +156,20 @@ allWords = Promise.all words
 
 allWords.then ([fileWords, responseWords, userWords]) ->
     # ...
+```
+
+
+!SLIDE
+
+```coffee
+# Zalgo?
+
+data = null
+promise.then (x) -> data = x
+process data
+
+
+# Who's Zalgo?
+
+promise.then (x) -> process x
 ```
