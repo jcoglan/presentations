@@ -287,7 +287,7 @@ app = (tcpIn, userIn) ->
     joinCmd   = rooms.map (room) -> { command: 'JOIN', params: [room] }
 
     messages  = userIn.filter (line) -> not line.match /^\/|^ *$/
-    msgCmd    = rooms.sampleBy messages, (room, message) ->
+    msgCmd    = rooms.sampledBy messages, (room, message) ->
                     { command: 'PRIVMSG', params: [room, message] }
 
 
@@ -321,11 +321,11 @@ app = (tcpIn, userIn) ->
     joinCmd   = rooms.map (room) -> { command: 'JOIN', params: [room] }
 
     messages  = userIn.filter (line) -> not line.match /^\/|^ *$/
-    msgCmd    = rooms.sampleBy messages, (room, message) ->
+    msgCmd    = rooms.sampledBy messages, (room, message) ->
                     { command: 'PRIVMSG', params: [room, message] }
 
     msgIn     = ircIn.filter (msg) -> msg.command is 'PRIVMSG'
-    msgInRoom = rooms.sampleBy msgIn, (room, {params}) -> room is params[0]
+    msgInRoom = rooms.sampledBy msgIn, (room, {params}) -> room is params[0]
     roomMsg   = msgIn.filter msgInRoom
 
     notices   = ircIn.filter (msg) -> msg.command is 'NOTICE'

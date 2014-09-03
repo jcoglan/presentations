@@ -140,7 +140,7 @@ length ['Willkommen', 'in', 'Berlin']
     list[2] isnt undefined ?  ->  index++
         # index = 3
 
-    list[3] isnt undefined ?  ->  break
+    list[3] isnt undefined ?  ->  # break
 ```
 
 
