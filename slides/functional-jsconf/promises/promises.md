@@ -4,6 +4,15 @@
 
 !SLIDE
 
+> Events are a bad primitive for data flow. They require distribution of mutable
+> state around your code, and it’s not idiomatic or pleasant to flow data
+> through events.
+
+<cite>Tom Ashworth<br>http://phuu.net/2014/08/31/csp-and-transducers.html</cite>
+
+
+!SLIDE
+
 ```coffee
 # fs.readFile :: Pathname -> Encoding -> Callback -> ()
 

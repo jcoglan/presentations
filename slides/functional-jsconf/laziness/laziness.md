@@ -287,3 +287,15 @@ take n (x:xs)           =  x : take (n-1) xs
  == [2^2, 4^2, 6^2]
  == [4, 16, 36]
 ```
+
+
+!SLIDE
+
+> There are two ways to combine these transformations:
+>
+> - Perform the first transformation on the whole collection before moving on to
+>   the second.
+> - Perform all transformations on the first element of the collection before
+>   moving on to the second.
+
+<cite>Tom Ashworth<br>http://phuu.net/2014/08/31/csp-and-transducers.html</cite>

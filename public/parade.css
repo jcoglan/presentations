@@ -10,6 +10,10 @@ body {
   color: inherit;
 }
 
+.slide p, .slide li {
+  line-height: 1.5em;
+}
+
 #footer {
   display: none;
 }
@@ -43,7 +47,6 @@ h2, h3 {
 
 .bullets p {
   font-size: 2.4em;
-  line-height: 1.5em;
   margin: 1.5em 0;
   text-align: left;
 }
@@ -51,7 +54,6 @@ h2, h3 {
 .bullets ul li {
   font-size: 0.8em;
   letter-spacing: -0.02em;
-  line-height: 1.5em;
   list-style: disc outside;
   margin: 0 0 0 1em;
   padding: 0;
@@ -62,10 +64,10 @@ blockquote {
   border: none;
   font-family: Times New Roman, serif;
   font-style: italic;
-  line-height: 1.5em;
   padding: 0 0em 0 4em;
   position: relative;
 }
+
 blockquote:before {
   content: '“';
   font-family: FreeSans, Helvetica, Arial, sans-serif;
@@ -73,8 +75,20 @@ blockquote:before {
   font-size: 6em;
   font-weight: bold;
   position: absolute;
-  top: 0.15em;
+  top: -0.22em;
   left: 0;
+}
+
+blockquote li {
+  list-style: disc outside;
+  margin-left: 1em;
+}
+
+cite {
+  display: block;
+  font-style: normal;
+  padding-left: 6.5em;
+  text-align: left;
 }
 
 code {
