@@ -2,11 +2,6 @@
 # Laziness
 
 
-!SLIDE
-
-![](excel.jpg)
-
-
 !SLIDE big
 
 ```coffee
