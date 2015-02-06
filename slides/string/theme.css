@@ -1,0 +1,41 @@
+@import url(/parade.css);
+
+body {
+  background: #1a72c9;
+  color: #fff;
+}
+
+blockquote {
+  color: #fff;
+  font-family: inherit;
+  font-style: normal;
+}
+blockquote p {
+  font-size: 0.7em;
+  margin-bottom: 1em;
+}
+.big-quote blockquote p {
+  font-size: 1.1em;
+}
+
+a, del, ins {
+  color: #f5e147;
+}
+
+.map pre {
+  font-size: 2em;
+}
+
+.glyph h1 {
+  font-size: 32em;
+  font-weight: normal;
+  margin: 0 0 0.2em;
+}
+
+.glyph h3 {
+  font-family: monospace;
+}
+
+.image img {
+  width: 100%;
+}
