@@ -53,35 +53,6 @@ hex   binary  decimal     hex   binary  decimal
 ``` 
 
 
-!SLIDE diagram
-
-```
-                           B4
-                          /  \
-                       ---    ----
-                      /           \
-                    1011         0100
-                    ^               ^
-                    |               |
-  most significant bit (MSB)    least significant bit (LSB)
-  or, high-order bit            or, low-order bit
-
-
-                     10110100 = 180
-```
-
-
-!SLIDE
-
-```
-    0x3FF       - 0x3 is 11
-                - 0xF is 1111
-                - 0xF is 1111
-
-               so 0x3FF is 1111111111
-```
-
-
 !SLIDE title
 ## In the beginning* there was
 # The American Standard Code for Information Interchange
@@ -121,25 +92,6 @@ hex   binary  decimal     hex   binary  decimal
 2D  -         3D  =     4D  M     5D  ]     6D  m     7D  }
 2E  .         3E  >     4E  N     5E  ^     6E  n     7E  ~
 2F  /         3F  ?     4F  O     5F  _     6F  o     7F  DEL
-```
-
-
-!SLIDE
-
-```
-    "0" = 0x30          "A" = 0x41
-        = 0110000           = 1000001
-
-    "1" = 0x31          "B" = 0x42
-        = 0110001           = 1000010
-
-    "9" = 0x39          --
-        = 0111001
-                        "a" = 0x61
-                            = 1100001
-
-                        "b" = 0x62
-                            = 1100010
 ```
 
 

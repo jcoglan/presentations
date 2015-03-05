@@ -17,6 +17,7 @@
 
 ```
 U+2F49    ->        2F 49   (big endian)
+
               or    49 2F   (little endian)
 
 
@@ -67,14 +68,31 @@ $ irb
 # Surrogate pairs
 
 
+!SLIDE title
+# `U+D800` to `U+DFFF`<br>are reserved
+## `U+D800` to `U+DBFF` are “high surrogates”
+## `U+DC00` to `U+DFFF` are “low surrogates”
+
+
+!SLIDE
+
+```
+>> hex "😱".encode("utf-16be").bytes
+=> <D8 3D DE 31>
+
+>> hex "😱".encode("utf-16le").bytes
+=> <3D D8 31 DE>
+```
+
+
 !SLIDE
 
 ```
 Supplementary code points are in the interval
-[10000, 10FFFF]
+[0x10000, 0x10FFFF]
 
-Subtract 10000
-=> [0, FFFFF]
+Subtract 0x10000
+=> [0, 0xFFFFF]
 
 This gives (at most) 20 bits
 ```
@@ -114,23 +132,6 @@ To get code points, split into two 10-bit blocks
 
 > "\uD83D\uDE31"
 '😱'
-```
-
-
-!SLIDE title
-# `U+D800` to `U+DFFF`<br>are reserved
-## `U+D800` to `U+DBFF` are “high surrogates”
-## `U+DC00` to `U+DFFF` are “low surrogates”
-
-
-!SLIDE
-
-```
->> hex "😱".encode("utf-16be").bytes
-=> <D8 3D DE 31>
-
->> hex "😱".encode("utf-16le").bytes
-=> <3D D8 31 DE>
 ```
 
 

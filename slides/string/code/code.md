@@ -229,20 +229,6 @@ Encoding::CompatibilityError: incompatible
 
 ```
 >> s = "s"
->> t = "\xFF".force_encoding("ascii-8bit")
-
->> (s + t).encoding
-=> #<Encoding:ASCII-8BIT>
-
->> (t + s).encoding
-=> #<Encoding:ASCII-8BIT>
-```
-
-
-!SLIDE
-
-```
->> s = "s"
 >> t = "©".force_encoding("ascii-8bit")
 
 >> (s + t).encoding

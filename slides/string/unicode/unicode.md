@@ -319,21 +319,9 @@
 
 
 !SLIDE glyph
-# س
-## ARABIC LETTER SEEN
-### U+0633
-
-
-!SLIDE glyph
 # ش
 ## ARABIC LETTER SHEEN
 ### U+0634
-
-
-!SLIDE glyph
-# ۞
-## ARABIC START OF RUB EL HIZB
-### U+06DE
 
 
 !SLIDE glyph
@@ -451,12 +439,6 @@
 
 
 !SLIDE glyph
-# ᐛ
-## CANADIAN SYLLABICS NASKAPI WAA
-### U+141B
-
-
-!SLIDE glyph
 # ᙞ
 ## CANADIAN SYLLABICS CARRIER TSEE
 ### U+165E
@@ -502,18 +484,6 @@
 # ℋ
 ## SCRIPT CAPITAL H
 ### U+210B
-
-
-!SLIDE glyph
-# ℂ
-## DOUBLE-STRUCK CAPITAL C
-### U+2102
-
-
-!SLIDE glyph
-# ℍ
-## DOUBLE-STRUCK CAPITAL H
-### U+210D
 
 
 !SLIDE glyph
@@ -733,18 +703,6 @@
 
 
 !SLIDE glyph
-# 豚
-## HAN CHARACTER 'SMALL PIG, SUCKLING PIG'
-### U+8C5A
-
-
-!SLIDE glyph
-# 黙
-## HAN CHARACTER 'SILENT; QUIET, STILL; DARK' 
-### U+9ED9
-
-
-!SLIDE glyph
 # ꕅ
 ## VAI SYLLABLE GI
 ### U+A545
@@ -831,14 +789,14 @@
 !SLIDE
 
 ```
->> s = "an\u0303os"
-=> "años"
+>> s = "suen\u0303os"
+=> "sueños"
 
 >> s.size
-=> 5
+=> 7
 
 >> s.reverse
-=> "sõna"
+=> "sõneus"
 ```
 
 
