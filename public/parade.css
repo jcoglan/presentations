@@ -99,18 +99,21 @@ code {
   padding: 0;
 }
 
-pre.highlight {
+pre.highlight, pre.highlight pre {
   background: transparent;
   color: inherit;
   font-size: 2.6em;
   line-height: 1.4em;
+}
+pre.highlight pre {
+  font-size: 0.7em;
 }
 
 pre.highlight .err {
   background: transparent;
 }
 
-pre.highlight .c1, pre.highlight .cm, pre.highlight .cp, pre.highlight .cs {
+pre.highlight .c, pre.highlight .c1, pre.highlight .cm, pre.highlight .cp, pre.highlight .cs {
   font-style: normal;
 }
 

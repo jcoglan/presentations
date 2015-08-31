@@ -1,0 +1,6 @@
+title "Why recursion matters"
+
+section "intro"
+section "induction"
+section "laziness"
+section "kanren"
