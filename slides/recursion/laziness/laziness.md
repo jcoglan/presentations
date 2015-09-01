@@ -163,15 +163,15 @@ filter p (x:xs)
 ```hs
     (map (^ 2) (filter even [1..])) !! 2
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
 ```
 
 
@@ -182,13 +182,13 @@ filter p (x:xs)
 
 ==  (map (^ 2) (filter even (1 : [2..]))) !! 2
 
-    
 
-    
 
-    
 
-    
+
+
+
+
 ```
 
 
@@ -201,11 +201,11 @@ filter p (x:xs)
 
 ==  (map (^ 2) (filter even [2..])) !! 2
 
-    
 
-    
 
-    
+
+
+
 ```
 
 
@@ -220,9 +220,9 @@ filter p (x:xs)
 
 ==  (map (^ 2) (2 : filter even [3..])) !! 2
 
-    
 
-    
+
+
 ```
 
 
@@ -239,7 +239,7 @@ filter p (x:xs)
 
 ==  (2 ^ 2 : map (^ 2) (filter even [3..])) !! 2
 
-    
+
 ```
 
 
@@ -265,15 +265,15 @@ filter p (x:xs)
 ```hs
     (map (^ 2) (filter even [3..])) !! 1
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
 ```
 
 
@@ -284,13 +284,13 @@ filter p (x:xs)
 
 ==  (map (^ 2) (filter even (3 : [4..]))) !! 1
 
-    
 
-    
 
-    
 
-    
+
+
+
+
 ```
 
 
@@ -303,11 +303,11 @@ filter p (x:xs)
 
 ==  (map (^ 2) (filter even [4..])) !! 1
 
-    
 
-    
 
-    
+
+
+
 ```
 
 
@@ -322,9 +322,9 @@ filter p (x:xs)
 
 ==  (map (^ 2) (4 : filter even [5..])) !! 1
 
-    
 
-    
+
+
 ```
 
 
@@ -341,7 +341,7 @@ filter p (x:xs)
 
 ==  (4 ^ 2 : map (^ 2) (filter even [5..])) !! 1
 
-    
+
 ```
 
 
@@ -367,17 +367,17 @@ filter p (x:xs)
 ```hs
     (map (^ 2) (filter even [5..])) !! 0
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
 ```
 
 
@@ -388,34 +388,15 @@ filter p (x:xs)
 
 ==  (map (^ 2) (filter even (5 : [6..]))) !! 0
 
-    
-
-    
-
-    
-
-    
-
-    
-```
 
 
-!SLIDE
 
-```hs
-    (map (^ 2) (filter even [5..])) !! 0
 
-==  (map (^ 2) (filter even (5 : [6..]))) !! 0
 
-==  (map (^ 2) (filter even [6..])) !! 0
 
-    
 
-    
 
-    
 
-    
 ```
 
 
@@ -428,13 +409,13 @@ filter p (x:xs)
 
 ==  (map (^ 2) (filter even [6..])) !! 0
 
-==  (map (^ 2) (6 : filter even [7..])) !! 0
 
-    
 
-    
 
-    
+
+
+
+
 ```
 
 
@@ -449,11 +430,11 @@ filter p (x:xs)
 
 ==  (map (^ 2) (6 : filter even [7..])) !! 0
 
-==  (6 ^ 2 : map (^ 2) (filter even [7..])) !! 0
 
-    
 
-    
+
+
+
 ```
 
 
@@ -470,9 +451,9 @@ filter p (x:xs)
 
 ==  (6 ^ 2 : map (^ 2) (filter even [7..])) !! 0
 
-==  6 ^ 2
 
-    
+
+
 ```
 
 
@@ -491,5 +472,24 @@ filter p (x:xs)
 
 ==  6 ^ 2
 
-==  36    
+
+```
+
+
+!SLIDE
+
+```hs
+    (map (^ 2) (filter even [5..])) !! 0
+
+==  (map (^ 2) (filter even (5 : [6..]))) !! 0
+
+==  (map (^ 2) (filter even [6..])) !! 0
+
+==  (map (^ 2) (6 : filter even [7..])) !! 0
+
+==  (6 ^ 2 : map (^ 2) (filter even [7..])) !! 0
+
+==  6 ^ 2
+
+==  36
 ```

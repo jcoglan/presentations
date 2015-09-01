@@ -123,13 +123,13 @@ length (map f list)  ==  length list
 ```hs
 length (map f (x : list))
 
-    
 
-    
 
-    
 
-    
+
+
+
+
 ```
 
 
@@ -139,11 +139,11 @@ length (map f (x : list))
 
     ==  length (f x : map f list)
 
-    
 
-    
 
-    
+
+
+
 ```
 
 
@@ -155,9 +155,9 @@ length (map f (x : list))
 
     ==  1 + length (map f list)
 
-    
 
-    
+
+
 ```
 
 
@@ -171,7 +171,7 @@ length (map f (x : list))
 
     ==  1 + length list
 
-    
+
 ```
 
 
@@ -212,15 +212,15 @@ map f (map g list)  ==  map (f . g) list
 ```hs
 map f (map g (x : list))
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
 ```
 
 !SLIDE
@@ -229,13 +229,13 @@ map f (map g (x : list))
 
     ==  map f (g x : map g list)
 
-    
 
-    
 
-    
 
-    
+
+
+
+
 ```
 
 !SLIDE
@@ -246,11 +246,11 @@ map f (map g (x : list))
 
     ==  f (g x) : map f (map g list)
 
-    
 
-    
 
-    
+
+
+
 ```
 
 !SLIDE
@@ -263,9 +263,9 @@ map f (map g (x : list))
 
     ==  f (g x) : map (f . g) list
 
-    
 
-    
+
+
 ```
 
 !SLIDE
@@ -280,7 +280,7 @@ map f (map g (x : list))
 
     ==  (f . g) x : map (f . g) list
 
-    
+
 ```
 
 !SLIDE

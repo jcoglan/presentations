@@ -316,4 +316,3 @@ goal(new State()).map(s => s.results(2).map(toString))
 //        [ 'recurs', 'e' ],
 //        [ 'recurse', '' ] ]
 ```
-
