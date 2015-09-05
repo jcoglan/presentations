@@ -2,6 +2,11 @@
 # Time travel
 
 
+!SLIDE title
+# Values
+## Variables and pairs
+
+
 !SLIDE
 
 ```js
@@ -40,6 +45,11 @@ class Pair {
 ```
 
 
+!SLIDE title
+# States
+## Maps of variables to values
+
+
 !SLIDE
 
 ```js
@@ -53,8 +63,8 @@ class State {
     let pairs = Array.from(this._values)
                 .map(pair => pair.map(inspect).join('='))
 
-    return '[State ' + inspect(this._vars) +
-                 ' ' + pairs.join(', ') + ']'
+    return '{State ' + inspect(this._vars) +
+                 ' ' + pairs.join(', ') + '}'
   }
 }
 ```
@@ -85,7 +95,7 @@ class State {
 let [s, [a]] = new State().createVars('a')
 
 s.assign(a, 42)
-// -> [State [ a ] a = 42]
+// -> {State [ a ] a = 42}
 ```
 
 
@@ -136,14 +146,19 @@ let [s, [a, b]] = new State().createVars('a', 'b')
 
 
 s.unify(a, 3).unify(b, a)
-// -> [State [ a, b ], a = 3, b = 3]
+// -> {State [ a, b ], a = 3, b = 3}
 
 
 s.unify(new Pair(3, a),
         new Pair(b, new Pair(5, b)))
 
-// -> [State [ a, b ] b = 3, a = (5 . 3)]
+// -> {State [ a, b ] b = 3, a = (5 . 3)}
 ```
+
+
+!SLIDE title
+# Four ‘goals’:
+## `equal`, `bind`, `either`, and `both`
 
 
 !SLIDE
@@ -155,6 +170,13 @@ function equal(a, b) {
     return state ? [state] : []
   }
 }
+
+// e.g.
+
+let [s, [a]] = new State().createVars('a'),
+    goal     = equal(a, 1)
+
+goal(s) // -> [ {State [ a ] a = 1} ]
 ```
 
 
@@ -169,6 +191,13 @@ function bind(names, func) {
     return goal(newState)
   }
 }
+
+// e.g.
+
+let goal = bind(['a', 'b'], (a, b) => equal(a, b))
+
+goal(new State())
+// -> [ {State [ a, b ] a = b} ]
 ```
 
 
@@ -180,6 +209,15 @@ function either(a, b) {
     return a(state).concat(b(state))
   }
 }
+
+// e.g.
+
+let goal = bind(['x'], (x) =>
+             either(equal(x, 2), equal(x, 3))
+           )
+
+goal(new State())
+// -> [ {State [ x ] x = 2}, {State [ x ] x = 3} ]
 ```
 
 
@@ -188,12 +226,45 @@ function either(a, b) {
 ```js
 function both(a, b) {
   return state => {
-    return a(state).reduce(function(acc, aState) {
-      return acc.concat(b(aState))
+    return a(state).reduce(function(states, aState) {
+      return states.concat(b(aState))
     }, [])
   }
 }
+
+// e.g.
+
+let goal = bind(['x', 'y'], (x, y) =>
+             both(equal(x, 8), equal(y, 9))
+           )
+
+goal(new State())
+// -> [ {State [ x, y ] x = 8, y = 9} ]
 ```
+
+
+!SLIDE
+
+```js
+let goal = bind(['x', 'y'], (x, y) =>
+             both(
+               either(equal(x, 'red'), equal(x, 'blue')),
+               equal(y, 'yellow')
+             )
+           )
+
+goal(new State())
+
+// -> [
+//      {State [ x, y ] x = 'red', y = 'yellow'},
+//      {State [ x, y ] x = 'blue', y = 'yellow'}
+//    ]
+```
+
+
+!SLIDE title
+# List operations
+## A list is `NULL` or a `Pair` of a value and a list
 
 
 !SLIDE
@@ -232,6 +303,15 @@ function toString(pair) {
 
 !SLIDE
 
+```hs
+append            :: [a] -> [a] -> [a]
+append [] y       =  y
+append (x:xs) y   =  x : append xs y
+```
+
+
+!SLIDE
+
 ```js
 function append(x, y, z) {
   return either(
@@ -250,15 +330,6 @@ function append(x, y, z) {
     )
   )
 }
-```
-
-
-!SLIDE
-
-```hs
-append            :: [a] -> [a] -> [a]
-append [] y       =  y
-append (x:xs) y   =  x : append xs y
 ```
 
 

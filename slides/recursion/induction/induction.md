@@ -20,6 +20,35 @@
 
 
 !SLIDE math
+    1     2     3     4     5     6     7     8     9     10
+
+
+!SLIDE math
+       1     2     3     4     5     6     7     8     9
+       10
+
+
+!SLIDE math
+          1     2     3     4     5     6     7     8
+          10    9
+
+
+!SLIDE math
+             1     2     3     4     5     6     7
+             10    9     8
+
+
+!SLIDE math
+                1     2     3     4     5     6
+                10    9     8     7
+
+
+!SLIDE math
+                   1     2     3     4     5
+                   10    9     8     7     6
+
+
+!SLIDE math
     sum (1 .. n+1)  =   sum (1 .. n) + (n + 1)
 
 
@@ -98,6 +127,19 @@ data [a] = [] | a : [a]
 ```hs
 [1, 2, 3, 4]  ==  (1 : (2 : (3 : (4 : []))))
 ```
+
+
+!SLIDE
+
+                          .
+                         / \
+                        1   .
+                           / \
+                          2   .
+                             / \
+                            3   .
+                               / \
+                              4   []
 
 
 !SLIDE
@@ -191,7 +233,7 @@ length (map f (x : list))
 
 !SLIDE title
 ## One more example
-# Composed maps
+# Functor composition law
 
 
 !SLIDE

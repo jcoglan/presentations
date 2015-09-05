@@ -6,11 +6,11 @@
 
 !SLIDE
 
-> A **strange loop** arises when, by moving only upwards or downwards through a
-> hierarchical system, one finds oneself back to where one started.
+> Not the wind, not the flag—neither one is moving, nor is anything moving at
+> all. For I have discovered a great Theorem, which states: “Motion is
+> Inherently Impossible.”
 
-<cite>Wikipedia, based on work by Douglas Hofstadter<br>
-  https://en.wikipedia.org/wiki/Strange_loop</cite>
+<cite>Douglas Hofstadter, *Gödel, Escher, Bach*</cite>
 
 
 !SLIDE
@@ -58,6 +58,13 @@ function spider(pageUrl) {
 ```
 
 
+!SLIDE title
+
+# Procedures
+## vs.
+# Structures
+
+
 !SLIDE
 
 ```js
@@ -87,3 +94,9 @@ p2.name // -> p2.hasOwnProperty('name') -> false
         //    person.name
         //    -> 'james'
 ```
+
+
+!SLIDE title
+# Correctness
+# Performance
+# Meanings
