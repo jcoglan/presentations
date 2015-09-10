@@ -304,9 +304,9 @@ function toString(pair) {
 !SLIDE
 
 ```hs
-append            :: [a] -> [a] -> [a]
-append [] y       =  y
-append (x:xs) y   =  x : append xs y
+append          :: [a] -> [a] -> [a]
+append [] y     =  y
+append (x:xs) y =  x : append xs y
 ```
 
 

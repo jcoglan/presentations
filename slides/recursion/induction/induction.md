@@ -149,90 +149,13 @@ length        :: [a] -> Int
 length []     =  0
 length (x:xs) =  1 + length xs
 
-map          :: (a -> b) -> [a] -> [b]
-map f []     =  []
-map f (x:xs) =  f x : map f xs
-```
-
-
-!SLIDE
-```hs
-length (map f list)  ==  length list
-```
-
-
-!SLIDE
-```hs
-length (map f (x : list))
-
-
-
-
-
-
-
-
-```
-
-
-!SLIDE
-```hs
-length (map f (x : list))
-
-    ==  length (f x : map f list)
-
-
-
-
-
-
-```
-
-
-!SLIDE
-```hs
-length (map f (x : list))
-
-    ==  length (f x : map f list)
-
-    ==  1 + length (map f list)
-
-
-
-
-```
-
-
-!SLIDE
-```hs
-length (map f (x : list))
-
-    ==  length (f x : map f list)
-
-    ==  1 + length (map f list)
-
-    ==  1 + length list
-
-
-```
-
-
-!SLIDE
-```hs
-length (map f (x : list))
-
-    ==  length (f x : map f list)
-
-    ==  1 + length (map f list)
-
-    ==  1 + length list
-
-    ==  length (x : list)
+map           :: (a -> b) -> [a] -> [b]
+map f []      =  []
+map f (x:xs)  =  f x : map f xs
 ```
 
 
 !SLIDE title
-## One more example
 # Functor composition law
 
 
