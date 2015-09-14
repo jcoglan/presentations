@@ -2,12 +2,12 @@
 # Time travel
 
 
-!SLIDE title
+!SLIDE title subhead
 # Values
 ## Variables and pairs
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 class Variable {
@@ -26,7 +26,7 @@ class Variable {
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 import { inspect } from 'util'
@@ -45,12 +45,12 @@ class Pair {
 ```
 
 
-!SLIDE title
+!SLIDE title subhead
 # States
 ## Maps of variables to values
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 class State {
@@ -70,7 +70,7 @@ class State {
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```js
   createVars(...names) {
@@ -89,7 +89,7 @@ class State {
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 let [s, [a]] = new State().createVars('a')
@@ -99,7 +99,7 @@ s.assign(a, 42)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```js
   walk(term) {
@@ -116,7 +116,7 @@ s.assign(a, 42)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```js
   unify(x, y) {
@@ -138,7 +138,7 @@ s.assign(a, 42)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 
@@ -156,12 +156,12 @@ s.unify(new Pair(3, a),
 ```
 
 
-!SLIDE title
+!SLIDE title subhead
 # Four ‘goals’:
 ## `equal`, `bind`, `either`, and `both`
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 function equal(a, b) {
@@ -180,7 +180,7 @@ goal(s) // -> [ {State [ a ] a = 1} ]
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 function bind(names, func) {
@@ -201,7 +201,7 @@ goal(new State())
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 function either(a, b) {
@@ -221,7 +221,7 @@ goal(new State())
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 function both(a, b) {
@@ -243,7 +243,7 @@ goal(new State())
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 let goal = bind(['x', 'y'], (x, y) =>
@@ -262,12 +262,12 @@ goal(new State())
 ```
 
 
-!SLIDE title
+!SLIDE title subhead
 # List operations
 ## A list is `NULL` or a `Pair` of a value and a list
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 const NULL = {}
@@ -285,7 +285,7 @@ function fromString(string) {
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 function toArray(pair) {
@@ -301,7 +301,7 @@ function toString(pair) {
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
 append          :: [a] -> [a] -> [a]
@@ -310,7 +310,7 @@ append (x:xs) y =  x : append xs y
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 function append(x, y, z) {
@@ -333,7 +333,7 @@ function append(x, y, z) {
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 let goal = bind(['x', 'y', 'z'], (x, y, z) =>
@@ -351,7 +351,7 @@ goal(new State()).map(s => s.results(3).map(toString))
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 let goal = bind(['x', 'y', 'z'], (x, y, z) =>
@@ -369,7 +369,7 @@ goal(new State()).map(s => s.results(3).map(toString))
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 let goal = bind(['x', 'y'], (x, y) =>

@@ -3,7 +3,7 @@
 ## Using specialized tools
 
 
-!SLIDE
+!SLIDE code
 
 ```bash
 #!/bin/bash
@@ -25,7 +25,7 @@ cat compiled/*.js > coffee-script.js
     real    0m13.183s
 
 
-!SLIDE
+!SLIDE code
 
 ```make
 sources := $(shell find src -name '*.coffee')
@@ -118,7 +118,7 @@ compiled:
     real    0m2.377s
 
 
-!SLIDE
+!SLIDE diagram
 
     grammar.coffee    helpers.coffee    lexer.coffee
            |                |                 |
@@ -139,7 +139,7 @@ compiled:
 ## In general computation
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
 map               :: (a -> b) -> [a] -> [b]
@@ -158,7 +158,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code code
 
 ```hs
     (map (^ 2) (filter even [1..])) !! 2
@@ -175,7 +175,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
     (map (^ 2) (filter even [1..])) !! 2
@@ -192,7 +192,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
     (map (^ 2) (filter even [1..])) !! 2
@@ -209,7 +209,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
     (map (^ 2) (filter even [1..])) !! 2
@@ -226,7 +226,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
     (map (^ 2) (filter even [1..])) !! 2
@@ -243,7 +243,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
     (map (^ 2) (filter even [1..])) !! 2
@@ -260,7 +260,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
     (map (^ 2) (filter even [3..])) !! 1
@@ -277,7 +277,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
     (map (^ 2) (filter even [3..])) !! 1
@@ -294,7 +294,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
     (map (^ 2) (filter even [3..])) !! 1
@@ -311,7 +311,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
     (map (^ 2) (filter even [3..])) !! 1
@@ -328,7 +328,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
     (map (^ 2) (filter even [3..])) !! 1
@@ -345,7 +345,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
     (map (^ 2) (filter even [3..])) !! 1
@@ -362,7 +362,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
     (map (^ 2) (filter even [5..])) !! 0
@@ -381,7 +381,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
     (map (^ 2) (filter even [5..])) !! 0
@@ -400,7 +400,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
     (map (^ 2) (filter even [5..])) !! 0
@@ -419,7 +419,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
     (map (^ 2) (filter even [5..])) !! 0
@@ -438,7 +438,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
     (map (^ 2) (filter even [5..])) !! 0
@@ -457,7 +457,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
     (map (^ 2) (filter even [5..])) !! 0
@@ -476,7 +476,7 @@ filter p (x:xs)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```hs
     (map (^ 2) (filter even [5..])) !! 0

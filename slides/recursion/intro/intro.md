@@ -1,5 +1,4 @@
 !SLIDE title
-## http://slides.jcoglan.com
 # Why recursion matters
 ## James Coglan
 
@@ -13,7 +12,7 @@
 <cite>Douglas Hofstadter, *Gödel, Escher, Bach*</cite>
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 function getElementsByTagName(name, root) {
@@ -35,7 +34,7 @@ function getElementsByTagName(name, root) {
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 function spider(pageUrl) {
@@ -65,7 +64,7 @@ function spider(pageUrl) {
 # Structures
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 var person = {name: 'james'}
@@ -78,7 +77,7 @@ var p2 = Object.create(p1)
 ```
 
 
-!SLIDE
+!SLIDE code
 
 ```js
 p2.name // -> p2.hasOwnProperty('name') -> false
@@ -99,4 +98,4 @@ p2.name // -> p2.hasOwnProperty('name') -> false
 !SLIDE title
 # Correctness
 # Performance
-# Meanings
+# Meaning
