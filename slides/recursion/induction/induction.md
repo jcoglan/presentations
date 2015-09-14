@@ -187,7 +187,7 @@ map f (x:xs)  =  f x : map f xs
 
 ```hs
 (.)       :: (b -> c) -> (a -> b) -> a -> c
-(f . g) h =  f (g h)
+(f . g) x =  f (g x)
 ```
 
 
