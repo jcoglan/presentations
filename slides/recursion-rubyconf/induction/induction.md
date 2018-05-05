@@ -134,35 +134,33 @@ data [a] = [] | a : [a]
 
 !SLIDE diagram
 
-                      .
+                      :
                      / \
-                    1   .
+                    1   :
                        / \
-                      2   .
+                      2   :
                          / \
-                        3   .
+                        3   :
                            / \
                           4   []
 
 
 !SLIDE code
 
-```js
-function length(list) {
-  let n = 0
-  for (let item of list) {
-    n += 1
-  }
-  return n
-}
+```ruby
+def length(list)
+  n = 0
+  list.each { n += 1 }
+  n
+end
 
-function map(f, list) {
-  let result = []
-  for (let item of list) {
-    result.push(f(item))
-  }
-  return result
-}
+def map(list, &f)
+  result = []
+  list.each do |item|
+    result << f.call(item)
+  end
+  result
+end
 ```
 
 

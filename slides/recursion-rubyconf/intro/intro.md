@@ -14,46 +14,36 @@
 
 !SLIDE code
 
-```js
-function getElementsByTagName(name, root) {
-  root = root || document.body
-
-  var elements = [],
-      children = root.childNodes
-
-  if (root.tagName === name)
-    elements.push(root)
-
-  for (var i = 0, n = children.length; i < n; i++)
-    elements = elements.concat(
-      getElementsByTagName(name, children[i])
-    )
-
-  return elements
-}
+```ruby
+def rm_rf(pathname)
+  if File.file?(pathname)
+    File.unlink(pathname)
+  elsif File.directory?(pathname)
+    children = Dir.entries(pathname) - %w[. ..]
+    children.each do |child|
+      rm_rf(File.join(pathname, child))
+    end
+    Dir.unlink(pathname)
+  end
+end
 ```
 
 
 !SLIDE code
 
-```js
-function spider(pageUrl) {
-  fetch(pageUrl).then(function(response) {
-    return response.text()
+```ruby
+def spider(url)
+  uri  = URI.parse(url)
+  html = Net::HTTP.get_response(uri).body
 
-  }).then(function(html) {
-    jsdom.env(html, function(error, window) {
-      var body  = window.document.body,
-          links = getElementsByTagName('A', body)
+  links = Nokogiri::HTML(html).search('a').map do |a|
+    URI.join(uri, a[:href]).to_s
+  end
 
-      var urls = links.map(function(link) {
-        return url.resolve(pageUrl, link.href)
-      })
-
-      urls.forEach(spider)
-    })
-  })
-}
+  links.each do |link|
+    spider(link)
+  end
+end
 ```
 
 
