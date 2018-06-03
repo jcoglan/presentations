@@ -30,6 +30,13 @@
 # Never break anything
 
 
+!SLIDE quote
+
+> It’s my fault and I’m very sorry. Unfortunately it’s impossible to undo now.
+
+<cite>Ryan Dahl, here, yesterday</cite>
+
+
 !SLIDE code white
 
 ```
@@ -271,11 +278,7 @@ driver.messages.on('data', (message) => {
 
 
 !SLIDE title
-# Never depend on anything
-
-
-!SLIDE title
-# Testing
+# Automated testing
 
 
 !SLIDE code
@@ -317,7 +320,7 @@ describe('contains()', () => {
 
 !SLIDE bullets
 
-- Compatibility is a function of context
+- Compatibility is determined by context
 - Context is constructed via usage
 - You can influence usage through communication
 

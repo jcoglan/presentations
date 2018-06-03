@@ -312,6 +312,10 @@ database.insert('talks', {
 ```
 
 
+!SLIDE title
+# Conceptual complexity
+
+
 !SLIDE
 ![](smoosh.png)
 
@@ -333,6 +337,24 @@ let things = [ true, 3, "hello",
 
 things.flatten()
 // -> ???
+```
+
+
+!SLIDE code
+
+```js
+new Buffer('4')   // -> <Buffer 34>
+
+new Buffer(4)     // -> <Buffer 00 00 00 00>
+```
+
+
+!SLIDE code
+
+```js
+Buffer.from('4')
+
+Buffer.alloc(4)
 ```
 
 
