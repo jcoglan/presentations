@@ -1,6 +1,6 @@
 !SLIDE title
 # Why recursion matters
-## James Coglan
+## James Coglan
 
 
 !SLIDE
