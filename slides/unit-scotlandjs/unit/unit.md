@@ -17,7 +17,7 @@ $(document).ready(() => {
 ```
 
 
-!SLIDE title
+!SLIDE bullets
 # 1. Take control
 
 
@@ -68,7 +68,7 @@ describe('signup form', () => {
 ```
 
 
-!SLIDE title
+!SLIDE bullets
 # 2. Isolate dependencies
 
 
@@ -76,12 +76,17 @@ describe('signup form', () => {
 
 ```js
 async function handleSignup(form) {
-  // ...
+  let action   = form.attr('action'),
+      params   = form.serialize(),
+      response = await $.post(action, params)
 
   if (response.ok)
     return location.pathname = response.redirect
 
-  // ...
+  let errors = errorList(form).empty()
+
+  for (let msg of response.errors)
+    errors.append($('<li></li>').text(msg))
 }
 ```
 
@@ -89,10 +94,25 @@ async function handleSignup(form) {
 !SLIDE code
 
 ```js
-function redirect(path) {
-  location.pathname = path
-}
+async function handleSignup(form) {
 
+
+
+
+  if (response.ok)
+    return location.pathname = response.redirect
+
+
+
+
+
+}
+```
+
+
+!SLIDE code
+
+```js
 async function handleSignup(form) {
   // ...
 
@@ -100,6 +120,10 @@ async function handleSignup(form) {
     return redirect(response.redirect)
 
   // ...
+}
+
+function redirect(path) {
+  location.pathname = path
 }
 ```
 
@@ -119,11 +143,79 @@ async function handleSignup(form) {
 
 ```js
 async function handleSignup(form) {
-  // ...
-  let response = await $.post(action, data)
+  let action   = form.attr('action'),
+      params   = form.serialize(),
+      response = await $.post(action, params)
 
-  // ...
+  if (response.ok)
+    return location.pathname = response.redirect
+
+  let errors = errorList(form).empty()
+
+  for (let msg of response.errors)
+    errors.append($('<li></li>').text(msg))
 }
+```
+
+
+!SLIDE code
+
+```js
+async function handleSignup(form) {
+
+
+      response = await $.post(action, params)
+
+
+
+
+
+
+
+
+}
+```
+
+
+!SLIDE code 
+
+```js
+app.post('/users', async (request, response) => {
+  let user = User.build(request.body)
+
+  try {
+    await user.validate()
+    await user.save()
+
+    let redirect = `/users/${ user.id }`
+    response.json({ ok: true, redirect })
+
+  } catch (error) {
+    let errors = error.errors.map(e => e.message)
+    response.json({ ok: false, errors })
+  }
+})
+```
+
+
+!SLIDE code 
+
+```js
+app.post('/users', async (request, response) => {
+
+
+  try {
+
+
+
+
+    response.json({ ok: true, redirect })
+
+  } catch (error) {
+
+    response.json({ ok: false, errors })
+  }
+})
 ```
 
 
@@ -141,7 +233,7 @@ async function handleSignup(form) {
 ```
 
 
-!SLIDE title
+!SLIDE bullets
 # 3. Check interactions
 
 
@@ -151,6 +243,7 @@ async function handleSignup(form) {
   it('posts the form data to the server', () => {
     $('[name=username]').val('Gregor')
     $('[name=password]').val('Samsa')
+
     $('form.signup').submit()
 
     expect($.post).toHaveBeenCalledWith(
@@ -160,7 +253,7 @@ async function handleSignup(form) {
 ```
 
 
-!SLIDE title
+!SLIDE bullets
 # 4. Handle outcomes
 
 
@@ -170,14 +263,53 @@ async function handleSignup(form) {
 async function handleSignup(form) {
   // ...
 
+      response = await $.post(action, params)
+
   if (response.ok)
     return location.pathname = response.redirect
 
   let errors = errorList(form).empty()
 
-  response.errors.forEach(msg => {
+  for (let msg of response.errors)
     errors.append($('<li></li>').text(msg))
-  })
+}
+```
+
+
+!SLIDE code
+
+```js
+async function handleSignup(form) {
+
+
+
+
+  if (response.ok)
+    return location.pathname = response.redirect
+
+
+
+
+
+}
+```
+
+
+!SLIDE code
+
+```js
+async function handleSignup(form) {
+
+
+
+
+
+
+
+  let errors = errorList(form).empty()
+
+  for (let msg of response.errors)
+    errors.append($('<li></li>').text(msg))
 }
 ```
 
@@ -262,7 +394,7 @@ signup form
 ```
 
 
-!SLIDE title
+!SLIDE bullets
 # 5. Verify your assumptions
 
 
@@ -275,21 +407,66 @@ app.post('/users', async (request, response) => {
   try {
     await user.validate()
     await user.save()
-    let url = `/users/${ user.id }`
-    redirect(request, response, url)
+
+    let redirect = `/users/${ user.id }`
+    response.json({ ok: true, redirect })
+
   } catch (error) {
-    displayErrors(request, response, user, error)
+    let errors = error.errors.map(e => e.message)
+    response.json({ ok: false, errors })
   }
 })
 ```
 
 
-!SLIDE title
+!SLIDE bullets
 # 1. Take control
 
 
-!SLIDE title
+!SLIDE bullets
 # 2. Isolate dependencies
+
+
+!SLIDE code 
+
+```js
+app.post('/users', async (request, response) => {
+  let user = User.build(request.body)
+
+  try {
+    await user.validate()
+    await user.save()
+
+    let redirect = `/users/${ user.id }`
+    response.json({ ok: true, redirect })
+
+  } catch (error) {
+    let errors = error.errors.map(e => e.message)
+    response.json({ ok: false, errors })
+  }
+})
+```
+
+
+!SLIDE code 
+
+```js
+app.post('/users', async (request, response) => {
+  let user = User.build(request.body)
+
+
+    await user.validate()
+    await user.save()
+
+                   `       ${ user.id }`
+
+
+
+
+
+
+})
+```
 
 
 !SLIDE code
@@ -308,7 +485,7 @@ describe('POST /users', () => {
 ```
 
 
-!SLIDE title
+!SLIDE bullets
 # 3. Check interactions
 
 
@@ -321,6 +498,7 @@ describe('POST /users', () => {
       email: 'alice@example.com',
       password: 'something'
     }
+
     await request(app)
           .post('/users')
           .send(qs.stringify(params))
@@ -330,7 +508,7 @@ describe('POST /users', () => {
 ```
 
 
-!SLIDE title
+!SLIDE bullets
 # 4. Handle outcomes
 
 
@@ -343,11 +521,56 @@ app.post('/users', async (request, response) => {
   try {
     await user.validate()
     await user.save()
-    let url = `/users/${ user.id }`
-    redirect(request, response, url)
+
+    let redirect = `/users/${ user.id }`
+    response.json({ ok: true, redirect })
+
   } catch (error) {
-    displayErrors(request, response, user, error)
+    let errors = error.errors.map(e => e.message)
+    response.json({ ok: false, errors })
   }
+})
+```
+
+
+!SLIDE code 
+
+```js
+app.post('/users', async (request, response) => {
+
+
+  try {
+    await user.validate()
+
+
+    let redirect = `/users/${ user.id }`
+    response.json({ ok: true, redirect })
+
+
+
+
+
+})
+```
+
+
+!SLIDE code 
+
+```js
+app.post('/users', async (request, response) => {
+
+
+
+
+
+
+
+
+
+  } catch (error) {
+    let errors = error.errors.map(e => e.message)
+    response.json({ ok: false, errors })
+
 })
 ```
 
@@ -405,7 +628,7 @@ describe('when the user is not valid', () => {
 ```
 
 
-!SLIDE title
+!SLIDE bullets
 # 5. Verify your assumptions
 
 
@@ -414,14 +637,12 @@ describe('when the user is not valid', () => {
 ```js
 describe('User', () => {
   describe('validate()', () => {
-    let params = {
-      // valid user attributes
-    }
+    let params = { /* valid user attributes */ }
 
     function validate(user) {
-      return user.validate().then(() => [], (error) => {
-        return error.errors.map(e => e.message)
-      })
+      return user.validate().then(
+          ()    => [],
+          error => error.errors.map(e => e.message))
     }
 
     it('is valid with correct attributes', async () => {
@@ -499,9 +720,3 @@ Started
 26 specs, 0 failures
 Finished in 0.286 seconds
 ```
-
-
-!SLIDE title
-# Thank you.
-## @mountain_ghosts
-## `http://slides.jcoglan.com`

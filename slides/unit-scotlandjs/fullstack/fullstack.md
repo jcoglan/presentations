@@ -129,7 +129,8 @@ Signing up
 - Slow and expensive
 - Poor feedback
 - Non-deterministic outcomes
+- Highly coupled
 
 
-!SLIDE title
+!SLIDE bullets
 # Misplaced confidence?

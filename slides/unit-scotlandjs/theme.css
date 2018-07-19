@@ -15,10 +15,6 @@
   color: #f3ecda;
 }
 
-.code pre.highlight {
-  font-size: 2.4em;
-}
-
 .code.small pre.highlight {
   font-size: 1.8em;
 }
@@ -27,10 +23,18 @@
   text-align: left;
 }
 
+.code pre.highlight {
+  font-size: 2.4em;
+}
+
 img {
   width: 100%;
 }
 
 .screenshot img {
   width: 70%;
+}
+
+.book img {
+  width: 50%;
 }

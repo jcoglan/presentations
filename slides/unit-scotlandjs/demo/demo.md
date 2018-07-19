@@ -90,38 +90,15 @@ app.post('/users', async (request, response) => {
   try {
     await user.validate()
     await user.save()
-    let url = `/users/${ user.id }`
-    redirect(request, response, url)
+
+    let redirect = `/users/${ user.id }`
+    response.json({ ok: true, redirect })
+
   } catch (error) {
-    displayErrors(request, response, user, error)
+    let errors = error.errors.map(e => e.message)
+    response.json({ ok: false, errors })
   }
 })
-```
-
-
-!SLIDE code
-
-```js
-function redirect(request, response, path) {
-  if (request.xhr)
-    response.json({ ok: true, redirect: path })
-  else
-    response.redirect(path)
-}
-```
-
-
-!SLIDE code
-
-```js
-function displayErrors(request, response, user, error) {
-  let errors = error.errors.map(e => e.message)
-
-  if (request.xhr)
-    response.json({ ok: false, errors })
-  else
-    response.render('users/new', { user, errors })
-}
 ```
 
 
@@ -139,50 +116,34 @@ $(document).ready(() => {
 ```
 
 
-!SLIDE code small
+!SLIDE code
 
 ```js
 async function handleSignup(form) {
-  let action = form.attr('action'), data = form.serialize()
-  let response = await $.post(action, data)
+  let action   = form.attr('action'),
+      params   = form.serialize(),
+      response = await $.post(action, params)
 
   if (response.ok)
     return location.pathname = response.redirect
 
   let errors = errorList(form).empty()
 
-  response.errors.forEach(msg => {
+  for (let msg of response.errors)
     errors.append($('<li></li>').text(msg))
-  })
 }
 ```
 
 
-!SLIDE code small
+!SLIDE code
 
 ```js
 function errorList(form) {
   let errors = $('.errors')
-  if (errors.length === 0) form.before('<ul class="errors"></ul>')
+
+  if (errors.length === 0)
+    form.before('<ul class="errors"></ul>')
+
   return $('.errors')
 }
-```
-
-
-!SLIDE code
-
-```js
-app.get('/users/:id', async (request, response) => {
-  let user = await User.findById(request.params.id)
-  response.render('users/show', { user })
-})
-```
-
-
-!SLIDE code
-
-```html
-<h1>User: {{ user.username }}</h1>
-
-<p>Email: {{ user.email }}</p>
 ```
