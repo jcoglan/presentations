@@ -1,0 +1,24 @@
+@import url(/parade.css);
+
+.title {
+  background: #e10079;
+  color: #fff;
+}
+
+.bullets {
+  background: #303f62;
+  color: #f3ecda;
+}
+
+.code, .commandline {
+  background: #303030;
+  color: #f3ecda;
+}
+
+.code.small pre.highlight {
+  font-size: 1.8em;
+}
+
+.title .content > p {
+  text-align: left;
+}
