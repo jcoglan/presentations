@@ -1,0 +1,11 @@
+@import url(/parade.css);
+
+.slide {
+  background: #26628d;
+  color: #fff;
+}
+
+.title {
+  background: #fff;
+  color: #26628d;
+}

@@ -1,0 +1,10 @@
+title "Conflict resolution"
+
+section "single-merge"
+section "chain-merge"
+section "cherry-pick"
+section "revert"
+section "conflict"
+section "commute"
+section "compose"
+section "database"
