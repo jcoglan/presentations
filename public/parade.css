@@ -120,3 +120,11 @@ pre.highlight .c, pre.highlight .c1, pre.highlight .cm, pre.highlight .cp, pre.h
 .diagram pre.highlight {
   font-size: 2em;
 }
+
+.hashtag {
+  font-size: 1.4em;
+  position: absolute;
+  right: 0;
+  top: 1.4em;
+  z-index: 1000;
+}
