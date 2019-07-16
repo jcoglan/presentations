@@ -1,5 +1,6 @@
 title "Conflict resolution"
 
+section "intro"
 section "single-merge"
 section "chain-merge"
 section "cherry-pick"
@@ -8,3 +9,4 @@ section "conflict"
 section "commute"
 section "compose"
 section "database"
+section "outro"

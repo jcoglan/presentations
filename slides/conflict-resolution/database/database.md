@@ -511,7 +511,91 @@
 # Concurrent editing
 
 
-!SLIDE title
-# persistent data structures
-# operational transforms
-# CRDTs
+!SLIDE
+```
+counter = 0
+
+threads = (1..1000).map do
+  Thread.new { counter += 1 }
+end
+
+threads.each(&:join)
+
+puts counter
+```
+
+
+!SLIDE
+```
+counter = 0
+mutex = Mutex.new
+
+threads = (1..1000).map do
+  Thread.new do
+    mutex.synchronize { counter += 1 }
+  end
+end
+
+threads.each(&:join)
+
+puts counter
+```
+
+
+!SLIDE
+```
+let counter = {
+  value: 0,
+
+  async inc() {
+    let tmp = await this.value
+    this.value = tmp + 1
+  }
+}
+```
+
+
+!SLIDE
+```
+async function main() {
+  let range = new Array(1000).fill()
+
+  let promises = range.map(() => counter.inc())
+  await Promise.all(promises)
+
+  console.log(counter.value) // -> 1
+}
+```
+
+
+!SLIDE
+```
+async function main() {
+  let range = new Array(1000).fill()
+
+  await range.reduce(
+    (state) => state.then(() => counter.inc()),
+    Promise.resolve()
+  )
+
+  console.log(counter.value) // -> 1000
+}
+```
+
+
+!SLIDE
+
+    let counter = Arc::new(Mutex::new(0));
+
+    let threads: Vec<_> = (0..1000).map(|_| {
+        let ctr = Arc::clone(&counter);
+
+        thread::spawn(move || {
+            let mut ctr = ctr.lock().unwrap();
+            *ctr += 1;
+        })
+    }).collect();
+
+    for th in threads { 
+        th.join();
+    }
